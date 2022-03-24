@@ -7,9 +7,22 @@ const BlogList=()=>{
     const API_key='bffbb1aee5524a6681ac95f82a372be1'
 
     useEffect(()=>{
+        console.log("***")
         const fetchedBlog=async()=>{
-            const fetchBlogResponse=await axios.get("https://newsapi.org/v2/everything?q=tesla&from=2022-02-24&sortBy=publishedAt&apiKey="+{$API_key})
-            console.log(fetchBlogResponse)
+            console.log("inside ***")
+            const fetchBlogResponse=await fetch("https://newsapi.org/v2/everything?q=tesla&from=2022-02-24&sortBy=publishedAt&apiKey=bffbb1aee5524a6681ac95f82a372be1")
+        const dataToList=await fetchBlogResponse.json();
+            console.log(dataToList.articles)
         }
+            fetchedBlog();
     },[]);
+
+    return (
+    <div>
+      
+    </div>
+  )
 }
+
+export default BlogList;
+
