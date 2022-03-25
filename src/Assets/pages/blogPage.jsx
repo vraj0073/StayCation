@@ -1,15 +1,59 @@
 import React,{ useEffect,useState} from 'react';
-import {Button,ButtonGroup,Col,Row,Card} from 'react-bootstrap';
 import BlogList from '../components/BlogList';
+import { Card, Container, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import Image from 'react-bootstrap/Image'
+import './Home.css'
+import './Header.css'
+import 'react-bootstrap'
+import './Customer.css'
 
-const blogPage=()=>{
-   
-    return (
-    <div>
-       <BlogList></BlogList>
+
+export const BlogPage = () => {
+  return (
+    <>
+    <div >
+    
+    <div className='col'  >
+      
+    <div className="header" >
+      <div className="header-items">
+          
+        <button>S</button>taycation
+        
+          
+        <Navbar collapseOnSelect expand="lg" >
+            <Container className='container' id='homenavigation'>
+                 <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
+                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                            <Nav className="me-auto">
+                                <Nav.Link href="#features" className='header-content'>Blogs</Nav.Link>
+                                <Nav.Link href="#pricing" className='header-content'>Search</Nav.Link>
+                                <Nav.Link href="#pricing" className='header-content'>About</Nav.Link>
+                                <Nav.Link href="#pricing" className='header-content'>Contact</Nav.Link>
+                                    <NavDropdown title="Login" id='title'  className='header-content'>
+                                        <NavDropdown.Item href="Register">New User</NavDropdown.Item>
+                                        <NavDropdown.Item href="Login">Existing User</NavDropdown.Item>
+                                    </NavDropdown>
+                            </Nav>
+                    </Navbar.Collapse>
+            </Container>
+        </Navbar>
+
+      </div>    
     </div>
-  )
-}
+    
+</div>
 
-export default blogPage;
+<body>
+           <BlogList/>
+
+</body>
+        <div>
+    </div>
+
+</div>
+</>)
+}
+export default BlogPage;
 
