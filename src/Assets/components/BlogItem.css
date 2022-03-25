@@ -1,0 +1,51 @@
+.page {
+  width: auto;
+  height: auto;
+  background-image: linear-gradient(
+    to bottom left,
+    rgb(0, 0, 0),
+    rgb(51, 51, 51)
+  );
+}
+
+.user {
+  padding: 20px;
+}
+
+.usercard {
+  background-color: rgb(221, 159, 101);
+}
+
+.usercardtitle {
+  font-weight: 5px;
+}
+
+.usercardmargin {
+  margin: 5px;
+}
+
+.search {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  width: 500px;
+  height: 40px;
+  font-size: 18px;
+  margin-top: 2px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  border-width: 4px;
+  border-color: aqua;
+  border-style: double;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.searchlabel {
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  margin-top: 2px;
+  margin-left: 30px;
+}

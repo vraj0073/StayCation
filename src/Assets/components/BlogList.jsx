@@ -1,4 +1,6 @@
 import React,{ useEffect,useState} from 'react';
+import {Button,ButtonGroup,Col,Row,Card} from 'react-bootstrap';
+import BlogItem from './BlogItem';
 
 const BlogList=()=>{
     const [blogs,setBlogs]=useState([]);
@@ -17,7 +19,14 @@ const BlogList=()=>{
 
     return (
     <div>
-      
+       <Row gutter={50}>
+            { 
+                blogs.map((eachBlog,i) => 
+                <Col>
+                   <BlogItem key={i}></BlogItem>
+                </Col>
+            )}
+        </Row> 
     </div>
   )
 }
