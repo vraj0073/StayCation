@@ -9,14 +9,14 @@ const BlogItem=({title, author, description,image,url})=>{
     <div>
        <div className='usercardmargin' >
             <Card   style={{ width: '13rem'}}>
-            {/* <Card.Img variant="center" src={eachUser.picture} />
+            <Card.Img variant="center" src={image} />
             <Card.Body className='usercard'>
-                <Card.Title className='usercardtitle'>{eachUser.firstName}&nbsp;{eachUser.lastName} </Card.Title>
+                <Card.Title className='usercardtitle'>{title} </Card.Title>
                     <Card.Text>
-                        { eachUser.email }
+                        { description }
                     </Card.Text>
-                <Button variant="primary" onClick={()=>profileClick(eachUser.id)}>View Profile</Button>
-            </Card.Body> */}
+                <Button variant="primary" href={url}>Read More</Button>
+            </Card.Body>
             </Card>
         </div> 
     </div>

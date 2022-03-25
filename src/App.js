@@ -1,22 +1,22 @@
-import './App.css';
-import BlogList from "./Assets/components/BlogList";
 import { Container } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import './App.css';
+import BlogList from "./Assets/components/BlogList";
+import blogPage from './Assets/pages/blogPage'; 
+
 function App() {
   return (
-    <div className="App">
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Loginpage />} />
-          <Route path="/userlist" element={<Userlist />} />
-          <Route path="/user/:id" element={<UserProfile />} />
-        </Routes>
-    </BrowserRouter> */}
-     <BlogList/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      {/* <Route path="/" element={<Loginpage />} /> */}
+      <Route path="/blogs" element={<BlogList />} />
+    </Routes>
+  </BrowserRouter>
+  // <div>
+  //   <BlogList/>
+  // </div>
   );
-
 }
 
 export default App;
