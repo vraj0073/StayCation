@@ -27,7 +27,7 @@ export const Home = () => {
   <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link href="#features" className='header-content'>Blogs</Nav.Link>
+      <Nav.Link href="/blogs" className='header-content'>Blogs</Nav.Link>
       <Nav.Link href="#pricing" className='header-content'>Search</Nav.Link>
       <Nav.Link href="#pricing" className='header-content'>About</Nav.Link>
       <Nav.Link href="#pricing" className='header-content'>Contact</Nav.Link>
@@ -64,8 +64,6 @@ export const Home = () => {
         <Button id='searchbutton'>Search</Button>
       </Form>
 </div>
-
-
 
 
 </div>

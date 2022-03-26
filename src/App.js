@@ -14,9 +14,6 @@ function App() {
       <Route path="/blogs" element={<BlogPage />} />
     </Routes>
   </BrowserRouter>
-  // <div>
-  //   <BlogList/>
-  // </div>
   );
 }
 
