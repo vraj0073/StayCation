@@ -20,7 +20,7 @@ const BlogList=({targetWord})=>{
     }
      async function searchTarget(){
         console.log(search)
-        var updateWord=search.replace(" ","%20")+"%20travel"
+        var updateWord=search.replace(" "," OR ")+" OR travel"
         console.log(updateWord)
         setSearch(updateWord)
         await fetchedBlog()
