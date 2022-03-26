@@ -33,6 +33,9 @@ const BlogList=({targetWord})=>{
     return (
 
     <div >
+        <div>
+
+        </div>
         <Form className="d-flex" id='searchbar' >
         <FormControl
         id='searchbarsize'

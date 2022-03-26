@@ -23,7 +23,7 @@ export const BlogPage = () => {
           <button>S</button>taycation
           
           <Navbar collapseOnSelect expand="lg" >
-              <Container className='container' id='homenavigation'>
+              <Container className='d-flex' id='homenavigation'>
                   <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
                       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                           <Navbar.Collapse id="responsive-navbar-nav">
@@ -44,8 +44,10 @@ export const BlogPage = () => {
       </div>
     
     </div>
-        
+    
+    <h2 className='title'>Articles Just For You</h2>
     <div className="section">
+      
         <BlogList />
     </div>
         

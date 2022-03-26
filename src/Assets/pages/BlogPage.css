@@ -1,4 +1,9 @@
 .section {
-  padding-top: 800px;
+  padding-top: 750px;
   /* align-self: start; */
+}
+.title {
+  padding-top: 20px;
+  padding-left: 20px;
+  display: flex;
 }
