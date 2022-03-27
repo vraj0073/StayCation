@@ -5,20 +5,21 @@ import './BlogList.css';
 
 const BlogList=({targetWord})=>{
     const [blogs,setBlogs]=useState([]);
-    const [search,setSearch]=useState('halifax');
+    const [search,setSearch]=useState('travel');
     const API_key='bffbb1aee5524a6681ac95f82a372be1'
     const [flag,setFlag]=useState(true);
 
      async function  fetchedBlog(){
          console.log("++++"+search+"++++")
-        const apiURL="https://newsapi.org/v2/everything?q="+search+"&from=2022-02-26&language=en&sortBy=relevancy&apiKey=bffbb1aee5524a6681ac95f82a372be1";
+        const apiURL="https://newsapi.org/v2/everything?q="+search+"&language=en&sortBy=relevancy&apiKey=bffbb1aee5524a6681ac95f82a372be1";
         const fetchBlogResponse=await fetch(apiURL)
         const dataToList=await fetchBlogResponse.json();
         setBlogs(dataToList.articles)
         setFlag(false)
         console.log(blogs)
     }
-     async function searchTarget(){
+     async function searchTarget(e){
+        e.preventDefault();
         console.log(search)
         var updateWord=search.replace(" "," OR ")+" OR travel"
         console.log(updateWord)
@@ -44,7 +45,7 @@ const BlogList=({targetWord})=>{
           aria-label="Search"
         onChange={(e)=>setSearch(e.target.value)}
         />
-        <Button type='button' id='searchbutton' onClick={searchTarget}>Search</Button>
+        <Button type='submit' id='searchbutton' onClick={searchTarget} onSubmit={searchTarget}>Search</Button>
       </Form>
         <Container className='blogList'>
              <Row gutter={50}>
