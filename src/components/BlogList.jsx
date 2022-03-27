@@ -1,3 +1,7 @@
+/*
+Author: Kishan Kahodariya
+Description: This component creates list of each BlogItem and displayed in a gridview
+*/
 import React,{ useEffect,useState} from 'react';
 import {Button,Form,FormControl,Container,ButtonGroup,Col,Row,Card} from 'react-bootstrap';
 import BlogItem from './BlogItem';
@@ -9,6 +13,7 @@ const BlogList=({targetWord})=>{
     const API_key='bffbb1aee5524a6681ac95f82a372be1'
     const [flag,setFlag]=useState(true);
 
+    //Fetch blogs from multiple sources using NewsAPI
      async function  fetchedBlog(){
          console.log("++++"+search+"++++")
         const apiURL="https://newsapi.org/v2/everything?q="+search+"&language=en&sortBy=relevancy&apiKey=bffbb1aee5524a6681ac95f82a372be1";
@@ -18,6 +23,8 @@ const BlogList=({targetWord})=>{
         setFlag(false)
         console.log(blogs)
     }
+
+    // Fetch list of blogs that satisfies user's input
      async function searchTarget(e){
         e.preventDefault();
         console.log(search)
@@ -48,7 +55,7 @@ const BlogList=({targetWord})=>{
         <Button type='submit' id='searchbutton' onClick={searchTarget} onSubmit={searchTarget}>Search</Button>
       </Form>
         <Container className='blogList'>
-             <Row gutter={50}>
+             <Row gutter={25}>
                 { 
                     blogs.map((eachBlog,i) => 
                     <Col>

@@ -3,11 +3,13 @@
 }
 
 .usercard {
-  background-color: rgb(221, 159, 101);
+  background-color: rgb(192, 77, 115);
+  border-radius: 5px;
 }
 
 .usercardtitle {
   font-weight: 5px;
+  font-style: italic;
 }
 
 .usercardmargin {

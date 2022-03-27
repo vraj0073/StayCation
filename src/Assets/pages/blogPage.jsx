@@ -1,5 +1,5 @@
 import React,{ useEffect,useState} from 'react';
-import BlogList from '../components/BlogList';
+import BlogList from '../../components/BlogList';
 import { Card, Container,Form, FormControl, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import './Home.css'
