@@ -1,6 +1,6 @@
 /*
 Author: Kishan Kahodariya
-Description: This component creates list of each BlogItem and displayed in a gridview
+Description: This component creates list of each BlogItem and display in a gridview.
 */
 import React,{ useEffect,useState} from 'react';
 import {Button,Form,FormControl,Container,ButtonGroup,Col,Row,Card} from 'react-bootstrap';
@@ -15,19 +15,16 @@ const BlogList=({targetWord})=>{
 
     //Fetch blogs from multiple sources using NewsAPI
      async function  fetchedBlog(){
-         console.log("++++"+search+"++++")
         const apiURL="https://newsapi.org/v2/everything?q="+search+"&language=en&sortBy=relevancy&apiKey=bffbb1aee5524a6681ac95f82a372be1";
         const fetchBlogResponse=await fetch(apiURL)
         const dataToList=await fetchBlogResponse.json();
         setBlogs(dataToList.articles)
         setFlag(false)
-        console.log(blogs)
     }
 
     // Fetch list of blogs that satisfies user's input
      async function searchTarget(e){
         e.preventDefault();
-        console.log(search)
         var updateWord=search.replace(" "," OR ")+" OR travel"
         console.log(updateWord)
         setSearch(updateWord)

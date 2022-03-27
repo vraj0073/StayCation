@@ -1,3 +1,9 @@
+/*
+Author: Kishan Kahodariya
+Description: This a the main blog pagees that aggregates the Header, Navigation bar and the blog list (BlogList) in one place 
+             and display in proper format.
+*/
+ 
 import React,{ useEffect,useState} from 'react';
 import BlogList from '../../components/BlogList';
 import { Card, Container,Form, FormControl, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
@@ -9,7 +15,7 @@ import 'react-bootstrap'
 import './Customer.css'
 
 
-export const BlogPage = () => {
+ const BlogPage = () => {
 
   return (
     <>
