@@ -11,7 +11,7 @@ import axios from "axios";
 import "../../css/Home.css";
 import "../../css/Header.css";
 
-// Written by - Het Shah - B00886897
+// Written by - Het Shah - B00886897 - ht699147@dal.ca
 
 function TravelHistory(props) {
   const [state, setState] = useState([]);
