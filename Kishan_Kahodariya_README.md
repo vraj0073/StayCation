@@ -87,5 +87,6 @@ The code above was created by adapting the code in [ListOfUser.jsx](https://git.
 ## Acknowledgements
 
 - [Kishan Kahodariya](https://git.cs.dal.ca/kahodariya/csci5709_adv_web_services/-/tree/tutorial-04)
+- [NewsAPI](https://newsapi.org/)
 - [bootstrap](https://getbootstrap.com/)
 - [react-bootstrap](https://react-bootstrap.github.io/)
