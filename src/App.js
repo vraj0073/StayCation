@@ -8,6 +8,7 @@ import Home from './Assets/pages/Home';
 
 function App() {
   return (
+    <div className='App'>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
@@ -16,6 +17,7 @@ function App() {
 
     </Routes>
   </BrowserRouter>
+    </div>
   );
 }
 

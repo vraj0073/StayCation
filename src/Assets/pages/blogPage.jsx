@@ -8,11 +8,10 @@ import React,{ useEffect,useState} from 'react';
 import BlogList from '../../components/BlogList';
 import { Card, Container,Form, FormControl, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
-import './Home.css'
-import './BlogPage.css'
-import './Header.css'
+import '../../css/Home.css'
+import '../../css/BlogPage.css'
+import '../../css/Header.css'
 import 'react-bootstrap'
-import './Customer.css'
 
 
  const BlogPage = () => {
@@ -36,7 +35,7 @@ import './Customer.css'
                           <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="me-auto">
                                   <Nav.Link href="/blogs" className='header-content'>Blogs</Nav.Link>
-                                  <Nav.Link href="Search" className='header-content'>Search</Nav.Link>
+                                  <Nav.Link href="/search" className='header-content'>Search</Nav.Link>
                                   <Nav.Link href="#pricing" className='header-content'>About</Nav.Link>
                                   <Nav.Link href="#pricing" className='header-content'>Contact</Nav.Link>
                                       <NavDropdown title="Login" id='title'  className='header-content'>

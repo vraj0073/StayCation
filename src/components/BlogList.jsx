@@ -5,7 +5,7 @@ Description: This component creates list of each BlogItem and display in a gridv
 import React,{ useEffect,useState} from 'react';
 import {Button,Form,FormControl,Container,ButtonGroup,Col,Row,Card} from 'react-bootstrap';
 import BlogItem from './BlogItem';
-import './BlogList.css';
+import '../css/BlogList.css';
 
 const BlogList=({targetWord})=>{
     const [blogs,setBlogs]=useState([]);

@@ -4,7 +4,7 @@ Description: This component handle structure and design of each blog that is bei
 */
 import React,{ useEffect,useState} from 'react';
 import {Button,ButtonGroup,Col,Row,Card} from 'react-bootstrap';
-import "./BlogItem.css";
+import '../css/BlogItem.css';
 
 
 const BlogItem=({title, author, description,image,url})=>{

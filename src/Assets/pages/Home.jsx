@@ -1,10 +1,9 @@
 import React from 'react'
 import { Card, Container, Button, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
-import './Home.css'
-import './Header.css'
+import '../../css/Home.css'
+import '../../css/Header.css'
 import 'react-bootstrap'
-import './Customer.css'
 
 
 

@@ -6,9 +6,8 @@ Description: This component allows user to search for accomodation.
 import React,{ useEffect,useState} from 'react';
 import { Card, Container,Form, FormControl, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
-import './Home.css'
-import './BlogPage.css'
-import './Header.css'
+import '../../css/Home.css'
+import '../../css/Header.css'
 import 'react-bootstrap'
 import './Customer.css'
 
