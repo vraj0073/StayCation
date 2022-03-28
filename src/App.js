@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-import TravelHistory from "./Components/TravelHistory";
-import WishList from "./Components/WishList";
+import TravelHistory from "./Assets/pages/TravelHistory";
+import WishList from "./Assets/pages/WishList";
 
 function App() {
   return (

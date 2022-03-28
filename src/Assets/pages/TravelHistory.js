@@ -8,8 +8,8 @@ import {
   Container,
 } from "react-bootstrap";
 import axios from "axios";
-import "../css/Home.css";
-import "../css/Header.css";
+import "../../css/Home.css";
+import "../../css/Header.css";
 
 // Written by - Het Shah - B00886897
 
