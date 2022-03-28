@@ -28,7 +28,7 @@
 
 ## Feature
 
-- For this Assignment, i have created the Blog feature for our project.
+- For this Assignment, I have created the Blog feature for our project.
 - With this, user can browse through location-based news and articles
 
 ## File Created

@@ -31,6 +31,7 @@ import './Customer.css'
           <Navbar collapseOnSelect expand="lg" >
               <Container className='d-flex' id='homenavigation'>
                   <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
+
                       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                           <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="me-auto">

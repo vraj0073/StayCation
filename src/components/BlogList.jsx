@@ -41,7 +41,7 @@ const BlogList=({targetWord})=>{
         <div>
 
         </div>
-        <Form className="d-flex" id='searchbar' >
+        <Form className="d-flex" id='searchbar' style={{display:"flex"}} >
         <FormControl
         id='searchbarsize'
           type="search"
@@ -51,8 +51,7 @@ const BlogList=({targetWord})=>{
         />
         <Button type='submit' id='searchbutton' onClick={searchTarget} onSubmit={searchTarget}>Search</Button>
       </Form>
-        <Container className='blogList'>
-             <Row gutter={25}>
+        <div className='row justify-content-start' style={{display:"flex",alignItems:"center",alignContent:"center",textAlign:"-webkit-center"}}>
                 { 
                     blogs.map((eachBlog,i) => 
                     <Col>
@@ -67,8 +66,7 @@ const BlogList=({targetWord})=>{
                         </div>
                     </Col>
                 )}
-            </Row> 
-      </Container>
+      </div>
     </div>
   )
 }
