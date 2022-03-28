@@ -9,7 +9,6 @@ import Image from 'react-bootstrap/Image'
 import '../../css/Home.css'
 import '../../css/Header.css'
 import 'react-bootstrap'
-import './Customer.css'
 
 
 export const SearchPage = () => {
