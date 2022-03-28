@@ -36,7 +36,7 @@ import './Customer.css'
                           <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="me-auto">
                                   <Nav.Link href="/blogs" className='header-content'>Blogs</Nav.Link>
-                                  <Nav.Link href="#pricing" className='header-content'>Search</Nav.Link>
+                                  <Nav.Link href="Search" className='header-content'>Search</Nav.Link>
                                   <Nav.Link href="#pricing" className='header-content'>About</Nav.Link>
                                   <Nav.Link href="#pricing" className='header-content'>Contact</Nav.Link>
                                       <NavDropdown title="Login" id='title'  className='header-content'>
