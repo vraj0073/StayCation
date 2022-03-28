@@ -17,7 +17,7 @@ function TravelHistory(props) {
   const [state, setState] = useState([]);
   const email = props.email;
   useEffect(() => {
-    const API_URL = `http://localhost:5000/bookings/getbookingbyemail/${email}`;
+    const API_URL = `http://54.152.93.117:8080/bookings/getbookingbyemail/${email}`;
     axios({
       method: "get",
       url: API_URL,
