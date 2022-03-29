@@ -28,7 +28,7 @@ const BlogList=({targetWord})=>{
         var updateWord=search.replace(" "," OR ")+" OR travel"
         console.log(updateWord)
         setSearch(updateWord)
-        await fetchedBlog()
+        await fetchedBlog();
     }
 
     useEffect(()=>{

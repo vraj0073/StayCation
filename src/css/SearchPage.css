@@ -1,0 +1,8 @@
+.simplesearch {
+  padding-left: 10px;
+  align-self: center;
+  display: flex;
+  width: 700px;
+  height: 40px;
+  text-align: left;
+}

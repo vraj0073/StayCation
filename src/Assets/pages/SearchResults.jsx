@@ -11,23 +11,26 @@ import '../../css/Header.css'
 import 'react-bootstrap'
 import '../../css/SearchPage.css'
 
-export const SearchPage = () => {
+export const SearchResults = () => {
 
   const [searchValue,setSearchValue]=useState('halifax');
 
   async function simpleSearch(e,value){
-    e.preventDefault();
+    e.prevenDefault();
     console.log("simple search :"+value );
   }
 
   return (
    <>
-    {/* <div > */}
+    <div >
+    
     <div className='col'  >
       
       <div className="header" >
         <div className="header-items">
+            
           <button>S</button>taycation
+          
           <Navbar collapseOnSelect expand="lg" >
               <Container className='d-flex' id='homenavigation'>
                   <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
@@ -51,27 +54,28 @@ export const SearchPage = () => {
     
     </div>
     <h2 className='title'>Simple Search</h2>
-    <div className="input-group mb-3" style={{paddingLeft:"25px",paddingTop:"25px"}}>
+    <div   style={{paddingLeft:"500px"}}>
   <input 
-    type="text" 
-    className="simplesearch" 
-    placeholder="Recipient's username" 
-    aria-label="Recipient's username" 
-    aria-describedby="basic-addon2"
-    onChange={(e)=>{setSearchValue(e.target.value)}}
+  type="text" 
+  class="simplesearch" 
+  placeholder="e.g Halifax" 
+  aria-label="simplesearchvalue" 
+  aria-describedby="basic-addon1" 
+  onChange={(e)=>{setSearchValue(e.target.value)}}
   />
   <div className="input-group-append">
-    <button className="btn btn-outline-secondary" type="button"
-      onClick={(e)=>{simpleSearch(e,searchValue)}}
-      onSubmit={simpleSearch}>Search
+    <button className="btn btn-outline-secondary" 
+    type="button" 
+    onClick={(e)=>{simpleSearch(e,searchValue)}}
+    onSubmit={simpleSearch}>Button
     </button>
   </div>
 </div>
-    {/* </div> */}
+    </div>
      
     </>
 
     )}
 
-export default SearchPage;
+export default SearchResults;
 
