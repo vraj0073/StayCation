@@ -1,0 +1,40 @@
+.mb-3{
+    width: 59%;
+}
+.mb-3-submit{
+    
+    padding-left: 20%;
+}
+.block-form{
+    padding-left: 9%;
+    padding-bottom: 7%;
+}
+
+.block {
+    width: 50%;
+    height: 50%;
+    background-color: #eee;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-bottom: 10%;
+    }
+
+.block-form{
+    width:172%;
+}
+
+#heading{
+    padding-left: 17%;
+}
+
+#registration-button{
+    background-color: rgb(227, 28, 95);
+}
+
+.error-label{
+    position: absolute !important;
+}
+#second{
+    margin-top: 4%;
+}

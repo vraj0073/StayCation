@@ -29,5 +29,15 @@
 }
 
 #cardborder{
-    margin-left: 6%;
+    position: relative;
+    top: -8%;
+}
+
+.cardborderleft{
+    position: relative !important;
+    top: 10% !important ;
+}
+
+.navContainer{
+    margin-left: 167% !important;
 }
