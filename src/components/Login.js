@@ -2,7 +2,7 @@
 Author: Vraj Jadhav
 Description: This component handle login page.
 */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../css/Login1.css'
 import '../css/Header.css'
 import { useNavigate } from 'react-router-dom'
@@ -14,33 +14,58 @@ export const Login = () => {
     const ac = new AbortController();
     return () => ac.abort();
   })
+  
   const history = useNavigate();
   
   const emailRegex = /\S+@\S+\.\S+/;
   const [EmailFlag,setEmailFlag] = useState(1);
   const [Emailmessage, setEmailMessage] = useState('');
-  const [Passwordmessage, setPasswordMessage] = useState('');
   const [PasswordFlag,setPasswordFlag] = useState(1);
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
+<<<<<<< HEAD
   const [Errorpassword, setErrorpassword] = useState('');
   const [Erroremail, setErroremail] = useState('');
   const [role, setrole] = useState('');
   const sendData = () =>{
     axios.post('https://weba3b00886409.herokuapp.com/login', {
+=======
+  const [Error, setError] = useState('');
+  const [Response, setResponse] = useState('');
+  useEffect(() => {
+    console.log("in useeffect" + Response)  
+  }, [Response]);
+  const sendData = async () =>{
+    console.log("send daata"+Email)
+    console.log("send password"+Password)
+    await axios.post('https://weba3b00886409.herokuapp.com/login', {
+>>>>>>> 35dda6bd7ba64cbca89a3f1ddc2567e6b176db9f
           email: Email,
           password: Password,
         })
         .then(function (response) {
+<<<<<<< HEAD
            setErrorpassword(response.data.passwordincorrect)
             setErroremail(response.data.emailnotfound) 
             console.log("okay")
             console.log(response);
             console.log("okay")
 
+=======
+          if(EmailFlag === 1 && PasswordFlag === 1){
+            alert("Required field empty")
+            
+          }
+          history("/Profile",{state:Email})
+          console.log(response.data);
+          setResponse(response.data);
+          console.log("Error her" + Error)  
+>>>>>>> 35dda6bd7ba64cbca89a3f1ddc2567e6b176db9f
         })
         .catch(function (error) {
           console.log(error);
+          setError(error)
+          alert("Invalid username or password")
         });
   }
   const validateEmail = (event) => {
@@ -61,7 +86,7 @@ export const Login = () => {
   const validatePassword = (e) => {
     var password = e.target.value;
     if(password ){
-      setPasswordMessage(" ");
+     
       setPassword(password);
        setPasswordFlag(0);
 }
@@ -70,29 +95,8 @@ export const Login = () => {
      }
   };
   const validateSubmit = (e)=> {
-  
-    console.log("email" + EmailFlag);
-    console.log("password"+PasswordFlag)
     sendData()
-    console.log(Erroremail)
-    console.log(Errorpassword)
-    if(EmailFlag === 0 && PasswordFlag === 0 && Erroremail === "" && Errorpassword === ""){
-      
-     history('/Profile',{state:Email})
-    }
-    else if(EmailFlag === 1 && PasswordFlag === 1){
-      alert("Required field empty")
-    }
-    else if(Erroremail == "Email not found"){
-            
-      alert("Email not found")
-    }
-   else if(Errorpassword == "Password incorrect"){
-      alert("Incorrect Password")
-      
-    }
-
-  }
+}
   
   return (
     <>
