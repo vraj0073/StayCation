@@ -8,6 +8,7 @@ import {
   Container,
 } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../../css/Home.css";
 import "../../css/Header.css";
 
@@ -16,6 +17,7 @@ import "../../css/Header.css";
 function TravelHistory(props) {
   const [state, setState] = useState([]);
   const email = props.email;
+  const toHome = useNavigate();
   useEffect(() => {
     const API_URL = `https://csci5709hsa3backend.herokuapp.com/bookings/getbookingbyemail/${email}`;
     axios({
@@ -35,10 +37,17 @@ function TravelHistory(props) {
       <div className="col">
         <div className="header">
           <div className="header-items">
-            <button>S</button>taycation
+            <button
+              onClick={() => {
+                toHome("/home");
+              }}
+            >
+              S
+            </button>
+            taycation
             <Navbar>
               <Container className="container" id="homenavigation">
-                <Navbar.Brand href="#home" className="header-navbar">
+                <Navbar.Brand href="home" className="header-navbar">
                   Home
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -78,7 +87,8 @@ function TravelHistory(props) {
       </div>
 
       <div className="row justify-content-center mt-3">
-        View Travel History of User -<h6> {email} </h6>
+        View Travel History of User -
+        <h6 style={{ textAlign: "center" }}> {email} </h6>
       </div>
       <div className="row justify-content-center" style={{ display: "flex" }}>
         {state.map((booking, key) => (
