@@ -1,0 +1,41 @@
+.heading{
+    padding-left: 44%;
+    margin-top: 5%;
+}
+
+#buttonlogin{
+    margin-left: 49%;
+    background-color: rgb(227, 28, 95);
+}
+
+.form-group{
+    margin-left: 40%;
+    margin-top: 0% !important;
+}
+
+.form-control{
+    width: auto;
+}
+
+#link{
+margin-left: 1%;
+color: black;
+
+}
+
+#message{
+    margin-left: 40%;
+    
+}
+#bottom{
+    margin-bottom: 4%;
+    margin-right: 17%;
+}
+
+#password_id{
+    margin-top: -3% !important;
+}
+
+#loginmessage{
+    margin-left: 41% !important;
+}
