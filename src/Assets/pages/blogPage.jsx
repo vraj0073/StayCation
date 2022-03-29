@@ -40,8 +40,8 @@ import { useNavigate } from 'react-router-dom';
                               <Nav className="me-auto">
                                   <Nav.Link href="/blogs" className='header-content'>Blogs</Nav.Link>
                                   <Nav.Link href="/search" className='header-content'>Search</Nav.Link>
-                                  <Nav.Link href="#pricing" className='header-content'>About</Nav.Link>
-                                  <Nav.Link href="#pricing" className='header-content'>Contact</Nav.Link>
+                                  <Nav.Link href="#About" className='header-content'>About</Nav.Link>
+                                  <Nav.Link href="#Contact" className='header-content'>Contact</Nav.Link>
                                       <NavDropdown title="Login" id='title'  className='header-content'>
                                           <NavDropdown.Item href="Register">New User</NavDropdown.Item>
                                           <NavDropdown.Item href="Login">Existing User</NavDropdown.Item>
