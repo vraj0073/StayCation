@@ -12,10 +12,14 @@ import '../../css/Home.css'
 import '../../css/BlogPage.css'
 import '../../css/Header.css'
 import 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 
  const BlogPage = () => {
-
+  const history = useNavigate();
+  const validhome = ()=>{
+    history("home")
+  }
   return (
     <>
     <div >
@@ -25,11 +29,11 @@ import 'react-bootstrap'
       <div className="header" >
         <div className="header-items">
             
-          <button>S</button>taycation
+          <button onClick={validhome}>S</button>taycation
           
           <Navbar collapseOnSelect expand="lg" >
               <Container className='d-flex' id='homenavigation'>
-                  <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
+                  <Navbar.Brand href="home" className='header-navbar'>Home</Navbar.Brand>
 
                       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                           <Navbar.Collapse id="responsive-navbar-nav">

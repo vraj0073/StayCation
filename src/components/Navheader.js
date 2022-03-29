@@ -35,7 +35,7 @@ export const Navheader = (props) => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="#features" className="header-content">
+                    <Nav.Link href="blogs" className="header-content">
                       Blogs
                     </Nav.Link>
                     <Nav.Link href="th" className="header-content">
