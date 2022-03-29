@@ -1,3 +1,10 @@
+/*
+Author: Prarthana Parmar
+Description: This component creates a sidebar to help user navigate between options provided.
+*/
+
+
+
 import React from "react";
 import { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';

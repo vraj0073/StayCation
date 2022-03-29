@@ -4,9 +4,8 @@ import SearchPage from "./Assets/pages/SearchPage";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import TravelHistory from "./Assets/pages/TravelHistory";
 import WishList from "./Assets/pages/WishList";
-<<<<<<< HEAD
+
 import Host from "./components/Host";
-=======
 import React from "react";
 import RegistrationPage from "./components/RegistrationPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,8 +15,6 @@ import New_Password from "./components/New_Password";
 import Customer from "./components/Customer";
 import { EditProfile } from "./components/EditProfile";
 import Home from "./components/Home";
->>>>>>> 9408a3539a16ac06183b3295ca85af6209c98990
-
 function App() {
   return (
     <div>

@@ -30,8 +30,7 @@ export const Login = () => {
         .then(function (response) {
           console.log(response);
            setErrorpassword(response.data.passwordincorrect)
-            setErroremail(response.data.emailnotfound)
-                         
+            setErroremail(response.data.emailnotfound)                         
         })
         .catch(function (error) {
           console.log(error);

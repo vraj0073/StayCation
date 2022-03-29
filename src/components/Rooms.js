@@ -1,3 +1,8 @@
+/*
+Author: Prarthana Parmar
+Description: This component renders the array of listings fetched from the backend.
+*/
+
 import React, { useState, useEffect } from 'react';
 import '../css/Rooms.css';
 import RoomItem from './RoomItem';

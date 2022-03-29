@@ -1,3 +1,7 @@
+/*
+Author: Prarthana Parmar
+Description: This component creates a new hosting for the host user.
+*/
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { FaWindows } from "react-icons/fa";
@@ -16,8 +20,54 @@ const Createlisting = () => {
   const [serviceFee, setServiceFee] = useState("");
   const [description, setdescription] = useState("");
 
+  const [nameError, setNameError] = useState();
+  const [hostError, setHostError] = useState();
+  const [descriptionError, setDescriptionError] = useState();
+
+  const validateName = () =>{
+    let error;
+    if (!placename.trim()) {
+      error = "Please enter name of the place!";
+    } else if (placename.length < 5) {
+      error = "Name should be at least 5 characters!";
+    } else {
+      error = null;
+    }
+    setNameError(error);
+  };
+
+  const validateHostName = () =>{
+    let error;
+    if (!hostName.trim()) {
+      error = "Please enter your name!";
+    } else if (hostName.length < 3) {
+      error = "Host name should be at least 3 characters!";
+    } else {
+      error = null;
+    }
+    setHostError(error);
+  };
+
+  const validateDescription = () => {
+    let error;
+    if (!description.trim()) {
+      error = "Please enter description for your place!";
+    } else if (description.length < 10) {
+      error = "Description should be at least 10 characters!";
+    } else {
+      error = null;
+    }
+    setDescriptionError(error); 
+  }
+
+  const checkErrors = () => {
+    if(nameError == null &&
+      hostError == null){
+        submitHandler();
+      }
+  }
+
   const submitHandler = (event) => {
-        event.preventDefault();
         const data = {
             name: placename,
             email: "psp4545@gmail.com",
@@ -80,12 +130,19 @@ const Createlisting = () => {
   const descriptionChangeHandler = (event) => {
     setdescription(event.target.value);
   };
-
+  
   return (
     <form
       className="form-group"
       action="/action_page.php"
-      onSubmit={submitHandler}
+      onSubmit={(event) => {
+        event.preventDefault();
+        if(placename.length === 0 || hostName.length === 0 || beds.length === 0 || bedroom.length === 0 || bath.length === 0 || perNightCharges.length === 0 || cleaningFee.length === 0 || serviceFee.length === 0 || description.length === 0 ){
+          alert("One or more fields seem to be empty!")
+        }else{
+          checkErrors();
+        }
+      }}
     >
       <div className="form">
         <div className="col-md-10">
@@ -99,7 +156,9 @@ const Createlisting = () => {
             value={placename}
             placeholder="Enter Name"
             onChange={nameChangeHandler}
+            onBlur={validateName}
           />
+          {nameError && <p>{nameError}</p>}
         </div>
       </div>
       <div className="form">
@@ -113,7 +172,9 @@ const Createlisting = () => {
             id="hostName"
             placeholder="Enter your name"
             onChange={hostnameChangeHandler}
+            onBlur={validateHostName}
           />
+          {hostError && <p>{hostError}</p>}
         </div>
       </div>
       <div className="form">
@@ -122,7 +183,7 @@ const Createlisting = () => {
             Guest Size{" "}
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="guestSize"
             placeholder="Enter guest size"
@@ -136,7 +197,7 @@ const Createlisting = () => {
             Bedrooms
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="bedroom"
             value={bedroom}
@@ -151,7 +212,7 @@ const Createlisting = () => {
             Beds{" "}
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="beds"
             placeholder="Enter number of beds"
@@ -160,12 +221,12 @@ const Createlisting = () => {
         </div>
       </div>
       <div className="form">
-        <div className="col-sm-10">
+        <div className="col-lg-10">
           <label className="control-label col-sm-2" htmlFor="bath">
             Baths{" "}
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="bath"
             placeholder="Enter number os baths"
@@ -179,7 +240,7 @@ const Createlisting = () => {
             Price per day{" "}
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="perNightCharges"
             placeholder="Enter yprice for a day"
@@ -193,7 +254,7 @@ const Createlisting = () => {
             Cleaning Fee{" "}
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="cleaningFee"
             placeholder="Enter Cleaning Fee"
@@ -207,7 +268,7 @@ const Createlisting = () => {
             Service Fee{" "}
           </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="serviceFee"
             placeholder="Enter Service Fee"
@@ -226,7 +287,9 @@ const Createlisting = () => {
             id="description"
             placeholder="Description"
             onChange={descriptionChangeHandler}
+            onBlur={validateDescription}
           />
+          {descriptionError && <p>{descriptionError}</p>}
         </div>
       </div>
       <div className="form">

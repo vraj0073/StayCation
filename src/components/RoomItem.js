@@ -1,3 +1,8 @@
+/*
+Author: Prarthana Parmar
+Description: This component creates one Room component to display.
+*/
+
 import React from 'react';
 import {Card , Button} from 'react-bootstrap';
 import '../css/RoomItem.css'
@@ -42,14 +47,15 @@ console.log(props.id);
                 <Card.Text className = 'content'>Cleaning Fee:  {props.cleaningFee}</Card.Text>
                 <Card.Text className = 'content'>Service Fee:  {props.serviceFee}</Card.Text>
                 <Card.Text className = 'content'>Description:  {props.description}</Card.Text>
+                <div>
+        <Button type = 'submit' className = 'button' onClick={deleteHandler}>Delete</Button>
+        </div>
             </Card.Body>
+            
         </Card>
         {/* <div>
         <Button type = 'submit' className = 'button'  >Edit</Button>
-        </div> */}
-        <div>
-        <Button type = 'submit' className = 'button' onClick={deleteHandler}>Delete</Button>
-        </div>
+  </div> */}
       </div>
   );
 }

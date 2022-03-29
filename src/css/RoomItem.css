@@ -1,3 +1,7 @@
+/*
+Author: Prarthana Parmar
+Description: This is the css file for RoomItem component.
+*/
 .user-card {
     width: 90%;
     padding: 2%;
@@ -5,7 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-style:outset;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -22,8 +25,9 @@
 
 .title {
     text-align: center;
+    display: inline;
     color: rgb(227, 28, 95);
-    font-size:200%
+    font-size:150%
 }
 
 .content {
@@ -35,4 +39,6 @@
     background-color: rgb(227, 28, 95);
     color: white;
     width: 100%;
+    border-radius: 10%;
+    width: 10%;
 }

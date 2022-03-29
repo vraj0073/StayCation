@@ -1,3 +1,8 @@
+/*
+Author: Prarthana Parmar
+Description: This component renders the listings or allows host user to create hosting based on the option selected by user.
+*/
+
 import React from "react";
 import { useEffect, useState } from 'react';
 import Header from './Header';
