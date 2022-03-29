@@ -2,7 +2,7 @@
 
 - _Date Created_: 23 March 2022
 - _Last Modification Date_: 27 March 2022
-- _Git Group Repo URL_: https://git.cs.dal.ca/kahodariya/csci-5709-group-06-project
+- _Git Group Repo URL_: https://git.cs.dal.ca/kahodariya/csci-5709-group-06-project/master
 - _Git Group Repo Individual branch URL_: https://git.cs.dal.ca/kahodariya/csci-5709-group-06-project/-/tree/kishan
 
 ## Authors
@@ -24,7 +24,7 @@
 
 ## Deployment
 
-- _Deployment URL_:
+- _Deployment URL_: https://group-06-staycation.herokuapp.com/
 
 ## Feature
 
@@ -87,6 +87,5 @@ The code above was created by adapting the code in [ListOfUser.jsx](https://git.
 ## Acknowledgements
 
 - [Kishan Kahodariya](https://git.cs.dal.ca/kahodariya/csci5709_adv_web_services/-/tree/tutorial-04)
-- [NewsAPI](https://newsapi.org/)
 - [bootstrap](https://getbootstrap.com/)
 - [react-bootstrap](https://react-bootstrap.github.io/)
