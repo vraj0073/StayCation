@@ -1,0 +1,38 @@
+.user-card {
+    width: 90%;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style:outset;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card {
+    width: 100%;
+    height: auto;
+    display:flex;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.title {
+    text-align: center;
+    color: rgb(227, 28, 95);
+    font-size:200%
+}
+
+.content {
+    font-size: 120%;
+}
+
+.button {
+    text-align: center;
+    background-color: rgb(227, 28, 95);
+    color: white;
+    width: 100%;
+}

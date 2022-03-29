@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import "./App.css";
 import BlogPage from "./Assets/pages/blogPage";
 import SearchPage from "./Assets/pages/SearchPage";
@@ -7,6 +6,7 @@ import Home from "./Assets/pages/Home";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import TravelHistory from "./Assets/pages/TravelHistory";
 import WishList from "./Assets/pages/WishList";
+import Host from "./components/Host";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           />
           <Route path="wl" element={<WishList />} />
         </Routes>
+        <Host/>
       </BrowserRouter>
     </div>
   );

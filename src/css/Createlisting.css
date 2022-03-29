@@ -1,0 +1,13 @@
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1cm;
+}
+
+.btn{
+    border-radius: 1%;
+    background-color: rgb(227, 28, 95);
+    border-radius: 10%
+}
