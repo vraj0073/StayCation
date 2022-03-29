@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './Navheader'
 
-export const Navheader = () => {
+export const Navheader = (props) => {
     const history = useNavigate();
     const validatesubmit = () => {
       

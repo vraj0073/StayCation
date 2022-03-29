@@ -1,3 +1,7 @@
+/*
+Author: Vraj Jadhav
+Description: This component handle landing page.
+*/
 import React from 'react'
 import '../css/Header.css'
 import 'react-bootstrap'

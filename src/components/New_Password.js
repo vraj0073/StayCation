@@ -1,3 +1,7 @@
+/*
+Author: Vraj Jadhav
+Description: This component handle new password page.
+*/
 import React, { useState } from 'react'
 import { Form, Row } from 'react-bootstrap'
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -19,7 +23,7 @@ export const New_Password = (props) => {
 
   const sendData = () =>{
     
-    axios.post('http://localhost:5000/resetpassword', {
+    axios.post('https://weba3b00886409.herokuapp.com/resetpassword', {
           email: state,
           password: Password,
         })
