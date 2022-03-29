@@ -22,13 +22,14 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
+import { da } from "date-fns/locale";
 
 const Booking = () => {
   let navigate = useNavigate();
   let location = useLocation();
   console.log("location", location);
   const { bookingInfo, room } = location.state;
-  console.log(bookingInfo);
+  console.log("ROOM : ", room);
 
   const [numberOfNights, setNumberOfNights] = useState();
   const [totalCharge, setTotalCharge] = useState();
@@ -51,10 +52,49 @@ const Booking = () => {
     calculateNumberOfNights();
   }, []);
 
+  const updateRoom = () => {
+    var bookedDates = room.bookedDates;
+    var startDate = moment(bookingInfo.checkInDate);
+    var endDate = moment(bookingInfo.checkOutDate);
+    var now = startDate.clone();
+
+    while (now.isSameOrBefore(endDate)) {
+      bookedDates.push(now.format("M/D/YYYY"));
+      now.add(1, "days");
+    }
+    console.log("Dates", bookedDates);
+
+    let url =
+      "https://staycationbackendapp.herokuapp.com/hostuser/editlisting/" +
+      room._id;
+    let method = "PUT";
+
+    fetch(url, {
+      method: method,
+      body: JSON.stringify({ ...room, bookedDates }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.status !== 200 && res.status !== 201) {
+          throw new Error("Editing Item failed!");
+        }
+        return res.json();
+      })
+      .then((res) => {
+        console.log("res", res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const confirmBooking = () => {
     let url =
       "https://staycationbackendapp.herokuapp.com/booking/createbooking";
     let method = "POST";
+    updateRoom();
 
     fetch(url, {
       method: method,
