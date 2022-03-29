@@ -1,3 +1,5 @@
+// Written by - Het Shah - B00886897 - ht699147@dal.ca
+
 import { React, useState, useEffect } from "react";
 import {
   Card,
@@ -15,9 +17,12 @@ import "../../css/Header.css";
 // Written by - Het Shah - B00886897 - ht699147@dal.ca
 
 function TravelHistory(props) {
+  // Using state to store response data
   const [state, setState] = useState([]);
   const email = props.email;
   const toHome = useNavigate();
+
+  // Getting property listings on the useEffect function
   useEffect(() => {
     const API_URL = `https://csci5709hsa3backend.herokuapp.com/bookings/getbookingbyemail/${email}`;
     axios({
@@ -31,9 +36,7 @@ function TravelHistory(props) {
   }, []);
 
   return (
-    // <div className="container-fluid">
     <div>
-      {/* Header */}
       <div className="col">
         <div className="header">
           <div className="header-items">
@@ -53,7 +56,7 @@ function TravelHistory(props) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="#features" className="header-content">
+                    <Nav.Link href="blogs" className="header-content">
                       Blogs
                     </Nav.Link>
                     <Nav.Link href="#pricing" className="header-content">
