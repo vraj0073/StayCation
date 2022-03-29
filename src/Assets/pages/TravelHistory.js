@@ -66,16 +66,18 @@ function TravelHistory(props) {
                       Contact
                     </Nav.Link>
                     <NavDropdown
-                      title="Login"
+                      title="Account Setting"
                       id="title"
                       className="header-content"
                     >
-                      <NavDropdown.Item href="Register">
-                        New User
+                      <NavDropdown.Item href="Editprofile">
+                        Edit Profile
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="Login">
-                        Existing User
+                      <NavDropdown.Item>Delete Profile</NavDropdown.Item>
+                      <NavDropdown.Item href="Resetpassword">
+                        Reset Password
                       </NavDropdown.Item>
+                      <NavDropdown.Item href="Logout">Logout </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
                 </Navbar.Collapse>
