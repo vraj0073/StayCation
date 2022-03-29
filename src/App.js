@@ -15,6 +15,10 @@ import New_Password from "./components/New_Password";
 import Customer from "./components/Customer";
 import { EditProfile } from "./components/EditProfile";
 import Home from "./components/Home";
+import Review from "./Assets/pages/Review";
+import ReviewEdit from "./Assets/pages/ReviewEdit";
+import ReviewWrite from "./Assets/pages/ReviewWrite";
+
 function App() {
   return (
     <div>
@@ -36,6 +40,9 @@ function App() {
             element={<TravelHistory email="vrajjadhav0073@gmail.com" />}
           />
           <Route path="wl" element={<WishList />} />
+            <Route path="/user-reviews" element={<Review/>}></Route>
+            <Route path="/edit-review" element={<ReviewEdit/>}></Route>
+            <Route path="/write-review" element={<ReviewWrite/>}></Route>
         </Routes>
         <Host/>
       </BrowserRouter>

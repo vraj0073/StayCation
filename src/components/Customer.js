@@ -1,3 +1,8 @@
+/*
+Author: Vraj Jadhav
+Description: This component handle profile page.
+*/
+
 import React, { useEffect, useState } from 'react'
 import '../css/Header.css'
 import 'react-bootstrap'
@@ -12,22 +17,39 @@ import Navheader from './Navheader'
 
 
 export const Customer = (props) => {
-  const[alldata,setalldata] = useState("");
-  const[alluserdata,setalluserdata] = useState("");
-  const[displaypop,setdisplaypop] = useState("none");
+  const[alldata,setalldata] = useState({});
+  const[alluserdata,setalluserdata] = useState({});
+  const[id,setid] = useState("");
   React.useEffect(() => {
+    
     const ac = new AbortController();
     return () => ac.abort();
   })
   useEffect(() => {
+    
     console.log("new email here " + state)
-    axios.get("http://localhost:5000/users",{
+    axios.post('https://weba3b00886409.herokuapp.com/Userprofile', {
+          email: state,
+        })
+        .then(function (response) {
+          console.log(response.data.customer);
+           setalluserdata(response.data.customer);  
+           setid(alluserdata._id)    
+           console.log(id)
+                
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    axios.get("https://weba3b00886409.herokuapp.com/users",{
       params: {
-        email: state
+        email: state,
+        phone: alluserdata.phonenumber
+
       }
     })
     .then((responce) => {
-        console.log( responce.data.customer)
+        console.log("users" +responce.data.customer)
         setalldata(responce.data.customer)
         
 
@@ -35,58 +57,18 @@ export const Customer = (props) => {
       console.log(error);
     });
 
-    axios.post('http://localhost:5000/Userprofile', {
-          email: state,
-        })
-        .then(function (response) {
-          console.log(response.data.customer);
-           setalluserdata(response.data.customer);            
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    
 },[])
 
   const history = useNavigate();
   const {state} = useLocation();
   
-  const deleteprofile = () =>{
-        setdisplaypop("inline");
-  }
-
+  
   
   return (
     <>
-              <Navheader/>
-    {/* <div className='col'>
-      
-    <div className="header">
-      <div className="header-items">
-        <button onClick={validatesubmit}>S</button>taycation
-
-        <Navbar collapseOnSelect expand="lg" >
-  <Container className='navContainer'>
-  <Navbar.Brand href="home" className='header-navbar'>Home</Navbar.Brand>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
-      <Nav.Link href="#features" className='header-content'>Blogs</Nav.Link>
-      <Nav.Link href="#pricing" className='header-content'>History</Nav.Link>
-      <NavDropdown title="Account Setting" id='title'  className='header-content'>
-        <NavDropdown.Item href="Editprofile">Edit Profile</NavDropdown.Item>
-        <NavDropdown.Item onClick={deleteprofile}>Delete Profile</NavDropdown.Item>
-        <NavDropdown.Item href="Resetpassword">Reset Password</NavDropdown.Item>
-        <NavDropdown.Item href="Logout">Logout {state}</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
-  </Navbar.Collapse>
-  </Container>
-</Navbar>
-      </div>
-      <div className="header-items">  
-      </div>
-    </div>
-</div> */}
+              <Navheader data={id}/>
+    
 <div>
   <h1 style={{color: 'rgb(227, 28, 95)',
 marginLeft: 550,
@@ -125,7 +107,7 @@ marginTop: 10 }}>Profile Page</h1>
 </div>
 <div class="side-container-right" >
 <Card style={{ width: '39rem' }  } id='cardborder'>
-  <Card.Body style={{ marginBottom: '0.5rem' }}>
+  <Card.Body style={{ marginBottom: '5.5rem' }}>
 
     <Card.Text className='info'>
       <div>   
@@ -148,7 +130,7 @@ marginTop: 10 }}>Profile Page</h1>
     <Card style={{ width: '25rem', height: '2rem',marginTop: '-2rem' }}>
   <Card.Body>
     <Card.Text style={{marginTop: '-1rem'}}>
-     {alldata.email}
+     {alluserdata.email}
     </Card.Text>
   </Card.Body>
 </Card>
@@ -182,6 +164,8 @@ marginTop: 10 }}>Profile Page</h1>
 </Card>
     </div>
     </div>
+    
+    
       </Card.Text>
   </Card.Body>
 </Card>

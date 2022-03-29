@@ -1,3 +1,7 @@
+/*
+Author: Vraj Jadhav
+Description: This component handle Registration page page.
+*/
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form,Row,Col,Button, ToggleButtonGroup,ToggleButton } from 'react-bootstrap';
@@ -40,7 +44,7 @@ export const RegistrationPageContainer = () => {
 
 
     const sendData = () =>{
-      axios.post('http://localhost:5000/register', {
+      axios.post('https://weba3b00886409.herokuapp.com/register', {
             email: Email,
             password: Password,
             firstname: Firstname,

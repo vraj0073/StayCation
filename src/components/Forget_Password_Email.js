@@ -1,3 +1,7 @@
+/*
+Author: Vraj Jadhav
+Description: This component handle forgetpassword page.
+*/
 import React, { useState } from 'react'
 import { Form, Row } from 'react-bootstrap'
 import '../css/Forget_Password_Email.css'
@@ -17,7 +21,7 @@ export const Forget_Password_Email = () => {
   const [Error, setError] = useState('');
   const history = useNavigate();
   const sendData = () =>{
-    axios.post('http://localhost:5000/forgetpassword', {
+    axios.post('https://weba3b00886409.herokuapp.com/forgetpassword', {
           email: Email })
         .then(function (response) {
           console.log(response.data);
