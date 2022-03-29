@@ -41,10 +41,10 @@ function ReviewWrite() {
                 </div>
                 <div className="header-items">Qinyue</div>
             </div>
-            <div className="house-name">
-                <h1>A Review For {roomName}</h1>
+            <div className="re-house-name">
+                <h1 className="re-house-name-h1">A Review For {roomName}</h1>
             </div>
-            <div className="star-evaluation">
+            <div className="re-star-evaluation">
                 {Array(5).fill().map((_, index) => number >= index + 1 || star >= index + 1 ? (<AiFillStar
                     name="starEvaluation"
                     onMouseOver={() => !number && setStar((index + 1))}
@@ -62,13 +62,13 @@ function ReviewWrite() {
                     }}
                 />))}
             </div>
-            <div className="edit-content">
-                <div className="text">
-                    <textarea placeholder="Please write a review" name="content-text" onChange={changeContent}/>
-                    {isSubmitted && error.length > 0 && <p>{error}</p>}
+            <div className="re-edit-content">
+                <div className="re-text">
+                    <textarea placeholder="Please write a review" className="re-textarea" name="content-text" onChange={changeContent}/>
+                    {isSubmitted && error.length > 0 && <p className="re-text-p">{error}</p>}
                 </div>
-                <div className="edit-buttons">
-                    <button className="edit-btn" type="submit" onClick={() => {
+                <div className="re-edit-buttons">
+                    <button className="re-edit-btn" type="submit" onClick={() => {
                         setIsSubmitted(true);
                         if (newContent !== '' && number !== 0) {
                             console.log(number);
@@ -91,7 +91,7 @@ function ReviewWrite() {
                         }
                     }}>Save
                     </button>
-                    <button className="edit-btn" type="submit" onClick={() => {
+                    <button className="re-edit-btn" type="submit" onClick={() => {
                         navigate("/user-reviews")
                     }}>Cancel
                     </button>

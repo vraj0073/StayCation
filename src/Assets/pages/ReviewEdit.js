@@ -33,17 +33,17 @@ function ReviewEdit() {
                 </div>
                 <div className="header-items">Qinyue</div>
             </div>
-            <div className="house-name">
-                <h1>My Review For {state.roomName}</h1>
+            <div className="re-house-name">
+                <h1 className="re-house-name-h1">My Review For {state.roomName}</h1>
             </div>
-            <div className="edit-content">
-                <div className="text">
-                    <textarea defaultValue={state.content} name="content-text" onChange={changeContent}/>
-                    {isSubmitted && error.length > 0 && <p>{error}</p>}
-                    {isSubmitted && newContent.length === 0 && error.length === 0 && <p>Nothing is modified</p>}
+            <div className="re-edit-content">
+                <div className="re-text">
+                    <textarea defaultValue={state.content} className="re-textarea" name="content-text" onChange={changeContent}/>
+                    {isSubmitted && error.length > 0 && <p className="re-text-p">{error}</p>}
+                    {isSubmitted && newContent.length === 0 && error.length === 0 && <p className="re-text-p">Nothing is modified</p>}
                 </div>
-                <div className="edit-buttons">
-                    <button className="edit-btn" type="submit" onClick={() => {
+                <div className="re-edit-buttons">
+                    <button className="re-edit-btn" type="submit" onClick={() => {
                         setIsSubmitted(true);
                         if (newContent !== '') {
                             axios.patch("http://localhost:8080/review/update/" + state.id, {content: newContent})
@@ -54,7 +54,7 @@ function ReviewEdit() {
                         }
                     }}>Save
                     </button>
-                    <button className="edit-btn" type="submit" onClick={() => {
+                    <button className="re-edit-btn" type="submit" onClick={() => {
                         navigate("/user-reviews");
                     }}>Cancel
                     </button>

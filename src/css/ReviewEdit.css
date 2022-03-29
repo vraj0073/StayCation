@@ -1,23 +1,23 @@
-.house-name {
+.re-house-name {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.house-name h1 {
+.re-house-name-h1 {
     font-size: 30px;
     text-align: center;
     width: 800px;
 }
 
-.star-evaluation {
+.re-star-evaluation {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-textarea {
+.re-textarea {
     margin: 20px;
     width: 600px;
     height: 300px;
@@ -26,14 +26,14 @@ textarea {
     font-size: 20px;
 }
 
-.edit-content {
+.re-edit-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.text p{
+.re-text-p{
     color: #f00e0e;
     text-align: center;
     font-size: 18px;
@@ -41,24 +41,15 @@ textarea {
 }
 
 
-.edit-btn {
+.re-edit-btn {
     font-size: 20px;
-    /*background: #6495ED;*/
-    /*color: #fff;*/
     margin: 10px 2px;
     width: 100px;
     border-radius: 6px;
     padding: 10px 0;
-    /*border: none;*/
-    /*font-weight: bolder;*/
     cursor: pointer;
-
     color: white;
     background-color: rgb(227, 28, 95);
     border: none;
-    /*font-size: 35px;*/
     font-weight: 600;
 }
-/*.edit-btn:hover {*/
-/*    background-color: #4169E1;*/
-/*}*/

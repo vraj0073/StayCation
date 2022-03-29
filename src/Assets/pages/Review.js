@@ -34,27 +34,27 @@ function Review() {
                 <div className="header-items">Qinyue</div>
             </div>
             <div className="reviews-page">
-                <div className="body">
-                    <section className="right">
-                        <section className="search-bar">
-                            <input className="search-content" placeholder="Search reviews"
+                <div className="reviews-body">
+                    <section className="reviews-right">
+                        <section className="reviews-search-bar">
+                            <input className="reviews-search-content" placeholder="Search reviews"
                                    onChange={event => setQuery(event.target.value)}/>
                         </section>
                         <main className="reviews" name="reviews">
-                            <h1>My posted reviews</h1>
+                            <h1 className="reviews-h1">My posted reviews</h1>
                             {retrievedData.reviews.filter(item => {
                                 if (query === '') {
                                     return item;
                                 } else if (item.roomName.toLowerCase().includes(query.toLowerCase()) || item.content.toLowerCase().includes(query.toLowerCase())) {
                                     return item;
                                 }
-                            }).map(item => (<div key={item._id} className="review-content" id={item._id}>
+                            }).map(item => (<div key={item._id} className="reviews-content" id={item._id}>
                                 <h3>Review for {item.roomName}</h3>
                                 <time>{item.date.substring(0, 10)}</time>
                                 <hr/>
                                 <p>{item.content}</p>
-                                <div className="review-buttons">
-                                    <button className="review-btn" type="button" onClick={() => {
+                                <div className="reviews-buttons">
+                                    <button className="reviews-btn" type="button" onClick={() => {
                                         navigate('/edit-review', {
                                             state: {
                                                 id: item._id,
@@ -65,7 +65,7 @@ function Review() {
                                         })
                                     }}>Edit
                                     </button>
-                                    <button className="review-btn" type="button" onClick={() => {
+                                    <button className="reviews-btn" type="button" onClick={() => {
                                         deleteDiv(item._id);
                                         axios
                                             .delete("http://localhost:8080/review/delete/" + item._id)
@@ -80,7 +80,7 @@ function Review() {
                         </main>
                     </section>
                 </div>
-                <footer>&copy;2022 Group 6</footer>
+                <footer className="reviews-footer">&copy;2022 Group 6</footer>
             </div>
         </div>
     );
