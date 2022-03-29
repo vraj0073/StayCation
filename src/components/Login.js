@@ -25,16 +25,19 @@ export const Login = () => {
   const [Password, setPassword] = useState('');
   const [Errorpassword, setErrorpassword] = useState('');
   const [Erroremail, setErroremail] = useState('');
-  
+  const [role, setrole] = useState('');
   const sendData = () =>{
     axios.post('https://weba3b00886409.herokuapp.com/login', {
           email: Email,
           password: Password,
         })
         .then(function (response) {
-          console.log(response);
            setErrorpassword(response.data.passwordincorrect)
-            setErroremail(response.data.emailnotfound)                         
+            setErroremail(response.data.emailnotfound) 
+            console.log("okay")
+            console.log(response);
+            console.log("okay")
+
         })
         .catch(function (error) {
           console.log(error);

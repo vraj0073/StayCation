@@ -44,7 +44,6 @@ function App() {
             <Route path="/edit-review" element={<ReviewEdit/>}></Route>
             <Route path="/write-review" element={<ReviewWrite/>}></Route>
         </Routes>
-        <Host/>
       </BrowserRouter>
     </div>
   );
