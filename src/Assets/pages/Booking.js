@@ -195,19 +195,19 @@ const Booking = () => {
           <div className="booking-div__item">
             <div className="booking-div__item-title">Your Trip Details</div>
             <div className="booking-div__item-content">
-              <div className="left bold">Check In Date</div>
+              <div className=" bold">Check In Date</div>
               <div className="right">
                 {bookingInfo.checkInDate.toLocaleDateString()}
               </div>
             </div>
             <div className="booking-div__item-content">
-              <div className="left bold">Check Out Date</div>
+              <div className=" bold">Check Out Date</div>
               <div className="right">
                 {bookingInfo.checkOutDate.toLocaleDateString()}
               </div>
             </div>
             <div className="booking-div__item-content">
-              <div className="left bold">Guests</div>
+              <div className=" bold">Guests</div>
               <div className="right">{bookingInfo.numberOfGuests}</div>
             </div>
           </div>
@@ -215,7 +215,7 @@ const Booking = () => {
             <div className="booking-div__item-title">Price Details</div>
             <div>
               <div className="booking-div__item-content">
-                <div className="left">
+                <div className="">
                   ${room.perNightCharges} x {numberOfNights} night
                 </div>
                 <div className="right">
@@ -223,15 +223,15 @@ const Booking = () => {
                 </div>
               </div>
               <div className="booking-div__item-content">
-                <div className="left">Cleaning Fee</div>
+                <div className="">Cleaning Fee</div>
                 <div className="right">${room.cleaningFee}</div>
               </div>
               <div className="booking-div__item-content">
-                <div className="left">Service Fee</div>
+                <div className="">Service Fee</div>
                 <div className="right">${room.serviceFee}</div>
               </div>
               <div className="booking-div__item-content bold">
-                <div className="left">Total(CAD)</div>
+                <div className="">Total(CAD)</div>
                 <div className="right">${totalCharge}</div>
               </div>
             </div>
