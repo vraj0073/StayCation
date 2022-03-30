@@ -19,7 +19,7 @@ const Room = (props) => {
                   }
                   return result.json();
             }).then((item) => {
-                let data = item.data.filter((i) => i.email === props.email);
+                let data = item.data.filter((i) => i.email === localStorage.userEmail);
                 console.log("Fetch Successful", data);
                 setRooms(data);
               })
