@@ -19,7 +19,7 @@ const BlogList=({targetWord})=>{
         const fetchBlogResponse=await fetch(apiURL)
         const dataToList=await fetchBlogResponse.json();
         setBlogs(dataToList.articles)
-        setFlag(false)
+        setFlag(false)   
     }
 
     // Fetch list of blogs that satisfies user's input

@@ -13,8 +13,10 @@ import '../../css/SearchPage.css'
 
 export const SearchPage = () => {
 
-  const [searchValue,setSearchValue]=useState('halifax');
-
+  const [location, setLocation]=useState('');
+  const [duration,setDuration]=useState('Days')
+  const [checkInDate, setCheckInDate] = useState(new Date());
+  const [checkOutDate, setCheckOutDate] = useState(new Date());
   async function simpleSearch(e,value){
     e.preventDefault();
     console.log("simple search :"+value );
@@ -22,7 +24,6 @@ export const SearchPage = () => {
 
   return (
    <>
-    {/* <div > */}
     <div className='col'  >
       
       <div className="header" >
@@ -47,16 +48,17 @@ export const SearchPage = () => {
               </Container>
           </Navbar>
         </div>    
-      </div>
-    
+      </div>  
     </div>
+    <div>
+
     <h2 className='title'>Simple Search</h2>
     <div className="input-group mb-3" style={{paddingLeft:"25px",paddingTop:"25px"}}>
   <input 
     type="text" 
     className="simplesearch" 
-    placeholder="Recipient's username" 
-    aria-label="Recipient's username" 
+    placeholder="e.g Halifax..." 
+    aria-label="simpleSearch" 
     aria-describedby="basic-addon2"
     onChange={(e)=>{setSearchValue(e.target.value)}}
   />
@@ -66,12 +68,35 @@ export const SearchPage = () => {
       onSubmit={simpleSearch}>Search
     </button>
   </div>
-</div>
-    {/* </div> */}
-     
-    </>
+    </div>
+    <br/>
+    <div>
+    <h2 className='title'>Custom Search</h2>
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className='labelTxt'>
+            Location
+          </Form.Label>
+          <Form.Control style={{width:"500px",height:"40px"}} onChange={(e)=>{setLocation(e.target.value)}} type="email" placeholder="e.g Halifax" />
+        </Form.Group>
 
-    )}
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label className='labelTxt'>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
+
+</div>
+     
+  </>
+  )}
 
 export default SearchPage;
 

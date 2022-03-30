@@ -56,9 +56,7 @@ import 'react-bootstrap'
       
         <BlogList />
     </div>
-        
     </div>
-     
     </>
     )}
 
