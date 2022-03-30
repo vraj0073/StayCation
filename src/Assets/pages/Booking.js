@@ -12,6 +12,8 @@ import moment from "moment";
 import NavBar from "../../components/NavBar";
 import Navheader from "../../components/Navheader";
 import { da } from "date-fns/locale";
+import { isFirstDayOfMonth } from "date-fns";
+import { cardNumber } from "card-validator/dist/card-number";
 
 const Booking = () => {
   let navigate = useNavigate();
@@ -22,6 +24,35 @@ const Booking = () => {
 
   const [numberOfNights, setNumberOfNights] = useState();
   const [totalCharge, setTotalCharge] = useState();
+
+  const [cardError, setCardError] = useState("");
+  const [expError, setExpError] = useState("");
+  const [cvvError, setCvvError] = useState("");
+  const [postalError, setPostalError] = useState("");
+
+  const validation = () => {
+    let flag = true;
+    if (cardNumber.length === 0) {
+      setCardError("Card number cannot be empty");
+      flag = false;
+    }
+
+    if (expiryDate.length === 0) {
+      setCardError("Expiry Date cannot be empty");
+      flag = false;
+    }
+
+    if (cvv.length === 0) {
+      setCardError("CVV number cannot be empty");
+      flag = false;
+    }
+
+    if (postalCode.length === 0) {
+      setCardError("Postal Code cannot be empty");
+      flag = false;
+    }
+    return flag;
+  };
 
   const calculateNumberOfNights = () => {
     // var checkIn = new Date(bookingInfo.checkInDate);
@@ -121,13 +152,14 @@ const Booking = () => {
       });
   };
 
-  const [creditCardNumber, setCreditCardNumber] = useState();
-  const [cvv, setCvv] = useState();
-  const [expiryDate, setExpiryDate] = useState();
+  const [creditCardNumber, setCreditCardNumber] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   return (
     <>
-      {localStorage.userEmail!=null && <Navheader />}
-      {localStorage.userEmail==null && <NavBar />}
+      {localStorage.userEmail != null && <Navheader />}
+      {localStorage.userEmail == null && <NavBar />}
       <div className="title">
         <div className="title-div">
           <button
@@ -209,6 +241,7 @@ const Booking = () => {
             {/* <input className="in" placeholder="Credit/debit Card"></input> */}
             <input
               className="in"
+              name="card"
               placeholder="Card Number"
               value={creditCardNumber}
               onKeyPress={(event) => {
@@ -222,9 +255,11 @@ const Booking = () => {
                 }
               }}
             ></input>
+            <p>{cardError.length > 0 ? { cardError } : ""}</p>
             <div className="number" style={{ display: "flex" }}>
               <input
                 className="in half"
+                name="exp"
                 placeholder="Expiration"
                 value={expiryDate}
                 onKeyPress={(event) => {
@@ -242,8 +277,11 @@ const Booking = () => {
                   <>invalid date</>
                 )} */}
               </input>
+              {expError.length > 0 ? <p>{expError}</p> : <></>}
+              {/* <p>{cardError.length > 0 ? { cardError } : ""}</p> */}
               <input
                 className="in half"
+                name="cvv"
                 placeholder="CVV"
                 value={cvv}
                 onKeyPress={(event) => {
@@ -257,8 +295,18 @@ const Booking = () => {
                   }
                 }}
               ></input>
+              {cvvError.length > 0 ? <p>{cvvError}</p> : <></>}
             </div>
-            <input className="in" placeholder="Postal Code"></input>
+            <input
+              className="in"
+              name="postal"
+              placeholder="Postal Code"
+              value={postalCode}
+              onChange={(e) => {
+                setPostalCode(e.target.value);
+              }}
+            ></input>
+            {postalCode.length > 0 ? <p>{postalCode}</p> : <></>}
           </div>
           <div className="booking-div__item-title booking-div__item-content">
             <button
@@ -272,6 +320,7 @@ const Booking = () => {
             <button
               className="booking-button"
               onClick={() => {
+                if (!validation()) return;
                 if (localStorage.getItem("userEmail") == null)
                   alert("Please LOGIN to confirm your booking!!");
                 else confirmBooking();
