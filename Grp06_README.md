@@ -3,7 +3,6 @@
 - _Date Created_: 23 March 2022
 - _Last Modification Date_: 2 March 2022
 - _Git Group Repo URL_:https://git.cs.dal.ca/kahodariya/csci-5709-group-06-project/-/tree/master
-- _Git Group Repo Individual branch URL_: https://git.cs.dal.ca/kahodariya/csci-5709-group-06-project/-/tree/kishan
 
 ## Authors
 
