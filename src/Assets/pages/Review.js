@@ -9,7 +9,7 @@ function Review() {
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
     React.useEffect(() => {
-        axios.get("http://localhost:8080/review/get/" + userEmail).then((response) => {
+        axios.get("https://node-a3.herokuapp.com/review/get/" + userEmail).then((response) => {
             setRetrievedData({reviews: response.data})
         });
     }, []);
@@ -68,7 +68,7 @@ function Review() {
                                     <button className="reviews-btn" type="button" onClick={() => {
                                         deleteDiv(item._id);
                                         axios
-                                            .delete("http://localhost:8080/review/delete/" + item._id)
+                                            .delete("https://node-a3.herokuapp.com/review/delete/" + item._id)
                                             .then((response) => {
                                                 alert("Review deleted!");
                                                 console.log(response);
