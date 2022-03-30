@@ -2,19 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import Navheader from "../../components/Navheader";
-import {
-  Card,
-  Container,
-  Form,
-  FormControl,
-  Button,
-  ButtonGroup,
-  Col,
-  Row,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
 
 const SearchPage = () => {
   let navigate = useNavigate();

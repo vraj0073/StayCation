@@ -13,22 +13,12 @@ import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import "moment";
-import {
-  Card,
-  Container,
-  Form,
-  FormControl,
-  Button,
-  ButtonGroup,
-  Col,
-  Row,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
+import NavBar from "../../components/NavBar";
+import Navheader from "../../components/Navheader";
 // import "react-date-range/dist/styles.css"; // main style file
 // import "react-date-range/dist/theme/default.css"; // theme css file
 // import { DateRangePicker } from "react-date-range";
+
 const Room = () => {
   console.log("ROOM Comp.");
   // console.log(room);
@@ -124,49 +114,9 @@ const Room = () => {
 
   return (
     <>
-      <div className="col">
-        <div className="header">
-          <div className="header-items">
-            <button>S</button>taycation
-            <Navbar collapseOnSelect expand="lg">
-              <Container className="d-flex" id="homenavigation">
-                <Navbar.Brand href="#home" className="header-navbar">
-                  Home
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                  <Nav className="me-auto">
-                    <Nav.Link href="/blogs" className="header-content">
-                      Blogs
-                    </Nav.Link>
-                    <Nav.Link href="#pricing" className="header-content">
-                      Search
-                    </Nav.Link>
-                    <Nav.Link href="#pricing" className="header-content">
-                      About
-                    </Nav.Link>
-                    <Nav.Link href="#pricing" className="header-content">
-                      Contact
-                    </Nav.Link>
-                    <NavDropdown
-                      title="Login"
-                      id="title"
-                      className="header-content"
-                    >
-                      <NavDropdown.Item href="Register">
-                        New User
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="Login">
-                        Existing User
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </Nav>
-                </Navbar.Collapse>
-              </Container>
-            </Navbar>
-          </div>
-        </div>
-      </div>
+      {localStorage.userEmail != null && <Navheader />}
+      {localStorage.userEmail == null && <NavBar />}
+
       <div className="room-wrapper">
         <div className="room-title">
           <div className="room-title__header">{room.name}</div>
@@ -193,8 +143,8 @@ const Room = () => {
               </span>
               <span
                 className="save" */}
-                {/* className={saved ? "pink" : ""} */}
-                {/* onClick={(e) => {
+            {/* className={saved ? "pink" : ""} */}
+            {/* onClick={(e) => {
                   e.preventDefault();
                   setSaved(!saved);
                   console.log(saved);
