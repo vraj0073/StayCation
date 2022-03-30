@@ -138,7 +138,7 @@ const Createlisting = () => {
         <Navheader/>
       </header>
       <Sidebar></Sidebar>
-      <p className = "title">Create Listing</p>
+      <p className = "title-label">Create Listing</p>
       <form
         className="form-group"
         onSubmit={(event) => {
@@ -151,16 +151,16 @@ const Createlisting = () => {
         }}
       >
         <div className="form">
-          <div className="col-md-10">
-            <label className="control-label col-sm-2" htmlFor="placename">
+          <div className="col-md-10" id="form-el">
+            <label className="control-label" htmlFor="placename">
               Name
             </label>
             <input
               type="text"
               className="form-control"
-              id="placename"
+              id="input"
               value={placename}
-              placeholder="Enter Name"
+              placeholder="Enter Name for your place"
               onChange={nameChangeHandler}
               onBlur={validateName}
             />
@@ -168,14 +168,14 @@ const Createlisting = () => {
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="hostName">
               Hosted By{" "}
             </label>
             <input
               type="text"
               className="form-control"
-              id="hostName"
+              id="input"
               placeholder="Enter your name"
               onChange={hostnameChangeHandler}
               onBlur={validateHostName}
@@ -184,113 +184,113 @@ const Createlisting = () => {
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="guestSize">
               Guest Size{" "}
             </label>
             <input
               type="number"
               className="form-control"
-              id="guestSize"
+              id="input"
               placeholder="Enter guest size"
               onChange={guestSizeChangeHandler}
             />
           </div>
         </div>
         <div className="form">
-          <div className="col-md-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="placename">
               Bedrooms
             </label>
             <input
               type="number"
               className="form-control"
-              id="bedroom"
+              id="input"
               value={bedroom}
-              placeholder="Enter Bedrooms"
+              placeholder="Enter number of bedrooms"
               onChange={bedroomChangeHandler}
             />
           </div>
           </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="beds">
               Beds{" "}
             </label>
             <input
               type="number"
               className="form-control"
-              id="beds"
+              id="input"
               placeholder="Enter number of beds"
               onChange={bedsChangeHandler}
             />
           </div>
         </div>
         <div className="form">
-          <div className="col-lg-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="bath">
               Baths{" "}
             </label>
             <input
               type="number"
               className="form-control"
-              id="bath"
-              placeholder="Enter number os baths"
+              id="input"
+              placeholder="Enter number of baths"
               onChange={bathChangeHandler}
             />
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="perNightCharges">
               Price per day{" "}
             </label>
             <input
               type="number"
               className="form-control"
-              id="perNightCharges"
-              placeholder="Enter yprice for a day"
+              id="input"
+              placeholder="Enter price per day"
               onChange={priceChangeHandler}
             />
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="cleaningFee">
               Cleaning Fee{" "}
             </label>
             <input
               type="number"
               className="form-control"
-              id="cleaningFee"
+              id="input"
               placeholder="Enter Cleaning Fee"
               onChange={cleaningFeeChangeHandler}
             />
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="serviceFee">
               Service Fee{" "}
             </label>
             <input
               type="number"
               className="form-control"
-              id="serviceFee"
+              id="input"
               placeholder="Enter Service Fee"
               onChange={serviceFeeChangeHandler}
             />
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="description">
               Describe your place{" "}
             </label>
             <input
               type="textbox"
               className="form-control"
-              id="description"
+              id="input"
               placeholder="Description"
               onChange={descriptionChangeHandler}
               onBlur={validateDescription}
@@ -299,7 +299,7 @@ const Createlisting = () => {
           </div>
         </div>
         <div className="form">
-          <div className="col-sm-offset-2 col-sm-10">
+          <div className="col-sm-10" id="form-el">
             <button type="submit" className="btn">
               Submit
             </button>
