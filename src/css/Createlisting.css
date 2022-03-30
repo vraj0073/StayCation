@@ -1,0 +1,26 @@
+/*
+Author: Prarthana Parmar
+Description: This is the css file for Createlisting component.
+*/
+
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1cm;
+}
+
+.title{
+    font-size: large;
+    color:rgb(227, 28, 95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    border-radius: 1%;
+    background-color: rgb(227, 28, 95);
+    border-radius: 10%
+}
