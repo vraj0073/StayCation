@@ -71,7 +71,7 @@ const Createlisting = () => {
   const submitHandler = (event) => {
         const data = {
             name: placename,
-            email: "psp4545@gmail.com",
+            email: localStorage.userEmail,
             hostName: hostName,
             guestSize: guestSize,
             bedroom : bedroom,

@@ -19,8 +19,9 @@ const Room = (props) => {
                   }
                   return result.json();
             }).then((item) => {
-                console.log("Fetch Successful", item);
-                setRooms(item.data);
+                let data = item.data.filter((i) => i.email === props.email);
+                console.log("Fetch Successful", data);
+                setRooms(data);
               })
               .catch((err) => {
                 throw err;

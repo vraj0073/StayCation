@@ -19,7 +19,6 @@ import Forget_Password_Email from "./components/Forget_Password_Email";
 import New_Password from "./components/New_Password";
 import Customer from "./components/Customer";
 import { EditProfile } from "./components/EditProfile";
-// import Home from "./components/Home";
 import Review from "./Assets/pages/Review";
 import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
