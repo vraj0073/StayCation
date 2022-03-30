@@ -14,10 +14,10 @@ export const Login = () => {
   React.useEffect(() => {
     const ac = new AbortController();
     return () => ac.abort();
-  })
-  
+  });
+
   const history = useNavigate();
-  
+
   const emailRegex = /\S+@\S+\.\S+/;
   const [EmailFlag,setEmailFlag] = useState(1);
   const [Emailmessage, setEmailMessage] = useState('');
@@ -29,7 +29,7 @@ export const Login = () => {
   const [usertype, setUserType] = useState(null);
 
   useEffect(() => {
-    console.log("in useeffect" + Response)  
+    console.log("in useeffect" + Response);
   }, [Response]);
   const sendData = async () =>{
     console.log("send daata"+Email)
@@ -43,7 +43,7 @@ export const Login = () => {
             alert("Required field empty")
             
           }
-          
+          localStorage.setItem("userEmail", Email);
           console.log(response.data);
           if(response.data.role === "host"){
             history("/viewlisting", {state:response.data.email})
@@ -65,33 +65,30 @@ export const Login = () => {
       setEmailMessage(" ");
       setEmail(email);
       setEmailFlag(0);
-      
     } else {
-      setEmailMessage('Please enter a valid email!');
+      setEmailMessage("Please enter a valid email!");
       setEmailFlag(1);
     }
   };
-  const validatehome= ()=>{
-    history('/home')
-  }
+  const validatehome = () => {
+    history("/home");
+  };
   const validatePassword = (e) => {
     var password = e.target.value;
-    if(password ){
-     
+    if (password) {
       setPassword(password);
-       setPasswordFlag(0);
-}
-     else{
-       setPasswordFlag(1);
-     }
+      setPasswordFlag(0);
+    } else {
+      setPasswordFlag(1);
+    }
   };
-  const validateSubmit = (e)=> {
-    sendData()
-}
-  
+  const validateSubmit = (e) => {
+    sendData();
+  };
+
   return (
     <>
-    <div className="header">
+      <div className="header">
         <div className="header-items">
           <button onClick={validatehome}>S</button>taycation
         </div>
