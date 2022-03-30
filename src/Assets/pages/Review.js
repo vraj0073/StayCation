@@ -9,7 +9,7 @@ function Review() {
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
     React.useEffect(() => {
-        axios.get("http://localhost:8080/review/get/" + userEmail).then((response) => {
+        axios.get("https://node-a3.herokuapp.com/review/get/" + userEmail).then((response) => {
             setRetrievedData({reviews: response.data})
         });
     }, []);
