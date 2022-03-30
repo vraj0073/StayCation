@@ -72,7 +72,7 @@ function ReviewWrite() {
                         setIsSubmitted(true);
                         if (newContent !== '' && number !== 0) {
                             console.log(number);
-                            axios.post("http://localhost:8080/review/post", {
+                            axios.post("https://node-a3.herokuapp.com/review/post", {
                                 userEmail: userEmail,
                                 roomId: roomId,
                                 roomName: roomName,
