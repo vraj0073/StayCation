@@ -47,7 +47,7 @@ console.log(props.id);
                 <Card.Text className = 'content'>Cleaning Fee:  {props.cleaningFee}</Card.Text>
                 <Card.Text className = 'content'>Service Fee:  {props.serviceFee}</Card.Text>
                 <Card.Text className = 'content'>Description:  {props.description}</Card.Text>
-                <div>
+                <div id="buttn">
         <Button type = 'submit' className = 'button' onClick={deleteHandler}>Delete</Button>
         </div>
             </Card.Body>

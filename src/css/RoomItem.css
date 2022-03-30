@@ -36,9 +36,16 @@ Description: This is the css file for RoomItem component.
 
 .button {
     text-align: center;
+    align-items: center;
     background-color: rgb(227, 28, 95);
     color: white;
     width: 100%;
     border-radius: 10%;
     width: 10%;
+}
+
+#buttn{
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
