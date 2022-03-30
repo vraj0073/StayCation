@@ -25,3 +25,9 @@
 - BlogItem.jsx (with BlogItem.css)
 - BlogList.jsx (with BlogList.css)
 - BLogPage.jsx (with BlogPage.jsx)
+
+### Qinyue Wang
+
+- Review.js (with Review.css)
+- ReviewWrite.js (with ReviewEdit.css)
+- ReviewEdit.js (with ReviewEdit.css)
