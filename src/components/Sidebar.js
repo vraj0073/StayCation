@@ -12,9 +12,12 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import '../css/Sidebar.css';
 import { IconContext } from 'react-icons';
+import { useNavigate } from "react-router-dom";
+
 const Sidebar = (props) =>{
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
+    const navigate = useNavigate();
 
     return(
         <>

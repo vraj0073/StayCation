@@ -8,6 +8,7 @@ import '../css/Header.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
+import Host from "./Host"
 
 export const Login = () => {
   React.useEffect(() => {
@@ -25,6 +26,8 @@ export const Login = () => {
   const [Password, setPassword] = useState('');
   const [Error, setError] = useState('');
   const [Response, setResponse] = useState('');
+  const [usertype, setUserType] = useState(null);
+
   useEffect(() => {
     console.log("in useeffect" + Response)  
   }, [Response]);
@@ -40,10 +43,15 @@ export const Login = () => {
             alert("Required field empty")
             
           }
-          history("/Profile",{state:Email})
+          
           console.log(response.data);
-          setResponse(response.data);
-          console.log("Error her" + Error)  
+          if(response.data.role === "host"){
+            history("/viewlisting", {state:response.data.email})
+          }else{
+            history("/Profile",{state:Email})
+            setResponse(response.data);
+            console.log("Error her" + Error)  
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -91,7 +99,7 @@ export const Login = () => {
       </div>
 <form>
     <h2 className='heading'>Login</h2>
-  <div className="form-group">
+  <div className="form-group" id="login">
     <label >Email address</label>
     <input type="email" onChange={validateEmail} className="form-control" placeholder="Enter email"/>
   </div>

@@ -14,10 +14,11 @@ import Forget_Password_Email from "./components/Forget_Password_Email";
 import New_Password from "./components/New_Password";
 import Customer from "./components/Customer";
 import { EditProfile } from "./components/EditProfile";
-import Home from "./components/Home";
+import Home from "./Assets/pages/Home";
 import Review from "./Assets/pages/Review";
 import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
+import Createlisting from "./components/Createlisting";
 
 function App() {
   return (
@@ -36,14 +37,13 @@ function App() {
           <Route path='/Logout' element={<Login/>} ></Route>
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/search" element={<SearchPage />} />
-         <Route
-            path="th"
-            element={<TravelHistory email="vrajjadhav0073@gmail.com" />}
-          />
+          <Route  path="th" element={<TravelHistory email="vrajjadhav0073@gmail.com" />}/>
           <Route path="wl" element={<WishList />} />
-            <Route path="/user-reviews" element={<Review/>}></Route>
-            <Route path="/edit-review" element={<ReviewEdit/>}></Route>
-            <Route path="/write-review" element={<ReviewWrite/>}></Route>
+          <Route path="/user-reviews" element={<Review/>}></Route>
+          <Route path="/edit-review" element={<ReviewEdit/>}></Route>
+          <Route path="/write-review" element={<ReviewWrite/>}></Route>
+          <Route path="/viewlisting" element={<Host/>}/>
+          <Route path="/createlisting" element={<Createlisting/>}/> 
         </Routes>
       </BrowserRouter>
     </div>

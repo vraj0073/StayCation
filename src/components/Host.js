@@ -5,12 +5,15 @@ Description: This component renders the listings or allows host user to create h
 
 import React from "react";
 import { useEffect, useState } from 'react';
-import Header from './Header';
 import Sidebar from'./Sidebar';
 import Createlisting from './Createlisting';
 import Room from './Rooms';
+import Navheader from './Navheader';
+import { useLocation } from "react-router-dom";
 
-const Host = () => {
+const Host = (props) => {
+  const location = useLocation();
+  console.log(location.state);
   const [createboolean, setroom ] = useState(false);
   const [viewboolean, setview ] = useState(true);
 
@@ -28,6 +31,8 @@ const Host = () => {
                   return result.json();
             }).then((item) => {
                 console.log("Fetch Successful", item);
+                let data = item.data;
+                console.log(data.filter((i) => i.email === "psp4545@gmail.com"));
                 setRooms(item.data);
               })
               .catch((err) => {
@@ -47,10 +52,10 @@ const Host = () => {
   return (
     <div>
       <header>
-      <Header/>
+      <Navheader/>
       </header>
       <Sidebar props viewlisting={viewroom} createlisting={createroom}/>
-      {viewboolean && <Room item = {rooms}/>}
+      {viewboolean && <Room item = {rooms} email = {location.state}/>}
       {createboolean && <Createlisting/>}
       
     </div>

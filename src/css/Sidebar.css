@@ -4,7 +4,7 @@ Description: This is the css file for Createlisting component.
 */
 .navbar {
     background-color: rgb(227, 28, 95);
-    height: 80px;
+    height: 20%;
     display: flex;
     justify-content: start;
     align-items: center;
