@@ -4,6 +4,7 @@ Description: This component allows user to search for accomodation.
 */
 
 import React,{ useEffect,useState} from 'react';
+import DatePicker from "react-datepicker";
 import { Card, Container,Form, FormControl,DropdownButton,Dropdown, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import '../../css/Home.css'
@@ -14,9 +15,8 @@ import '../../css/SearchPage.css'
 export const SearchPage = () => {
 
   const [location, setLocation]=useState('');
-  const [duration,setDuration]=useState('Days')
-    const [accomodationType,setAccomodationType]=useState("long term")
-
+  const [duration,setDuration]=useState('days');
+  const [accomodationType,setAccomodationType]=useState("long term");
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   async function simpleSearch(e,value){
@@ -26,8 +26,7 @@ export const SearchPage = () => {
 
   return (
    <>
-    <div className='col'  >
-      
+    <div className='col'  > 
       <div className="header" >
         <div className="header-items">
           <button>S</button>taycation
@@ -87,7 +86,7 @@ export const SearchPage = () => {
           <Form.Group className="mb-3" id="accomodation">
           <Form.Label className='labelTxt'>Accomodation-Type</Form.Label>
            <div style={{paddingLeft:"20px"}}>   
-           <DropdownButton  id="accomodation" title="Dropdown button">
+           <DropdownButton  id="accomodation" title="Select one">
             <Dropdown.Item onClick={(e)=>{setAccomodationType("long-term"),console.log("#1"+accomodationType)}} value="long-term">long-term</Dropdown.Item>
             <Dropdown.Item onClick={(e)=>{setAccomodationType("short-term"),console.log("#2"+accomodationType)}} value="short-term">short-term</Dropdown.Item>
           </DropdownButton>
@@ -97,11 +96,23 @@ export const SearchPage = () => {
         <Form.Group className="mb-3" id="duration">
           <Form.Label className='labelTxt'>Duration</Form.Label>
            <div style={{paddingLeft:"20px"}}>   
-          <Form.Control onChange={(e)=>{ setDuration(e.target.name),console.log(e.target.value)}} id="accomodation" placeholder="Duration" />
+           <DropdownButton  id="duration" title="Select one">
+            <Dropdown.Item onClick={(e)=>{setDuration("months"),console.log("#1"+duration)}} value="months">months</Dropdown.Item>
+            <Dropdown.Item onClick={(e)=>{setDuration("days"),console.log("#2"+duration)}} value="days">days</Dropdown.Item>
+          </DropdownButton>
           </div>
         </Form.Group>
-
-        <Button variant="primary" type="submit">
+    
+        <Form.Group className="mb-3" id="formCustomLocation">
+          <Form.Label className='labelTxt'>
+            CheckIn-Date
+          </Form.Label>
+          <div style={{paddingLeft:"20px"}}>
+            <DatePicker popperPlacement="bottom-start" selected={checkInDate} onChange={(date) => setCheckInDate(date.target.value)} />      
+          </div>
+         </Form.Group>
+        <br />
+        <Button className='' variant="primary" type="submit">
           Submit
         </Button>
       </Form>
