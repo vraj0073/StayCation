@@ -1,0 +1,22 @@
+.simplesearch {
+  padding-left: 10px;
+  align-self: center;
+  display: flex;
+  width: 700px;
+  height: 40px;
+  text-align: left;
+}
+
+.labelTxt {
+  text-align: left;
+  justify-content: left;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 20px;
+}
+
+.customSearchBox {
+  width: 1px;
+  height: 40px;
+}
