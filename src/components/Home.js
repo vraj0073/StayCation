@@ -6,7 +6,7 @@ import React from 'react'
 import '../css/Header.css'
 import 'react-bootstrap'
 import '../css/Customer.css'
-import { Card, Container, Button, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Card, Container, Button, Form, FormControl, Nav, Navbar, NavDropdown, Row,Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import '../css/Home.css'
 
@@ -20,11 +20,14 @@ export const Home = () => {
     <div className='col'  >
       
     <div className="header" >
+      
       <div className="header-items">
-          
+      <Row>
+        <Col>
         <button>S</button>taycation
+        </Col>
         
-          
+          <Col>
         <Navbar collapseOnSelect expand="lg" >
   <Container className='container' id='homenavigation'>
   <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
@@ -35,19 +38,21 @@ export const Home = () => {
       <Nav.Link href="/search" className='header-content'>Search</Nav.Link>
       <Nav.Link href="#pricing" className='header-content'>About</Nav.Link>
       <Nav.Link href="#pricing" className='header-content'>Contact</Nav.Link>
-      <NavDropdown title="Login" id='title'  className='header-content'>
-        <NavDropdown.Item href="Register">New User</NavDropdown.Item>
-        <NavDropdown.Item href="Login">Existing User</NavDropdown.Item>
+      <NavDropdown title="Login"  id='title'  className='dropleft header-content'>
+        <NavDropdown.Item  href="Register">Sign Up</NavDropdown.Item>
+        <NavDropdown.Item href="Login">Sign In</NavDropdown.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
   </Container>
 </Navbar>
-
+</Col>
+</Row>
       </div>
-      <div className="header-items">  
       
-      </div>
+      {/* <div className="header-items">  
+      
+      </div> */}
       
     </div>
     

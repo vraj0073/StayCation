@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
 import '../css/Header.css'
 import 'react-bootstrap'
 import '../css/Customer.css'
-import { Card, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Card, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import EditProfile from './EditProfile'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -49,8 +49,8 @@ export const Customer = (props) => {
       }
     })
     .then((responce) => {
-        console.log("users" +responce.data.customer)
-        setalldata(responce.data.customer)
+        console.log("users" +responce)
+          setalldata(responce.data.customer)
         
 
     }).catch(function (error) {
@@ -74,7 +74,9 @@ export const Customer = (props) => {
 marginLeft: 550,
 marginTop: 10 }}>Profile Page</h1>
 </div>
-<div class="side-container">
+<Row>
+<Col lg={4}>
+  <div className="side-container">
     <div>
     <img className='imagetag' src={require('../Assets/images/tent.jpg')} style={{
   width: 250,
@@ -90,7 +92,7 @@ marginTop: 10 }}>Profile Page</h1>
     </div>
     <br></br>
     <Card style={{ width: '16rem',position: 'relative',left:'16px'}  } id='leftDialog' className='cardborderLeft'>
-  <Card.Body>
+      <Card.Body>
     
     <Card.Text className='info'>
     <h4>Lives In :</h4>
@@ -105,21 +107,21 @@ marginTop: 10 }}>Profile Page</h1>
   </Card.Body>
 </Card>
 </div>
-<div class="side-container-right" >
+</Col>
+<Col lg={7} className="side-container-right">
 <Card style={{ width: '39rem' }  } id='cardborder'>
-  <Card.Body style={{ marginBottom: '5.5rem' }}>
-
+  <Card.Body style={{ marginBottom: '-0.75rem' }}>
     <Card.Text className='info'>
       <div>   
     <h4>Bio :</h4>
     <div className='subcontainer'>
     <Card style={{ width: '25rem', height: '10rem' }}>
-  <Card.Body>
-    <Card.Text>
-     {alldata.bio}
-    </Card.Text>
-  </Card.Body>
-</Card>
+      <Card.Body>
+        <Card.Text>
+          {alldata.bio}
+        </Card.Text>
+      </Card.Body>
+    </Card>
     </div>
     </div>
     <br></br>
@@ -164,13 +166,11 @@ marginTop: 10 }}>Profile Page</h1>
 </Card>
     </div>
     </div>
-    
-    
       </Card.Text>
   </Card.Body>
 </Card>
-  </div>
-    
+</Col>
+</Row>
     </>
   )
 }

@@ -38,8 +38,7 @@ export const Login = () => {
         .then(function (response) {
           if(EmailFlag === 1 && PasswordFlag === 1){
             alert("Required field empty")
-            
-          }
+             }
           history("/Profile",{state:Email})
           console.log(response.data);
           setResponse(response.data);
@@ -48,7 +47,12 @@ export const Login = () => {
         .catch(function (error) {
           console.log(error);
           setError(error)
+          if(EmailFlag === 1 && PasswordFlag === 1){
+            alert("Required field empty")
+             }
+             else{
           alert("Invalid username or password")
+        }
         });
   }
   const validateEmail = (event) => {

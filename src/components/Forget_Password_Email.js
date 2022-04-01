@@ -73,7 +73,7 @@ export const Forget_Password_Email = () => {
       <label >Email Address :</label>
       <input id='input' onChange={validateEmail} type="email" placeholder="Enter email"/>
     </div>
-    <small className="text-muted" id='loginmessage'>{Emailmessage}</small>
+    <small className="text-muted" id='forgetmessage'>{Emailmessage}</small>
     <div>
     <button type="button" id='forgetpasswordbutton' onClick={validateSubmit} className="btn btn-primary">Submit</button>
    </div>

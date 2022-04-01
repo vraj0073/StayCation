@@ -7,7 +7,7 @@ import '../css/Header.css'
 import 'react-bootstrap'
 import '../css/Customer.css'
 import '../css/EditProfile.css'
-import { Card, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Card, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -97,6 +97,8 @@ export const EditProfile = () => {
   return (
       <>
       <Navheader/>
+    <Row>
+    <Col lg={4}>
     
       <div className="side-container">
     <div>
@@ -115,9 +117,10 @@ export const EditProfile = () => {
       <input type="file" onChange={imageUpload}/>
     </div>
     </div>
-    <div class="side-container-right">
+    </Col>
+    <Col lg={7} className="side-container-right">
 <Card style={{ width: '39rem' }  } id='cardborder'>
-  <Card.Body>
+  <Card.Body style={{ marginBottom: '-0.75rem' }}>
     
     <Card.Text className='info'>
       <div>   
@@ -167,7 +170,8 @@ export const EditProfile = () => {
     </Card.Text>
   </Card.Body>
 </Card>
-  </div>
+  </Col>
+  </Row>
     </>
   )
 }
