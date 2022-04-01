@@ -6,23 +6,34 @@ Description: This component allows user to search for accomodation.
 import React,{ useEffect,useState} from 'react';
 import DatePicker from "react-datepicker";
 import { Card, Container,Form, FormControl,DropdownButton,Dropdown, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image'
-import '../../css/Home.css'
-import '../../css/Header.css'
-import 'react-bootstrap'
-import '../../css/SearchPage.css'
+import Image from 'react-bootstrap/Image';
+import { useNavigate } from 'react-router-dom';
+import '../../css/Home.css';
+import '../../css/Header.css';
+import 'react-bootstrap';
+import '../../css/SearchPage.css';
 require ('react-datepicker/dist/react-datepicker.css');
 
 export const SearchPage = () => {
 
-  const [location, setLocation]=useState('');
+  const [location, setLocation]=useState('halifax');
   const [duration,setDuration]=useState('days');
   const [accomodationType,setAccomodationType]=useState("long term");
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
-  async function simpleSearch(e,value){
+  const history = useNavigate();
+    const SearchResults = ()=>{
+    history("searchresults")
+  }
+  
+  async function simpleSearch(e){
     e.preventDefault();
-    console.log("simple search :"+value );
+    console.log("simple search :"+location);
+  }
+
+  async function customSearch(){
+    e.preventDefault();
+    console.log("custom search :");
   }
 
   return (
@@ -54,26 +65,29 @@ export const SearchPage = () => {
     </div>
     <div>
 
+
     <h2 className='title'>Simple Search</h2>
-    <div className="input-group mb-3" style={{paddingLeft:"25px",paddingTop:"25px"}}>
-  <input 
-    type="text" 
-    className="simplesearch" 
-    placeholder="e.g Halifax..." 
-    aria-label="simpleSearch" 
-    aria-describedby="basic-addon2"
-    onChange={(e)=>{setSearchValue(e.target.value)}}
-  />
-  <div className="input-group-append">
-    <button className="btn btn-outline-secondary" type="button"
-      style={{paddingLeft:"20p x"}}
-      onClick={(e)=>{simpleSearch(e,searchValue)}}
-      onSubmit={simpleSearch}>Search
-    </button>
-  </div>
-    </div>
-    <br/>
-    <div>
+    <Form >
+
+      <div className="input-group mb-3" style={{paddingLeft:"25px",paddingTop:"25px"}}>
+        <Form.Control 
+          type="text" 
+          className="simplesearch" 
+          placeholder="e.g Halifax..." 
+          aria-label="simpleSearch" 
+          aria-describedby="basic-addon2"
+          onChange={(e)=>{setLocation(e.target.value),console.log(location)}}
+        />
+        <div className="input-group-append">
+          <Button variant="primary" type="submit"
+            style={{paddingLeft:"20p x"}}
+            onClick={(e)=>simpleSearch(e)}>Search
+          </Button>
+        </div>
+      </div>
+    </Form>
+      <br/>
+      <div>
     <h2 className='title'>Custom Search</h2>
       <Form>
         <Form.Group className="mb-3" id="formCustomLocation">
@@ -125,9 +139,11 @@ export const SearchPage = () => {
           </Row>
          </Form.Group>
         <br />
-        <Button className='customSearchBtn' variant="primary" type="submit">
+        <div className='customSearchBtn'>
+        <Button style={{backgroundColor:"rgb(218, 26, 138)"}} variant="secondary" type="submit">
           Submit
         </Button>
+        </div>
       </Form>
     </div>
 
