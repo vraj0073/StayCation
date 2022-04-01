@@ -11,6 +11,7 @@ import '../../css/Home.css'
 import '../../css/Header.css'
 import 'react-bootstrap'
 import '../../css/SearchPage.css'
+require ('react-datepicker/dist/react-datepicker.css');
 
 export const SearchPage = () => {
 
@@ -65,6 +66,7 @@ export const SearchPage = () => {
   />
   <div className="input-group-append">
     <button className="btn btn-outline-secondary" type="button"
+      style={{paddingLeft:"20p x"}}
       onClick={(e)=>{simpleSearch(e,searchValue)}}
       onSubmit={simpleSearch}>Search
     </button>
@@ -102,17 +104,28 @@ export const SearchPage = () => {
           </DropdownButton>
           </div>
         </Form.Group>
-    
         <Form.Group className="mb-3" id="formCustomLocation">
-          <Form.Label className='labelTxt'>
-            CheckIn-Date
-          </Form.Label>
-          <div style={{paddingLeft:"20px"}}>
-            <DatePicker popperPlacement="bottom-start" selected={checkInDate} onChange={(date) => setCheckInDate(date.target.value)} />      
-          </div>
+           <Row>
+            <Col>
+              <Form.Label className='labelTxt'>
+                CheckIn-Date
+              </Form.Label>
+              <div style={{paddingLeft:"20px"}}>
+                <DatePicker popperPlacement="bottom-start" selected={checkInDate} onChange={(date) => setCheckInDate(date)} />      
+              </div>
+            </Col>
+            <Col>
+              <Form.Label className='labelTxt'>
+                CheckOut-Date
+              </Form.Label>
+              <div style={{paddingLeft:"20px"}}>
+                <DatePicker popperPlacement="bottom-start" selected={checkOutDate} onChange={(date) => setCheckOutDate (date)} />      
+              </div>         
+           </Col>
+          </Row>
          </Form.Group>
         <br />
-        <Button className='' variant="primary" type="submit">
+        <Button className='customSearchBtn' variant="primary" type="submit">
           Submit
         </Button>
       </Form>
