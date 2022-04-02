@@ -4,6 +4,7 @@ Description: This component allows user to search for accomodation.
 */
 
 import React,{ useEffect,useState} from 'react';
+import axios from "axios";
 import DatePicker from "react-datepicker";
 import { Card, Container,Form, FormControl,DropdownButton,Dropdown, Button,ButtonGroup,Col,Row, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
@@ -21,19 +22,42 @@ export const SearchPage = () => {
   const [accomodationType,setAccomodationType]=useState("long term");
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
+  const [accomodationList,setAccomodationList]=useState([]);
+
   const history = useNavigate();
+
     const SearchResults = ()=>{
     history("searchresults")
   }
   
   async function simpleSearch(e){
     e.preventDefault();
-    console.log("simple search :"+location);
+  //  const API_URL = `http://localhost:5000/search/simplesearch/${location}`;
+    const API_URL = `http://localhost:5000/search/`;
+    try{
+      axios({
+        method: "get",
+        url: API_URL,
+      }).then(function (response) {
+
+        if (response.data.success === 'true') {
+          setAccomodationList(response.data.data)
+          console.log("assign accomodation list")
+          console.log("list of data:"+accomodationList)
+
+        }
+        else{
+          console.log("response empty");
+        }
+      });
+    }catch(e){
+        console.log("Error in retrieving: "+e)
+    }
   }
 
-  async function customSearch(){
+  async function customSearch(e){
     e.preventDefault();
-    console.log("custom search :");
+    console.log("custom search :"+location);
   }
 
   return (
@@ -45,7 +69,7 @@ export const SearchPage = () => {
           <Navbar collapseOnSelect expand="lg" >
               <Container className='d-flex' id='homenavigation'>
                   <Navbar.Brand href="#home" className='header-navbar'>Home</Navbar.Brand>
-                      <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                      <Navbar.Toggle arial-controls="responsive-navbar-nav"/>
                           <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="me-auto">
                                   <Nav.Link href="/blogs" className='header-content'>Blogs</Nav.Link>
