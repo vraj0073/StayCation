@@ -12,13 +12,20 @@ import '../../css/Home.css'
 import '../../css/BlogPage.css'
 import '../../css/Header.css'
 import 'react-bootstrap'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
 
 
- const SearchResult = () => {
-  const history = useNavigate();
+ const SearchResult = ({finalList}) => {
+const history = useNavigate();
   const validhome = ()=>{
     history("home")
+  }
+  useEffect=()=>{
+    if(finalList!=null){
+      console.log("finalList:");
+    }else{
+      console.log("NONE")
+    }
   }
   return (
     <>
@@ -54,10 +61,10 @@ import { useNavigate } from 'react-router-dom';
       </div> 
     </div>
     
-    <h2 className='title'>Articles Just For You</h2>
+    <h2 className='title'>Search Results</h2>
     <div className="section">
       
-      <BlogList />
+      <h2>{finalList}</h2>
     </div>
         
     </div>

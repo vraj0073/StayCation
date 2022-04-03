@@ -23,28 +23,25 @@ export const SearchPage = () => {
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [accomodationList,setAccomodationList]=useState([]);
-
+  const [flag,setFlag]=useState(true)
   const history = useNavigate();
-
-    const SearchResults = ()=>{
-    history("searchresults")
-  }
   
   async function simpleSearch(e){
     e.preventDefault();
   //  const API_URL = `http://localhost:5000/search/simplesearch/${location}`;
-    const API_URL = `http://localhost:5000/search/`;
+    const API_URL = `http://localhost:5000/search/simplesearch/${location}`;
     try{
-      axios({
+      await axios({
         method: "get",
         url: API_URL,
       }).then(function (response) {
 
-        if (response.data.success === 'true') {
-          setAccomodationList(response.data.data)
-          console.log("assign accomodation list")
-          console.log("list of data:"+accomodationList)
-
+        if (response.status === 200) {
+          //convert data to json or array
+          // const responseData= JSON.stringify(response);
+          setAccomodationList(response.data)
+          // console.log("list of data:"+accomodationList)
+          setFlag(false)
         }
         else{
           console.log("response empty");
@@ -59,6 +56,8 @@ export const SearchPage = () => {
     e.preventDefault();
     console.log("custom search :"+location);
   }
+//    useEffect(() => {
+// console.log("list of data"+accomodationList);  }, []);
 
   return (
    <>
@@ -87,90 +86,104 @@ export const SearchPage = () => {
         </div>    
       </div>  
     </div>
+
     <div>
-
-
-    <h2 className='title'>Simple Search</h2>
-    <Form >
-
-      <div className="input-group mb-3" style={{paddingLeft:"25px",paddingTop:"25px"}}>
-        <Form.Control 
-          type="text" 
-          className="simplesearch" 
-          placeholder="e.g Halifax..." 
-          aria-label="simpleSearch" 
-          aria-describedby="basic-addon2"
-          onChange={(e)=>{setLocation(e.target.value),console.log(location)}}
-        />
-        <div className="input-group-append">
-          <Button variant="primary" type="submit"
-            style={{paddingLeft:"20p x"}}
-            onClick={(e)=>simpleSearch(e)}>Search
-          </Button>
-        </div>
-      </div>
-    </Form>
-      <br/>
       <div>
-    <h2 className='title'>Custom Search</h2>
-      <Form>
-        <Form.Group className="mb-3" id="formCustomLocation">
-          <Form.Label className='labelTxt'>
-            Location
-          </Form.Label>
-          <div style={{paddingLeft:"20px"}}>
-          <Form.Control style={{width:"500px",height:"40px"}} onChange={(e)=>{setLocation(e.target.value)}} id="customLocation" placeholder="e.g Halifax" />
-          </div>
-         </Form.Group>
+      {flag
+        ? 
+        <div>
+          <h2 className='title'>Simple Search</h2>
+      <Form >
 
-          <Form.Group className="mb-3" id="accomodation">
-          <Form.Label className='labelTxt'>Accomodation-Type</Form.Label>
-           <div style={{paddingLeft:"20px"}}>   
-           <DropdownButton  id="accomodation" title="Select one">
-            <Dropdown.Item onClick={(e)=>{setAccomodationType("long-term"),console.log("#1"+accomodationType)}} value="long-term">long-term</Dropdown.Item>
-            <Dropdown.Item onClick={(e)=>{setAccomodationType("short-term"),console.log("#2"+accomodationType)}} value="short-term">short-term</Dropdown.Item>
-          </DropdownButton>
+        <div className="input-group mb-3" style={{paddingLeft:"25px",paddingTop:"25px"}}>
+          <Form.Control 
+            type="text" 
+            className="simplesearch" 
+            placeholder="e.g Halifax..." 
+            aria-label="simpleSearch" 
+            aria-describedby="basic-addon2"
+            onChange={(e)=>{setLocation(e.target.value),console.log(location)}}
+          />
+          <div className="input-group-append">
+            <Button variant="primary" type="submit"
+              style={{paddingLeft:"20p x"}}
+              onClick={(e)=>simpleSearch(e)}>Search
+            </Button>
           </div>
-        </Form.Group>
-
-        <Form.Group className="mb-3" id="duration">
-          <Form.Label className='labelTxt'>Duration</Form.Label>
-           <div style={{paddingLeft:"20px"}}>   
-           <DropdownButton  id="duration" title="Select one">
-            <Dropdown.Item onClick={(e)=>{setDuration("months"),console.log("#1"+duration)}} value="months">months</Dropdown.Item>
-            <Dropdown.Item onClick={(e)=>{setDuration("days"),console.log("#2"+duration)}} value="days">days</Dropdown.Item>
-          </DropdownButton>
-          </div>
-        </Form.Group>
-        <Form.Group className="mb-3" id="formCustomLocation">
-           <Row>
-            <Col>
-              <Form.Label className='labelTxt'>
-                CheckIn-Date
-              </Form.Label>
-              <div style={{paddingLeft:"20px"}}>
-                <DatePicker popperPlacement="bottom-start" selected={checkInDate} onChange={(date) => setCheckInDate(date)} />      
-              </div>
-            </Col>
-            <Col>
-              <Form.Label className='labelTxt'>
-                CheckOut-Date
-              </Form.Label>
-              <div style={{paddingLeft:"20px"}}>
-                <DatePicker popperPlacement="bottom-start" selected={checkOutDate} onChange={(date) => setCheckOutDate (date)} />      
-              </div>         
-           </Col>
-          </Row>
-         </Form.Group>
-        <br />
-        <div className='customSearchBtn'>
-        <Button style={{backgroundColor:"rgb(218, 26, 138)"}} variant="secondary" type="submit">
-          Submit
-        </Button>
         </div>
       </Form>
-    </div>
+        <br/>
+        <div>
+      <h2 className='title'>Custom Search</h2>
+        <Form>
+          <Form.Group className="mb-3" id="formCustomLocation">
+            <Form.Label className='labelTxt'>
+              Location
+            </Form.Label>
+            <div style={{paddingLeft:"20px"}}>
+            <Form.Control style={{width:"500px",height:"40px"}} onChange={(e)=>{setLocation(e.target.value)}} id="customLocation" placeholder="e.g Halifax" />
+            </div>
+          </Form.Group>
 
+            <Form.Group className="mb-3" id="accomodation">
+            <Form.Label className='labelTxt'>Accomodation-Type</Form.Label>
+            <div style={{paddingLeft:"20px"}}>   
+            <DropdownButton  id="accomodation" title="Select one">
+              <Dropdown.Item onClick={(e)=>{setAccomodationType("long-term"),console.log("#1"+accomodationType)}} value="long-term">long-term</Dropdown.Item>
+              <Dropdown.Item onClick={(e)=>{setAccomodationType("short-term"),console.log("#2"+accomodationType)}} value="short-term">short-term</Dropdown.Item>
+            </DropdownButton>
+            </div>
+          </Form.Group>
+
+          <Form.Group className="mb-3" id="duration">
+            <Form.Label className='labelTxt'>Duration</Form.Label>
+            <div style={{paddingLeft:"20px"}}>   
+            <DropdownButton  id="duration" title="Select one">
+              <Dropdown.Item onClick={(e)=>{setDuration("months"),console.log("#1"+duration)}} value="months">months</Dropdown.Item>
+              <Dropdown.Item onClick={(e)=>{setDuration("days"),console.log("#2"+duration)}} value="days">days</Dropdown.Item>
+            </DropdownButton>
+            </div>
+          </Form.Group>
+          <Form.Group className="mb-3" id="formCustomLocation">
+            <Row>
+              <Col>
+                <Form.Label className='labelTxt'>
+                  CheckIn-Date
+                </Form.Label>
+                <div style={{paddingLeft:"20px"}}>
+                  <DatePicker popperPlacement="bottom-start" selected={checkInDate} onChange={(date) => setCheckInDate(date)} />      
+                </div>
+              </Col>
+              <Col>
+                <Form.Label className='labelTxt'>
+                  CheckOut-Date
+                </Form.Label>
+                <div style={{paddingLeft:"20px"}}>
+                  <DatePicker popperPlacement="bottom-start" selected={checkOutDate} onChange={(date) => setCheckOutDate (date)} />      
+                </div>         
+            </Col>
+            </Row>
+          </Form.Group>
+          <br />
+          <div className='customSearchBtn'>
+          <Button style={{backgroundColor:"rgb(218, 26, 138)"}} variant="secondary" type="submit">
+            Submit
+          </Button>
+          </div>
+        </Form>
+      </div>
+          </div>
+        : 
+        <div>
+        <h2 className='title'>Search Results</h2>
+            {console.log("list of data #:"+typeof(accomodationList))}
+              {accomodationList.map((eachItem,i) =>
+                <h2>{eachItem.title}</h2>
+              )}
+        </div>
+        }
+    </div>
+    
 </div>
      
   </>
