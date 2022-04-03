@@ -176,10 +176,12 @@ export const SearchPage = () => {
         : 
         <div>
         <h2 className='title'>Search Results</h2>
+            <ul>
             {console.log("list of data #:"+typeof(accomodationList))}
               {accomodationList.map((eachItem,i) =>
                 <h2>{eachItem.title}</h2>
               )}
+            </ul>
         </div>
         }
     </div>
