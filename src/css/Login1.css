@@ -8,7 +8,7 @@
     background-color: rgb(227, 28, 95);
 }
 
-.form-group{
+#login{
     margin-left: 40%;
     margin-top: 0% !important;
 }
@@ -33,6 +33,7 @@ color: black;
 }
 
 #password_id{
+    margin-left: 40%;
     margin-top: -3% !important;
 }
 

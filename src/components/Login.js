@@ -2,43 +2,61 @@
 Author: Vraj Jadhav
 Description: This component handle login page.
 */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../css/Login1.css'
 import '../css/Header.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
+import Host from "./Host"
 
 export const Login = () => {
   React.useEffect(() => {
     const ac = new AbortController();
     return () => ac.abort();
-  })
+  });
+
   const history = useNavigate();
-  
+
   const emailRegex = /\S+@\S+\.\S+/;
   const [EmailFlag,setEmailFlag] = useState(1);
   const [Emailmessage, setEmailMessage] = useState('');
-  const [Passwordmessage, setPasswordMessage] = useState('');
   const [PasswordFlag,setPasswordFlag] = useState(1);
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-  const [Errorpassword, setErrorpassword] = useState('');
-  const [Erroremail, setErroremail] = useState('');
-  
-  const sendData = () =>{
-    axios.post('https://weba3b00886409.herokuapp.com/login', {
+  const [Error, setError] = useState('');
+  const [Response, setResponse] = useState('');
+  const [usertype, setUserType] = useState(null);
+
+  useEffect(() => {
+    console.log("in useeffect" + Response);
+  }, [Response]);
+  const sendData = async () =>{
+    console.log("send daata"+Email)
+    console.log("send password"+Password)
+    await axios.post('https://weba3b00886409.herokuapp.com/login', {
           email: Email,
           password: Password,
         })
         .then(function (response) {
-          console.log(response);
-           setErrorpassword(response.data.passwordincorrect)
-            setErroremail(response.data.emailnotfound)
-                         
+          if(EmailFlag === 1 && PasswordFlag === 1){
+            alert("Required field empty")
+            
+          }
+          localStorage.setItem("userEmail", Email);
+          console.log(response.data);
+          if(response.data.role === "host"){
+            history("/viewlisting", {state:response.data.email})
+          }else{
+            history("/Profile",{state:Email})
+            setResponse(response.data);
+            console.log("Error her" + Error)  
+          }
         })
         .catch(function (error) {
           console.log(error);
+          setError(error)
+          alert("Invalid username or password")
         });
   }
   const validateEmail = (event) => {
@@ -47,54 +65,30 @@ export const Login = () => {
       setEmailMessage(" ");
       setEmail(email);
       setEmailFlag(0);
-      
     } else {
-      setEmailMessage('Please enter a valid email!');
+      setEmailMessage("Please enter a valid email!");
       setEmailFlag(1);
     }
   };
-  const validatehome= ()=>{
-    history('/home')
-  }
+  const validatehome = () => {
+    history("/home");
+  };
   const validatePassword = (e) => {
     var password = e.target.value;
-    if(password ){
-      setPasswordMessage(" ");
+    if (password) {
       setPassword(password);
-       setPasswordFlag(0);
-}
-     else{
-       setPasswordFlag(1);
-     }
+      setPasswordFlag(0);
+    } else {
+      setPasswordFlag(1);
+    }
   };
-  const validateSubmit = (e)=> {
-  
-    console.log("email" + EmailFlag);
-    console.log("password"+PasswordFlag)
-    sendData()
-    console.log(Erroremail)
-    console.log(Errorpassword)
-    if(EmailFlag === 0 && PasswordFlag === 0 && Erroremail === "" && Errorpassword === ""){
-      
-     history('/Profile',{state:Email})
-    }
-    else if(EmailFlag === 1 && PasswordFlag === 1){
-      alert("Required field empty")
-    }
-    else if(Erroremail == "Email not found"){
-            
-      alert("Email not found")
-    }
-   else if(Errorpassword == "Password incorrect"){
-      alert("Incorrect Password")
-      
-    }
+  const validateSubmit = (e) => {
+    sendData();
+  };
 
-  }
-  
   return (
     <>
-    <div className="header">
+      <div className="header">
         <div className="header-items">
           <button onClick={validatehome}>S</button>taycation
         </div>
@@ -102,7 +96,7 @@ export const Login = () => {
       </div>
 <form>
     <h2 className='heading'>Login</h2>
-  <div className="form-group">
+  <div className="form-group" id="login">
     <label >Email address</label>
     <input type="email" onChange={validateEmail} className="form-control" placeholder="Enter email"/>
   </div>

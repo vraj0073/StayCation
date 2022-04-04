@@ -1,0 +1,361 @@
+.room-wrapper {
+  margin: 0px 13%;
+  position: relative;
+}
+.room-title {
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+.room-title__header {
+  font-size: 2em;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.room-title-footer {
+  display: flex;
+  font-size: 0.96em;
+}
+.room-title-footer-ratings {
+  display: flex;
+  margin-right: auto;
+}
+.room-title-footer-ratings span {
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+  font-weight: 500;
+}
+.room-title-footer-ratings .first-span {
+  padding-left: 0;
+}
+.room-title-footer-ratings .grey {
+  color: grey;
+  font-weight: 300;
+}
+.room-title-footer-ratings .room-location {
+  color: grey;
+  text-decoration: underline;
+}
+.pink {
+  color: rgb(227, 28, 95);
+  width: 20px;
+}
+.review-count {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.room-title-footer-share-save {
+  display: flex;
+}
+.room-title-footer-share-save span {
+  display: flex;
+  padding: 5px;
+}
+.room-title-footer-share-save .icon {
+  width: 20px;
+}
+.room-title-footer-share-save .share,
+.room-title-footer-share-save .save {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.room-photos-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+}
+.room-photo-main {
+  width: calc(100% - 2px);
+  height: 100%;
+  background-image: url("../../../public/room/img1.webp");
+  background-position: center center;
+  background-size: cover;
+  border-radius: 10px;
+}
+.room-photo-four {
+  width: calc(50% - 2px);
+  align-items: center;
+  justify-content: center;
+}
+.room-photo-four .row-1,
+.room-photo-four .row-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: calc(50% - 2px); */
+  height: 100%;
+}
+.row-1 .r1-p1 {
+  /* width: calc(50% - 2px); */
+  width: 100%;
+  height: 100%;
+  /* background-image: url("../../public/room/imp2.webp"); */
+  background-size: cover;
+}
+
+.room-title__details {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-wrapper {
+  padding-top: 2%;
+}
+.booking-button {
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(227, 28, 95);
+  cursor: pointer;
+}
+
+.form-wrapper {
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+}
+.form-div {
+  width: 50%;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+}
+.date-wrapper {
+  display: flex;
+}
+.date-wrapper__item {
+  width: 50%;
+}
+.room-info-wrapper {
+  margin-top: 50px;
+  /* height: 1000px; */
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.room-calender-floater {
+  width: 370px;
+  height: 300px;
+  margin-left: auto;
+  position: absolute;
+  right: 0;
+  border-radius: 10px;
+  border: 0.5px solid rgba(128, 128, 128, 0.308);
+  box-shadow: rgba(0, 0, 0, 0.308) 0 1px 12px !important;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.calendar-floater-guests {
+  width: 80%;
+  margin: 0 10%;
+  /* padding: 10px 15px; */
+  /* border-radius: 10px; */
+  padding: 14px 10px 14px 17px;
+  /* margin: 10px; */
+  border-radius: 50px;
+  border: 0.5px solid rgb(221 221 221);
+  /* width: 250px; */
+}
+
+.room-calender-floater-btn {
+  margin-top: 20px;
+  padding: 15px 0;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 17px;
+  background-image: linear-gradient(
+    to right,
+    #ff385c 0%,
+    #e61e4d 27.5%,
+    #e31c5f 40%,
+    #d70466 57.5%,
+    #bd1e59 75%,
+    #bd1e59 100%
+  ) !important;
+}
+.room-host-info {
+  width: 60%;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+}
+.room-host-title p {
+  padding: 0;
+  margin: 0;
+}
+.room-host-title-main {
+  font-size: 25px;
+  font-weight: 500;
+}
+.room-host-title-sub {
+  font-weight: 300;
+  font-size: 18px;
+}
+.room-host-features {
+  margin-top: 40px;
+}
+.room-host-feature {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.room-host-feature .feature-icon {
+  width: 25px;
+}
+.room-host-feature .icon-div {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.room-host-feature .feature {
+  width: 90%;
+}
+.room-host-feature .feature p {
+  margin: 0;
+}
+.feature p:first-child {
+  font-size: 18px;
+  font-weight: 500;
+}
+.feature p:nth-child(2) {
+  color: grey;
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.room-reviews {
+  margin-top: 50px;
+  width: 50%;
+  z-index: 1;
+}
+.room-reviews-title {
+  display: flex;
+}
+.room-reviews-title p {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+  margin-left: 5px;
+}
+.room-review {
+  margin: 55px 0;
+}
+.rr-title {
+  min-width: 150px;
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.rr-title .guest-pic img {
+  border-radius: 50px;
+  width: 55px;
+}
+.guest-name p {
+  margin: 0;
+  margin-left: 15px;
+  /* width: 70%; */
+}
+.guest-name p:first-child {
+  font-size: 16px;
+  font-weight: 600;
+}
+.host-info {
+  margin: 50px 0px;
+}
+
+.host-info-title {
+  display: flex;
+  align-items: center;
+}
+.host-dp img {
+  width: 65px;
+  height: 65px;
+  border-radius: 150px;
+}
+.host-name {
+  margin-left: 15px;
+}
+.host-name p {
+  margin: 0;
+}
+.host-name p:first-child {
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.host-name p:last-child {
+  color: rgb(112, 106, 106);
+}
+
+.host-achievements {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+.h-achievement {
+  display: flex;
+  width: fit-content;
+  margin-right: 15px;
+}
+.h-achievement p {
+  margin-left: 10px;
+  font-size: 17px;
+}
+.host-post {
+  width: 50%;
+}
+
+.CalendarMonthGrid,
+.CalendarMonthGrid_1 {
+  /* width: auto !important; */
+}
+
+.CalendarDay__selected_span {
+  /* background: #82e0aa;
+  color: white; */
+  /* border: 1px solid $light-red; */
+}
+
+/* // Will edit selected date or the endpoints of a range of dates */
+.CalendarDay__selected {
+  /* background: $dark-red; */
+  /* color: white; */
+}
+
+/* // Will edit when hovered over. _span style also has this property */
+.CalendarDay__selected:hover {
+  /* background: orange;
+  color: white; */
+}
+
+/* // Will edit when the second date (end date) in a range of dates
+// is not yet selected. Edits the dates between your mouse and said date */
+.CalendarDay__hovered_span:hover,
+.CalendarDay__hovered_span {
+  /* background: brown; */
+}
+.DateRangePickerInput__withBorder {
+  border-radius: 0 !important;
+  border: none !important;
+  margin-top: 25px;
+}
