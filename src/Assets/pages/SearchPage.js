@@ -23,6 +23,7 @@ import {
 } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import { useNavigate } from "react-router-dom";
+import AccomodationItem from "../../components/AccomodationItem";
 import "../../css/Home.css";
 import "../../css/Header.css";
 import "react-bootstrap";
@@ -277,12 +278,33 @@ export const SearchPage = () => {
           ) : (
             <div>
               <h2 className="title">Search Results</h2>
-              <ul>
-                {console.log("list of data #:" + typeof accomodationList)}
-                {accomodationList.map((eachItem, i) => (
-                  <h2>{eachItem.title}</h2>
-                ))}
-              </ul>
+              <div
+                className="row justify-content-start"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  alignContent: "center",
+                  textAlign: "-webkit-center",
+                }}
+              >
+                {accomodationList &&
+                  accomodationList.map((eachItem, i) => (
+                    <Col>
+                      <div key={i}>
+                        {/* // title, description, imageURL, city, state, country, */}
+
+                        <AccomodationItem
+                          title={eachItem.title}
+                          description={eachItem.description}
+                          imageURL={eachItem.img}
+                          city={eachItem.location}
+                          state={eachItem.state}
+                          country={eachItem.country}
+                        />
+                      </div>
+                    </Col>
+                  ))}
+              </div>
             </div>
           )}
         </div>
