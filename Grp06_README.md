@@ -21,9 +21,12 @@
 
 ### Kishan Kahodariya
 
-- BlogItem.jsx (with BlogItem.css)
-- BlogList.jsx (with BlogList.css)
-- BLogPage.jsx (with BlogPage.jsx)
+- BlogItem.js (with BlogItem.css)
+- BlogList.js (with BlogList.css)
+- BLogPage.js (with BlogPage.jsx)
+- SearchPage.js (with SearchPage.css)
+- AccomodationItem.js (with AccomodationItem.css)
+- search.js (in backend)
 
 ### Qinyue Wang
 
