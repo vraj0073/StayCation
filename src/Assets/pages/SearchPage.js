@@ -42,7 +42,7 @@ export const SearchPage = () => {
 
   async function simpleSearch(e) {
     e.preventDefault();
-    const API_URL = `http://localhost:5000/search/simplesearch/${location}`;
+    const API_URL = `https://csci5709hsa3backend.herokuapp.com/search/simplesearch/${location}`;
     try {
       await axios({
         method: "get",
@@ -63,7 +63,7 @@ export const SearchPage = () => {
   async function customSearch(e) {
     console.log("custom search :" + location);
     e.preventDefault();
-    const API_URL = `http://localhost:5000/search/customsearch/${location}/${accomodationType}/${duration}`;
+    const API_URL = `https://csci5709hsa3backend.herokuapp.com/search/customsearch/${location}/${accomodationType}/${duration}`;
     try {
       await axios({
         method: "get",
@@ -146,7 +146,7 @@ export const SearchPage = () => {
                     aria-label="simpleSearch"
                     aria-describedby="basic-addon2"
                     onChange={(e) => {
-                      setLocation(e.target.value), console.log(location);
+                      setLocation(e.target.value);
                     }}
                   />
                   <div className="input-group-append">
@@ -190,8 +190,7 @@ export const SearchPage = () => {
                       >
                         <Dropdown.Item
                           onClick={(e) => {
-                            setAccomodationType("long-term"),
-                              console.log("#1" + accomodationType);
+                            setAccomodationType("long-term");
                           }}
                           value="long-term"
                         >
@@ -199,8 +198,7 @@ export const SearchPage = () => {
                         </Dropdown.Item>
                         <Dropdown.Item
                           onClick={(e) => {
-                            setAccomodationType("short-term"),
-                              console.log("#2" + accomodationType);
+                            setAccomodationType("short-term");
                           }}
                           value="short-term"
                         >
@@ -216,7 +214,7 @@ export const SearchPage = () => {
                       <DropdownButton id="duration" title={duration}>
                         <Dropdown.Item
                           onClick={(e) => {
-                            setDuration("months"), console.log("#1" + duration);
+                            setDuration("months");
                           }}
                           value="months"
                         >
@@ -224,7 +222,7 @@ export const SearchPage = () => {
                         </Dropdown.Item>
                         <Dropdown.Item
                           onClick={(e) => {
-                            setDuration("days"), console.log("#2" + duration);
+                            setDuration("days");
                           }}
                           value="days"
                         >
