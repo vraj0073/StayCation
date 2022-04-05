@@ -4,7 +4,6 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-
 // Written by - Het Shah - B00886897 - het.shah@dal.ca
 
 require("dotenv").config();
@@ -33,14 +32,17 @@ connection.once("open", () => {
 
 const bookingRouter = require("./routes/bookings");
 const searchRouter = require("./routes/search");
+const wishlistRouter = require("./routes/wishlist");
 
 // Bookings API
 app.use("/bookings", bookingRouter);
 
 // Search API
-app.use("/search",searchRouter);
+app.use("/search", searchRouter);
+
+// WishList API
+app.use("/wishlist", wishlistRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on the PORT ${PORT}`);
 });
-
