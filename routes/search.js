@@ -1,4 +1,7 @@
-// Written by - Kishan Kahodariya
+/*
+Author: Kishan Kahodariya
+Description: This component handles search request from SearchPage.js.
+*/
 
 const router = require("express").Router();
 let Accomodation = require("../models/accomodation.model");
