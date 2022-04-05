@@ -13,7 +13,7 @@ router.route("/").get((req, res) => {
 router.route("/getwishlist/:email").get((req, res) => {
   const email = req.params.email;
   Wishlist.find({ useremail: email })
-    .then((Bookings) => res.json(Bookings))
+    .then((wishlist) => res.json(wishlist))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
