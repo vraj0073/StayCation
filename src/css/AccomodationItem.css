@@ -1,0 +1,41 @@
+.user {
+  padding: 0.5px;
+}
+
+.usercard {
+  background-color: rgb(221, 118, 152);
+  border-radius: 5px;
+  text-align:justify;
+}
+
+.usercardtitle {
+  font-weight: 5px;
+  font-style: italic;
+}
+
+.usercardmargin {
+  margin: 25px;
+}
+
+.description{
+  justify-content: left;
+}
+
+.feature{
+  font-weight: bold;
+}
+
+.bookBtn{
+  height: 40px ;
+  margin: 5px;
+}
+
+.col-md-4 {
+  flex: 0 0 33.3333333%;
+  max-width: 33.3333333%;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+}

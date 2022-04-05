@@ -17,7 +17,7 @@ import Home from "./components/Home";
 import Review from "./Assets/pages/Review";
 import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
-
+import SearchResult from "./Assets/pages/SearchResult";
 function App() {
   return (
     <div>
@@ -35,6 +35,8 @@ function App() {
           <Route path='/Logout' element={<Login/>} ></Route>
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/searchresults" element={<SearchResult />} />
+
          <Route
             path="th"
             element={<TravelHistory email="vrajjadhav0073@gmail.com" />}
