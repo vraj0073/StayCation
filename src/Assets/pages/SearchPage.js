@@ -287,23 +287,24 @@ export const SearchPage = () => {
                   textAlign: "-webkit-center",
                 }}
               >
-                {accomodationList &&
-                  accomodationList.map((eachItem, i) => (
-                    <Col>
-                      <div key={i}>
-                        {/* // title, description, imageURL, city, state, country, */}
-
-                        <AccomodationItem
-                          title={eachItem.title}
-                          description={eachItem.description}
-                          imageURL={eachItem.img}
-                          city={eachItem.location}
-                          state={eachItem.state}
-                          country={eachItem.country}
-                        />
-                      </div>
-                    </Col>
-                  ))}
+                <Row>
+                  {accomodationList &&
+                    accomodationList.map((eachItem, i) => (
+                      <Col>
+                        <div key={i}>
+                          <AccomodationItem
+                            title={eachItem.title}
+                            description={eachItem.description}
+                            imageURL={eachItem.img}
+                            feature={eachItem.feature}
+                            city={eachItem.location}
+                            state={eachItem.state}
+                            country={eachItem.country}
+                          />
+                        </div>
+                      </Col>
+                    ))}
+                </Row>
               </div>
             </div>
           )}
