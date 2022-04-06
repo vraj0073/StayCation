@@ -22,7 +22,8 @@ function WishList() {
   const toHome = useNavigate();
   // Getting property listings on the useEffect function
   useEffect(() => {
-    const API_URL = `https://csci5709hsa3backend.herokuapp.com/wishlist/getwishlist/${email}`;
+    const API_URL = `http://localhost:5000/wishlist/getwishlist/${email}`;
+    //const API_URL = `https://csci5709hsa3backend.herokuapp.com/wishlist/getwishlist/${email}`;
     axios({
       method: "get",
       url: API_URL,
@@ -31,7 +32,17 @@ function WishList() {
         setState(response.data);
       }
     });
-  }, []);
+  }, [state]);
+  function deleteListing(id) {
+    console.log(id);
+    const API_URL = `http://localhost:5000/wishlist/deletewishlist/${id}`;
+    axios({
+      method: "delete",
+      url: API_URL,
+    }).then(function (response) {
+      console.log(response);
+    });
+  }
   return (
     <div>
       <div className="col">
@@ -93,19 +104,30 @@ function WishList() {
         <h6 style={{ textAlign: "center" }}> {email} </h6>
       </div>
       <div className="row justify-content-center" style={{ display: "flex" }}>
-        {state.map((booking, key) => (
+        {state.map((wishlist, key) => (
           <Card
             style={{ width: "19rem", marginTop: "1rem", alignItems: "center" }}
           >
             <Card.Img
               variant="top"
-              src={booking.pimage}
+              src={wishlist.pimage}
               style={{ width: "15rem", height: "10rem" }}
             />
             <Card.Body>
-              <Card.Title>{booking.ptitle}</Card.Title>
+              <Card.Title style={{ textAlign: "center" }}>
+                {wishlist.ptitle}
+              </Card.Title>
 
               <Button variant="primary">Check it out</Button>
+              <Button
+                variant="danger"
+                onClick={() => {
+                  deleteListing(wishlist._id);
+                }}
+                style={{ marginLeft: "10px" }}
+              >
+                Delete
+              </Button>
             </Card.Body>
           </Card>
         ))}

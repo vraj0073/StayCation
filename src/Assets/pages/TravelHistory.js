@@ -98,7 +98,12 @@ function TravelHistory(props) {
       <div className="row justify-content-center" style={{ display: "flex" }}>
         {state.map((booking, key) => (
           <Card
-            style={{ width: "19rem", marginTop: "1rem", alignItems: "center" }}
+            style={{
+              width: "19rem",
+              marginTop: "1rem",
+              alignItems: "center",
+              textAlign: "center",
+            }}
           >
             <Card.Img
               variant="top"
@@ -106,7 +111,9 @@ function TravelHistory(props) {
               style={{ width: "15rem", height: "10rem" }}
             />
             <Card.Body>
-              <Card.Title>{booking.ptitle}</Card.Title>
+              <Card.Title style={{ textAlign: "center" }}>
+                {booking.ptitle}
+              </Card.Title>
               <Card.Text>Date Travelled - {booking.datetravelled}</Card.Text>
               <Button variant="primary">Check it out</Button>
             </Card.Body>

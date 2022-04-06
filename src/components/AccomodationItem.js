@@ -11,6 +11,7 @@ import {
   Row,
   Card,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../css/AccomodationItem.css";
 
 const AccomodationItem = ({
@@ -42,13 +43,15 @@ const AccomodationItem = ({
                 </Button>
               </Col>
               <Col style={{ paddingRight: "170px" }}>
-                <Button
-                  className="bookBtn"
-                  variant="light"
-                  style={{ fontSize: "18px", fontWeight: "bold" }}
-                >
-                  <Card.Text>Wishlist</Card.Text>
-                </Button>
+                <Link to="/wishlist">
+                  <Button
+                    className="bookBtn"
+                    variant="light"
+                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
+                    <Card.Text>Wishlist</Card.Text>
+                  </Button>
+                </Link>
               </Col>
             </Row>
           </Card.Body>
