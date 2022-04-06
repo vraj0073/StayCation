@@ -22,8 +22,7 @@ function WishList() {
   const toHome = useNavigate();
   // Getting property listings on the useEffect function
   useEffect(() => {
-    const API_URL = `http://localhost:5000/wishlist/getwishlist/${email}`;
-    //const API_URL = `https://csci5709hsa3backend.herokuapp.com/wishlist/getwishlist/${email}`;
+    const API_URL = `https://csci5709hsa3backend.herokuapp.com/wishlist/getwishlist/${email}`;
     axios({
       method: "get",
       url: API_URL,
