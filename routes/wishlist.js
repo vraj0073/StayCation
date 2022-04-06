@@ -17,4 +17,12 @@ router.route("/getwishlist/:email").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//Deleting wishlist by the id
+router.route("/deletewishlist/:id").delete((req, res) => {
+  const id = req.params.id;
+  Wishlist.deleteOne({ _id: id })
+    .then((result) => res.json(result))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;
