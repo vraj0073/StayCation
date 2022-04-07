@@ -56,7 +56,11 @@ function WishList() {
             </button>
             taycation
             <Navbar>
-              <Container className="container" id="homenavigation">
+              <Container
+                className="container"
+                id="homenavigation"
+                style={{ paddingTop: "0%" }}
+              >
                 <Navbar.Brand href="home" className="header-navbar">
                   Home
                 </Navbar.Brand>
