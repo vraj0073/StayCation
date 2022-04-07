@@ -90,7 +90,11 @@ export const SearchPage = () => {
           <div className="header-items">
             <button>S</button>taycation
             <Navbar collapseOnSelect expand="lg">
-              <Container className="d-flex" id="homenavigation">
+              <Container
+                className="d-flex"
+                id="homenavigation"
+                style={{ paddingTop: "0%" }}
+              >
                 <Navbar.Brand href="#home" className="header-navbar">
                   Home
                 </Navbar.Brand>
@@ -110,7 +114,7 @@ export const SearchPage = () => {
                       Contact
                     </Nav.Link>
                     <NavDropdown
-                      title="Login"
+                      title="Account Setting"
                       id="title"
                       className="header-content"
                     >
@@ -298,6 +302,7 @@ export const SearchPage = () => {
                             city={eachItem.location}
                             state={eachItem.state}
                             country={eachItem.country}
+                            room={eachItem}
                           />
                         </div>
                       </Col>

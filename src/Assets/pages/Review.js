@@ -3,9 +3,12 @@ import {useNavigate} from "react-router-dom";
 import "../../css/Review.css"
 import "../../css/Header.css"
 import axios from "axios";
+import Navheader from "../../components/Navheader";
 
 function Review() {
-    let userEmail = "qqq@gmail.com";
+    let userEmail = localStorage.userEmail;
+    // let userEmail = "qqq@gmail.com";
+
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
     React.useEffect(() => {
@@ -25,14 +28,8 @@ function Review() {
     }
 
     return (
-        <div>
-            <div className="header">
-                <div className="header-items">
-                    <button>S</button>
-                    taycation
-                </div>
-                <div className="header-items">Qinyue</div>
-            </div>
+        <>
+            <Navheader/>
             <div className="reviews-page">
                 <div className="reviews-body">
                     <section className="reviews-right">
@@ -49,7 +46,7 @@ function Review() {
                                     return item;
                                 }
                             }).map(item => (<div key={item._id} className="reviews-content" id={item._id}>
-                                <h3>Review for {item.roomName}</h3>
+                                <h3 className="reviews-content-h3">Review for {item.roomName}</h3>
                                 <time>{item.date.substring(0, 10)}</time>
                                 <hr/>
                                 <p>{item.content}</p>
@@ -80,9 +77,8 @@ function Review() {
                         </main>
                     </section>
                 </div>
-                <footer className="reviews-footer">&copy;2022 Group 6</footer>
             </div>
-        </div>
+        </>
     );
 }
 

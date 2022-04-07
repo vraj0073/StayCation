@@ -18,6 +18,10 @@ import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
 import Createlisting from "./components/Createlisting";
 import Host from "./components/Host";
+import Deleteprofile from "./components/Deleteprofile";
+import RoomReviews from "./Assets/pages/RoomReviews";
+import QAArticle from "./Assets/pages/QAArticle";
+import FeedbackForm from "./Assets/pages/FeedbackForm";
 
 function App() {
   return (
@@ -36,6 +40,7 @@ function App() {
             path="/Forgetpassword"
             element={<Forget_Password_Email />}
           ></Route>
+          <Route path="/deleteprofile" element={<Deleteprofile />}></Route>
           <Route path="/Logout" element={<Login />}></Route>
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/search" element={<SearchPage />} />
@@ -50,6 +55,9 @@ function App() {
           <Route path="/user-reviews" element={<Review />}></Route>
           <Route path="/edit-review" element={<ReviewEdit />}></Route>
           <Route path="/write-review" element={<ReviewWrite />}></Route>
+          <Route path="/room-reviews" element={<RoomReviews />}></Route>
+          <Route path="/help-center" element={<QAArticle />}/>
+          <Route path="/feedback-form" element={<FeedbackForm />}/>
         </Routes>
       </BrowserRouter>
     </div>

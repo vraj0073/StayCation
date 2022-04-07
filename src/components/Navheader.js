@@ -3,9 +3,7 @@ import "../css/Header.css";
 import "react-bootstrap";
 import "../css/Customer.css";
 import {
-  Card,
   Container,
-  Form,
   Nav,
   Navbar,
   NavDropdown,
@@ -21,6 +19,21 @@ export const Navheader = (props) => {
   const validatesubmit = () => {
     history("/home");
   };
+  const logout = () => {
+    localStorage.removeItem("userEmail");
+  };
+
+  const validResetPassword =()=>{
+    history('/Resetpassword?query='+props.data)
+  }
+  const validdelete = () =>{
+    history('/deleteprofile?query='+props.data)
+  }
+
+  const validedit=(e)=>{
+    history('/editprofile?query='+props.data)
+
+  }
   return (
     <>
       <div className="col">
@@ -41,19 +54,32 @@ export const Navheader = (props) => {
                     <Nav.Link href="th" className="header-content">
                       History
                     </Nav.Link>
+                    <Nav.Link href="user-reviews" className="header-content">
+                      Reviews
+                    </Nav.Link>
+                    <Nav.Link href="help-center" className="header-content">
+                      Help Center
+                    </Nav.Link>
                     <NavDropdown
                       title="Account Setting"
                       id="title"
                       className="header-content"
                     >
-                      <NavDropdown.Item href="Editprofile">
+                      <NavDropdown.Item  onClick={validedit}>
                         Edit Profile
                       </NavDropdown.Item>
-                      <NavDropdown.Item>Delete Profile</NavDropdown.Item>
-                      <NavDropdown.Item href="Resetpassword">
+                      <NavDropdown.Item onClick={validdelete}>Delete Profile</NavDropdown.Item>
+                      <NavDropdown.Item  onClick={validResetPassword}>
                         Reset Password
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="Logout">Logout </NavDropdown.Item>
+                      <NavDropdown.Item
+                        href="Logout"
+                        onClick={() => {
+                          logout();
+                        }}
+                      >
+                        Logout{" "}
+                      </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
                 </Navbar.Collapse>

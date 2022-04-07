@@ -34,7 +34,7 @@ function WishList() {
   }, [state]);
   function deleteListing(id) {
     console.log(id);
-    const API_URL = `http://localhost:5000/wishlist/deletewishlist/${id}`;
+    const API_URL = `https://csci5709hsa3backend.herokuapp.com/wishlist/deletewishlist/${id}`;
     axios({
       method: "delete",
       url: API_URL,
@@ -70,7 +70,7 @@ function WishList() {
                     <Nav.Link href="blogs" className="header-content">
                       Blogs
                     </Nav.Link>
-                    <Nav.Link href="#pricing" className="header-content">
+                    <Nav.Link href="search" className="header-content">
                       Search
                     </Nav.Link>
                     <Nav.Link href="#pricing" className="header-content">
@@ -121,7 +121,7 @@ function WishList() {
                 {wishlist.ptitle}
               </Card.Title>
 
-              <Button variant="primary">Check it out</Button>
+              {/* <Button variant="primary">Check it out</Button> */}
               <Button
                 variant="danger"
                 onClick={() => {

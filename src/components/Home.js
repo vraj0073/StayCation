@@ -50,9 +50,7 @@ export const Home = () => {
 </Row>
       </div>
       
-      {/* <div className="header-items">  
       
-      </div> */}
       
     </div>
     
