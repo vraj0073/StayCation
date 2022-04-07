@@ -8,7 +8,7 @@ import '../css/Header.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-
+import Cookies from 'js-cookie'
 export const Login = () => {
   React.useEffect(() => {
     const ac = new AbortController();
@@ -26,12 +26,12 @@ export const Login = () => {
   const [Error, setError] = useState('');
   const [Response, setResponse] = useState('');
   useEffect(() => {
-    console.log("in useeffect" + Response)  
+    
   }, [Response]);
   const sendData = async () =>{
     console.log("send daata"+Email)
     console.log("send password"+Password)
-    await axios.post('https://weba3b00886409.herokuapp.com/login', {
+    await axios.post('https://staycationbackendapp.herokuapp.com/login', {
           email: Email,
           password: Password,
         })
@@ -39,6 +39,7 @@ export const Login = () => {
           if(EmailFlag === 1 && PasswordFlag === 1){
             alert("Required field empty")
              }
+            
           history("/Profile",{state:Email})
           console.log(response.data);
           setResponse(response.data);
