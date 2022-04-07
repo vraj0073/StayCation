@@ -2,7 +2,6 @@ import { Container } from "react-bootstrap";
 import "./App.css";
 import BlogPage from "./Assets/pages/blogPage";
 import SearchPage from "./Assets/pages/SearchPage";
-//import Room from "./Assets/pages/Room";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import TravelHistory from "./Assets/pages/TravelHistory";
 import WishList from "./Assets/pages/WishList";
@@ -48,7 +47,6 @@ function App() {
           
           <Route path="/viewlisting" element={<Host/>}/>
           <Route path="/createlisting" element={<Createlisting/>}/> 
-          {/* <Route path="/rooms/:roomId" exact element={<Room />}></Route> */}
           <Route path="wishlist" element={<WishList />} />
           <Route path="/user-reviews" element={<Review />}></Route>
           <Route path="/edit-review" element={<ReviewEdit />}></Route>
