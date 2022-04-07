@@ -17,6 +17,7 @@ import Home from "./components/Home";
 import Review from "./Assets/pages/Review";
 import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
+import Deleteprofile from "./components/Deleteprofile";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             path="/Forgetpassword"
             element={<Forget_Password_Email />}
           ></Route>
+          <Route path="/deleteprofile" element={<Deleteprofile />}></Route>
           <Route path="/Logout" element={<Login />}></Route>
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/search" element={<SearchPage />} />

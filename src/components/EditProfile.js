@@ -10,13 +10,12 @@ import '../css/EditProfile.css'
 import { Card, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import axios from 'axios'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import Navheader from './Navheader'
 
 
 export const EditProfile = () => {
   const  [bio,setbio ] = useState('');
-  const  [email,setemail ] = useState('');
   const  [livesin,setlivesin ] = useState('');
   const  [speaks,setspeaks] = useState('');
   const  [works,setworks ] = useState('');
@@ -25,19 +24,22 @@ export const EditProfile = () => {
 
   const history = useNavigate();
   const {state} = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const sendData = () =>{
     
-    axios.post('https://weba3b00886409.herokuapp.com/profileedit', {
+    console.log("line 31 editprofile "+searchParams.get("query"))
+    let email = searchParams.get("query");
+    console.log("in react line 31 editprofile email",email)
+    axios.post('https://staycationbackendapp.herokuapp.com/profileedit', {
           bio: bio,
           email: email,
           phone: phone,
           livesin: livesin,
           speaks: speaks,
           works: works,
-          image: image
         })
         .then(function (response) {
-          console.log(response);
+          console.log("line 40 ",response);
           history('/Profile',{state:email})
         })
         .catch(function (error) {
@@ -55,13 +57,7 @@ export const EditProfile = () => {
      
      
   };
-  const validemail= (e) => {
-    const email1 = e.target.value;
-    setemail(email1)
-   
-     
-     
-  };
+  
   const validphone= (e) => {
     const phone1 = e.target.value;
     setphone(phone1)
@@ -89,7 +85,7 @@ export const EditProfile = () => {
      
      
   };
-  const onSubmit = (e) =>{
+  const onSubmit = () =>{
     
     
     sendData();
@@ -134,7 +130,16 @@ export const EditProfile = () => {
     <h4>Email :</h4>
     </div>
     <div className='input_values'>
-    <input type='email' onChange={validemail} placeholder='Email'/>
+    
+      <div className='subcontainer'>
+    <Card style={{ width: '15rem', height: '2rem',marginTop: '-2rem',marginLeft:'-7.5rem' }}>
+  <Card.Body>
+    <Card.Text style={{marginTop: '-1rem'}}>
+    {searchParams.get("query")}
+    </Card.Text>
+  </Card.Body>
+</Card>
+    </div>
     </div>
     <br></br>
     <div>

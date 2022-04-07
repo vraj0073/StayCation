@@ -53,9 +53,9 @@ const AccomodationItem = ({
                   <Button
                     className="bookBtn"
                     variant="light"
-                    style={{ fontSize: "18px", fontWeight: "bold" }}
+                    style={{ fontWeight: "bold" }}
                   >
-                    <Card.Text>Wishlist</Card.Text>
+                    <Card.Text>Add to Wishlist</Card.Text>
                   </Button>
                 </Link>
               </Col>

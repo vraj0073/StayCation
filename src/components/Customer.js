@@ -3,54 +3,61 @@ Author: Vraj Jadhav
 Description: This component handle profile page.
 */
 
-import React, { useEffect, useState } from 'react'
-import '../css/Header.css'
-import 'react-bootstrap'
-import '../css/Customer.css'
-import { Card, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image'
-import EditProfile from './EditProfile'
-import { useLocation, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import './Navheader'
-import Navheader from './Navheader'
-
+import React, { useEffect, useState } from "react";
+import "../css/Header.css";
+import "react-bootstrap";
+import "../css/Customer.css";
+import {
+  Card,
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Row,
+  Col,
+  Button,
+} from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import EditProfile from "./EditProfile";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Navheader";
+import Navheader from "./Navheader";
+import { Link } from "react-router-dom";
 
 export const Customer = (props) => {
-  const[alldata,setalldata] = useState({});
-  const[alluserdata,setalluserdata] = useState({});
-  const[id,setid] = useState("");
+  const [alldata, setalldata] = useState({});
+  const [alluserdata, setalluserdata] = useState({});
+  const [id, setid] = useState("");
   React.useEffect(() => {
-    
     const ac = new AbortController();
     return () => ac.abort();
-  })
+  });
   useEffect(() => {
     
     console.log("new email here " + state)
-    axios.post('https://weba3b00886409.herokuapp.com/Userprofile', {
-          email: state,
+    axios.post('https://staycationbackendapp.herokuapp.com/Userprofile', {
+          email: state
+         
         })
         .then(function (response) {
+         
           console.log(response.data.customer);
-           setalluserdata(response.data.customer);  
-           setid(alluserdata._id)    
-           console.log(id)
-                
+           setalluserdata(response.data.customer);
+           console.log("alluserdata email",response.data.customer)
         })
         .catch(function (error) {
           console.log(error);
         });
-    axios.get("https://weba3b00886409.herokuapp.com/users",{
-      params: {
-        email: state,
-        phone: alluserdata.phonenumber
-
-      }
+    axios.post("https://staycationbackendapp.herokuapp.com/users",{
+      
+        email: state   
     })
     .then((responce) => {
-        console.log("users" +responce)
-          setalldata(responce.data.customer)
+        console.log("users in react " + responce.data.customer)
+           setalldata(responce.data.customer)
+           console.log("all data here 58 ",alldata.email)
         
 
     }).catch(function (error) {
@@ -61,13 +68,11 @@ export const Customer = (props) => {
 },[])
 
   const history = useNavigate();
-  const {state} = useLocation();
-  
-  
-  
+  const { state } = useLocation();
+
   return (
     <>
-              <Navheader data={id}/>
+              <Navheader data={state}/>
     
 <div>
   <h1 style={{color: 'rgb(227, 28, 95)',
@@ -172,7 +177,7 @@ marginTop: 10 }}>Profile Page</h1>
 </Col>
 </Row>
     </>
-  )
-}
+  );
+};
 
-export default Customer
+export default Customer;

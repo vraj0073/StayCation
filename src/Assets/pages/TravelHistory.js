@@ -63,7 +63,7 @@ function TravelHistory(props) {
                     <Nav.Link href="blogs" className="header-content">
                       Blogs
                     </Nav.Link>
-                    <Nav.Link href="#pricing" className="header-content">
+                    <Nav.Link href="search" className="header-content">
                       Search
                     </Nav.Link>
                     <Nav.Link href="#pricing" className="header-content">
@@ -119,7 +119,7 @@ function TravelHistory(props) {
                 {booking.ptitle}
               </Card.Title>
               <Card.Text>Date Travelled - {booking.datetravelled}</Card.Text>
-              <Button variant="primary">Check it out</Button>
+              {/* <Button variant="primary">Check it out</Button> */}
             </Card.Body>
           </Card>
         ))}

@@ -44,7 +44,7 @@ export const RegistrationPageContainer = () => {
 
 
     const sendData = () =>{
-      axios.post('https://weba3b00886409.herokuapp.com/register', {
+      axios.post('https://staycationbackendapp.herokuapp.com/register', {
             email: Email,
             password: Password,
             firstname: Firstname,
@@ -52,7 +52,8 @@ export const RegistrationPageContainer = () => {
             phonenumber: Phonenumber,
             email: Email,
             gender: Gender,
-            role: Role
+            role: Role,
+            jwt: ""
           })
           .then(function (response) {
             console.log(response);
@@ -64,12 +65,7 @@ export const RegistrationPageContainer = () => {
     }
 
     
-    const handleChange = (e) => { 
-    //     setGenderFlag(0);
-    //     let val = e.target.value
-    //     alert(e);
-    alert(e.target.value)
-     }
+
     const validateFirstname = (e) => {
         const firstname = e.target.value;
         
@@ -207,6 +203,7 @@ export const RegistrationPageContainer = () => {
             console.log(Gender)
             console.log(Email)  
             sendData();
+            alert("Registration Successful")
             history('/Login');
            }
            else{
