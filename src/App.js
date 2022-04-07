@@ -32,41 +32,41 @@ function App() {
     window.scrollTo(0, 0);
   };
   return (
-    <div>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route exact path="/home" element={<Home />}></Route>
-          <Route exact path="/blogs/home" element={<Home />}></Route>
-          <Route exact path="/Register" element={<RegistrationPage />}></Route>
-          <Route exact path="/Login" element={<Login />}></Route>
-          <Route path="/Profile" element={<Customer />}></Route>
-          <Route path="/Editprofile" element={<EditProfile />}></Route>
-          <Route path="/Resetpassword" element={<New_Password />}></Route>
-          <Route
-            path="/Forgetpassword"
-            element={<Forget_Password_Email />}
-          ></Route>
-          <Route path="/Logout" element={<Login />}></Route>
-          <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route  path="th" element={<TravelHistory email="vrajjadhav0073@gmail.com" />}/>
-          <Route path="wl" element={<WishList />} />
-          <Route path="/user-reviews" element={<Review/>}></Route>
-          <Route path="/room-reviews" element={<RoomReviews/>}></Route>
-          <Route path="/edit-review" element={<ReviewEdit/>}></Route>
-          <Route path="/write-review" element={<ReviewWrite/>}></Route>
-          <Route path="/viewlisting" element={<Host/>}/>
-          <Route path="/createlisting" element={<Createlisting/>}/> 
-          <Route path="/rooms/:roomId" exact element={<Room />}></Route>
-          <Route path="/book" element={<Booking />}></Route>
-          <Route path="/help-center" element={<QAArticle/>}/>
-          <Route path="/feedback-form" element={<FeedbackForm />}/>
+      <div>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />}></Route>
+            <Route exact path="/blogs/home" element={<Home />}></Route>
+            <Route exact path="/Register" element={<RegistrationPage />}></Route>
+            <Route exact path="/Login" element={<Login />}></Route>
+            <Route path="/Profile" element={<Customer />}></Route>
+            <Route path="/Editprofile" element={<EditProfile />}></Route>
+            <Route path="/Resetpassword" element={<New_Password />}></Route>
+            <Route
+                path="/Forgetpassword"
+                element={<Forget_Password_Email />}
+            ></Route>
+            <Route path="/Logout" element={<Login />}></Route>
+            <Route path="/blogs" element={<BlogPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route  path="th" element={<TravelHistory email="vrajjadhav0073@gmail.com" />}/>
+            <Route path="wl" element={<WishList />} />
+            <Route path="/user-reviews" element={<Review/>}></Route>
+            <Route path="/room-reviews" element={<RoomReviews/>}></Route>
+            <Route path="/edit-review" element={<ReviewEdit/>}></Route>
+            <Route path="/write-review" element={<ReviewWrite/>}></Route>
+            <Route path="/viewlisting" element={<Host/>}/>
+            <Route path="/createlisting" element={<Createlisting/>}/>
+            <Route path="/rooms/:roomId" exact element={<Room />}></Route>
+            <Route path="/book" element={<Booking />}></Route>
+            <Route path="/help-center" element={<QAArticle/>}/>
+            <Route path="/feedback-form" element={<FeedbackForm />}/>
 
-        </Routes>
-      </BrowserRouter>
-    </div>
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 export default App;
