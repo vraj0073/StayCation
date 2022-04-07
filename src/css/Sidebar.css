@@ -2,7 +2,7 @@
 Author: Prarthana Parmar
 Description: This is the css file for Createlisting component.
 */
-.navbar {
+#navbar {
     background-color: rgb(227, 28, 95);
     height: 20%;
     display: flex;
