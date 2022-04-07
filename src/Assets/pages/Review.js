@@ -6,24 +6,21 @@ import axios from "axios";
 import Navheader from "../../components/Navheader";
 
 function Review() {
-    let userEmail = localStorage.userEmail;
+    // let userEmail = localStorage.userEmail;
+    let userEmail = "wangqinyuechn@gmail.com";
 
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
-    // React.useEffect(() => {
-        axios.get("https://staycationbackendapp.herokuapp.com/review/get/" + userEmail).then((response) => {
-            setRetrievedData({reviews: response.data})
-        });
-    // }, []);
+
+    axios.get("https://staycationbackendapp.herokuapp.com/review/get/" + userEmail).then((response) => {
+        setRetrievedData({reviews: response.data})
+    });
 
     let navigate = useNavigate();
 
     function deleteDiv(id) {
         let div = document.getElementById(id);
-        let divParent = div.parentElement;
-        if (divParent !== null) {
-            divParent.removeChild(div);
-        }
+        div.style.display = "none";
     }
 
     return (
