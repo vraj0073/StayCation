@@ -70,7 +70,7 @@ function WishList() {
                     <Nav.Link href="blogs" className="header-content">
                       Blogs
                     </Nav.Link>
-                    <Nav.Link href="#pricing" className="header-content">
+                    <Nav.Link href="search" className="header-content">
                       Search
                     </Nav.Link>
                     <Nav.Link href="#pricing" className="header-content">
