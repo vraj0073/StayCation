@@ -1,3 +1,6 @@
+// Written by Qinyue Wang, B00892024, qn642785@dal.ca
+// The file is created to display all the reviews of a room
+
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import "../../css/Review.css"
@@ -6,8 +9,10 @@ import axios from "axios";
 import Navheader from "../../components/Navheader";
 // import NavBar from "../../components/NavBar";
 
-function RoomReviews() {
+function RoomReviews(props) {
 
+    // let roomId = props.id;
+    // let roomName = props.name
     let roomId = "62411dc393059f9cd2005166";
     let roomName = "Breeze LaHave";
 
