@@ -11,13 +11,13 @@ function QAArticle() {
     const [articles, setArticles] = useState([]);
 
     React.useEffect(() => {
-        axios.get("http://localhost:8080/qa/getAll").then((response) => {
+        axios.get("https://staycationbackendapp.herokuapp.com/qa/getAll").then((response) => {
             setQAs(response.data);
         });
     }, []);
 
     React.useEffect(() => {
-        axios.get("http://localhost:8080/article/getAll").then((response) => {
+        axios.get("https://staycationbackendapp.herokuapp.com/article/getAll").then((response) => {
             setArticles(response.data);
         });
     }, []);

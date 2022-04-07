@@ -14,7 +14,7 @@ function RoomReviews() {
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
     React.useEffect(() => {
-        axios.get("http://localhost:8080/review/get/roomId/" + roomId).then((response) => {
+        axios.get("https://staycationbackendapp.herokuapp.com/review/get/roomId/" + roomId).then((response) => {
             setRetrievedData({reviews: response.data})
             console.log(response.data);
         });

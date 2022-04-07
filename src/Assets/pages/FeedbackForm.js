@@ -70,25 +70,25 @@ function FeedbackForm() {
             {/*{localStorage.userEmail == null && <NavBar/>}*/}
             <Navheader/>
             <div className="feedback-form-page">
-                <div className="back-buttons">
-                    <button className="back-btn" type="button" onClick={() => {
+                <div className="feedback-form-back-buttons">
+                    <button className="feedback-form-back-btn" type="button" onClick={() => {
                         navigate('/help-center')
                     }}>&laquo;Back
                     </button>
                 </div>
                 <form className="feedback-form" style={{width: '50%'}} onSubmit={handleSubmit}>
-                    <h1 className="form-title">Share your feedback</h1>
-                    <label className="form-label">What's the type of your feedback?</label>
-                    <select className="form-select" onChange={handleTypeChange}>{types}</select>
-                    <label className="form-label">What's the topic of your feedback?</label>
-                    <select className="form-select" onChange={handleTopicChange}>{topics}</select>
-                    <label className="form-label">Add details please</label>
-                    <textarea className="form-textarea" name="content-text" onChange={handleDetailChange}/>
+                    <h1 className="feedback-form-title">Share your feedback</h1>
+                    <label className="feedback-form-label">What's the type of your feedback?</label>
+                    <select className="feedback-form-select" onChange={handleTypeChange}>{types}</select>
+                    <label className="feedback-form-label">What's the topic of your feedback?</label>
+                    <select className="feedback-form-select" onChange={handleTopicChange}>{topics}</select>
+                    <label className="feedback-form-label">Add details please</label>
+                    <textarea className="feedback-form-textarea" name="content-text" onChange={handleDetailChange}/>
                     {isSubmitted && error.length > 0 && <p className="re-text-p" id="error">{error}</p>}
-                    <button className="form-btn" type="submit" onClick={() => {
+                    <button className="feedback-form-btn" type="submit" onClick={() => {
                         setIsSubmitted(true);
                         if (detail !== "" && selectType !== "" && selectType !== "Please select" && selectTopic !== "" && selectTopic !== "Please select") {
-                            axios.post("http://localhost:8080/feedbackForm/post", {
+                            axios.post("https://staycationbackendapp.herokuapp.com/feedbackForm/post", {
                                 type: selectType,
                                 topic: selectTopic,
                                 detail: detail,
