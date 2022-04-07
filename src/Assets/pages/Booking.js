@@ -25,10 +25,72 @@ const Booking = () => {
   const [numberOfNights, setNumberOfNights] = useState();
   const [totalCharge, setTotalCharge] = useState();
 
-  const [cardError, setCardError] = useState("");
-  const [expError, setExpError] = useState("");
-  const [cvvError, setCvvError] = useState("");
+  const [creditCardNumber, setCreditCardNumber] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+
+  const [cardError, setCardError] = useState();
+  const [cvvError, setCvvError] = useState();
+  const [expError, setExpError] = useState();
   const [postalError, setPostalError] = useState("");
+
+  const cardHandler = () => {
+    if (creditCardNumber.length === 0)
+      setCardError("Credit card cannot be empty");
+    else if (creditCardNumber.length == 16) {
+      setCardError(null);
+    } else setCardError("Card number has to be 16 digits!");
+  };
+  const cvvHandler = () => {
+    if (cvv.length === 0) setCvvError("CVV cannot be empty");
+    else setCvvError(null);
+  };
+  const expHandler = () => {
+    // (0[1-9]|10|11|12)/20[0-9]{2}$
+    // let expRegex = RegExp((0[1-9]|10|11|12)/20[0-9]{2});
+    if (expiryDate.length === 0) {
+      setExpError("Expiry Date cannot be empty");
+      return;
+    }
+    var now = new Date();
+    let year = now.getFullYear().toString().slice(2);
+    let expYear = expiryDate.split("/")[1];
+    let expMonth = expiryDate.split("/")[0];
+
+    if (expYear >= year && expMonth >= "01" && expMonth <= "12") {
+      // if (/(0[1-9]|10|11|12\/[0-9]{2})$/.test(expiryDate)) {
+      console.log("EXP VALIDATED TRUE");
+      setExpError(null);
+      // } else if (!(expYear >= year && expMonth >= "01" && expMonth <= "12")) {
+      //   setExpError("Invalid Exp date!");
+    } else setExpError("Expiry Date Format should be MM/YY");
+  };
+
+  const submitHandler = () => {
+    let error = false;
+    if (creditCardNumber.length === 0) {
+      setCardError("Credit card cannot be empty");
+      error = true;
+    }
+    if (cvv.length === 0) {
+      setCvvError("CVV cannot be empty");
+      error = true;
+    }
+    if (expiryDate === 0) {
+      setExpError("Expiry Date cannot be empty");
+      error = true;
+    }
+    // if (postalCode === 0) setPostalError("Postal Code cannot be empty");
+    checkError(error);
+  };
+  const checkError = (error) => {
+    if (!error) {
+      console.log("SUccessful submit!");
+      // submit and confirm booking call
+      confirmBooking();
+    }
+  };
 
   const validation = () => {
     let flag = true;
@@ -68,6 +130,7 @@ const Booking = () => {
     console.log(totalCharge);
     setTotalCharge(totalCharge);
   };
+  
   useEffect(() => {
     calculateNumberOfNights();
   }, []);
@@ -136,7 +199,7 @@ const Booking = () => {
       },
     })
       .then((res) => {
-        console.log("Respnse from then : ", res);
+        console.log("Response from then : ", res);
         if (res.status !== 200 && res.status !== 201) {
           throw new Error("Creating Booking failed!");
         }
@@ -152,10 +215,6 @@ const Booking = () => {
       });
   };
 
-  const [creditCardNumber, setCreditCardNumber] = useState("");
-  const [cvv, setCvv] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [postalCode, setPostalCode] = useState("");
   return (
     <>
       {localStorage.userEmail != null && <Navheader />}
@@ -253,9 +312,12 @@ const Booking = () => {
                 if (e.target.value.length <= 16) {
                   setCreditCardNumber(e.target.value);
                 }
+                // cardHandler(e.target.value);
               }}
+              onBlur={(e) => cardHandler()}
             ></input>
-            <p>{cardError.length > 0 ? { cardError } : ""}</p>
+            {/* <p>{cardError.length > 0 ? { cardError } : ""}</p> */}
+            {cardError && <span style={{ color: "red" }}>{cardError}</span>}
             <div className="number" style={{ display: "flex" }}>
               <input
                 className="in half"
@@ -263,13 +325,14 @@ const Booking = () => {
                 placeholder="Expiration"
                 value={expiryDate}
                 onKeyPress={(event) => {
-                  if (!/[0-9]/.test(event.key)) {
+                  if (!/[0-9\/]/.test(event.key)) {
                     event.preventDefault();
                   }
                 }}
                 onChange={(e) => {
                   setExpiryDate(e.target.value);
                 }}
+                onBlur={(e) => expHandler()}
               >
                 {/* {RegExp("^(0[1-9]|1[0-2])/?([0-9]{2})$").test(expiryDate) ? (
                   <></>
@@ -277,7 +340,8 @@ const Booking = () => {
                   <>invalid date</>
                 )} */}
               </input>
-              {expError.length > 0 ? <p>{expError}</p> : <></>}
+
+              {/* {expError.length > 0 ? <p>{expError}</p> : <></>} */}
               {/* <p>{cardError.length > 0 ? { cardError } : ""}</p> */}
               <input
                 className="in half"
@@ -294,10 +358,15 @@ const Booking = () => {
                     setCvv(e.target.value);
                   }
                 }}
+                onBlur={(e) => cvvHandler()}
               ></input>
-              {cvvError.length > 0 ? <p>{cvvError}</p> : <></>}
             </div>
-            <input
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+              {expError && <span style={{ color: "red" }}>{expError}</span>}
+              {cvvError && <span style={{ color: "red" }}>{cvvError}</span>}
+            </div>
+            {/* {cvvError.length > 0 ? <p>{cvvError}</p> : <></>} */}
+            {/* <input
               className="in"
               name="postal"
               placeholder="Postal Code"
@@ -306,7 +375,7 @@ const Booking = () => {
                 setPostalCode(e.target.value);
               }}
             ></input>
-            {postalCode.length > 0 ? <p>{postalCode}</p> : <></>}
+            {postalCode.length > 0 ? <p>{postalCode}</p> : <></>} */}
           </div>
           <div className="booking-div__item-title booking-div__item-content">
             <button
@@ -320,10 +389,10 @@ const Booking = () => {
             <button
               className="booking-button"
               onClick={() => {
-                if (!validation()) return;
+                // if (!validation()) return;
                 if (localStorage.getItem("userEmail") == null)
                   alert("Please LOGIN to confirm your booking!!");
-                else confirmBooking();
+                else submitHandler();
                 // navigate("/payment");
               }}
             >
