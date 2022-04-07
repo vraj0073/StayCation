@@ -44,7 +44,7 @@ export const RegistrationPageContainer = () => {
 
 
     const sendData = () =>{
-      axios.post('https://weba3b00886409.herokuapp.com/register', {
+      axios.post('http://localhost:5000/register', {
             email: Email,
             password: Password,
             firstname: Firstname,
@@ -52,7 +52,8 @@ export const RegistrationPageContainer = () => {
             phonenumber: Phonenumber,
             email: Email,
             gender: Gender,
-            role: Role
+            role: Role,
+            jwt: ""
           })
           .then(function (response) {
             console.log(response);

@@ -8,7 +8,7 @@ import '../css/Header.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-
+import Cookies from 'js-cookie'
 export const Login = () => {
   React.useEffect(() => {
     const ac = new AbortController();
@@ -31,7 +31,7 @@ export const Login = () => {
   const sendData = async () =>{
     console.log("send daata"+Email)
     console.log("send password"+Password)
-    await axios.post('https://weba3b00886409.herokuapp.com/login', {
+    await axios.post('http://localhost:5000/login', {
           email: Email,
           password: Password,
         })
@@ -39,6 +39,8 @@ export const Login = () => {
           if(EmailFlag === 1 && PasswordFlag === 1){
             alert("Required field empty")
              }
+            //  Cookies.set('jwttoken', response.data.token)
+            
           history("/Profile",{state:Email})
           console.log(response.data);
           setResponse(response.data);

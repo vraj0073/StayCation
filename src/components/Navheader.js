@@ -21,6 +21,17 @@ export const Navheader = (props) => {
   const validatesubmit = () => {
     history("/home");
   };
+
+  const validdelete = () =>{
+    console.log("email here",props.data)
+    history('/deleteprofile?query='+props.data)
+  }
+
+  const validedit=(e)=>{
+    console.log("validedit here",props.data )
+    history('/editprofile?query='+props.data)
+
+  }
   return (
     <>
       <div className="col">
@@ -46,10 +57,10 @@ export const Navheader = (props) => {
                       id="title"
                       className="header-content"
                     >
-                      <NavDropdown.Item href="Editprofile">
+                      <NavDropdown.Item  onClick={validedit}>
                         Edit Profile
                       </NavDropdown.Item>
-                      <NavDropdown.Item>Delete Profile</NavDropdown.Item>
+                      <NavDropdown.Item onClick={validdelete}>Delete Profile</NavDropdown.Item>
                       <NavDropdown.Item href="Resetpassword">
                         Reset Password
                       </NavDropdown.Item>

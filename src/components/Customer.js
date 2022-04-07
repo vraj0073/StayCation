@@ -28,29 +28,34 @@ export const Customer = (props) => {
   useEffect(() => {
     
     console.log("new email here " + state)
-    axios.post('https://weba3b00886409.herokuapp.com/Userprofile', {
-          email: state,
+    axios.post('http://localhost:5000/Userprofile', {
+          email: state
+          // token: Cookies.get('jwttoken')
         })
         .then(function (response) {
+          // if(response.data.success){
+          //   // execute normal code
+          // } else{
+          //   // navigate to login
+          // }
           console.log(response.data.customer);
-           setalluserdata(response.data.customer);  
-           setid(alluserdata._id)    
-           console.log(id)
-                
+           setalluserdata(response.data.customer);
+           console.log("alluserdata email",response.data.customer)
+  
+      
+  
         })
         .catch(function (error) {
           console.log(error);
         });
-    axios.get("https://weba3b00886409.herokuapp.com/users",{
-      params: {
-        email: state,
-        phone: alluserdata.phonenumber
-
-      }
+    axios.post("http://localhost:5000/users",{
+      
+        email: state   
     })
     .then((responce) => {
-        console.log("users" +responce)
-          setalldata(responce.data.customer)
+        console.log("users in react " + responce.data.customer)
+           setalldata(responce.data.customer)
+           console.log("all data here 58 ",alldata)
         
 
     }).catch(function (error) {
@@ -67,7 +72,7 @@ export const Customer = (props) => {
   
   return (
     <>
-              <Navheader data={id}/>
+              <Navheader data={state}/>
     
 <div>
   <h1 style={{color: 'rgb(227, 28, 95)',
