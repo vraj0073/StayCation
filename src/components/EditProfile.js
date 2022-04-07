@@ -16,7 +16,6 @@ import Navheader from './Navheader'
 
 export const EditProfile = () => {
   const  [bio,setbio ] = useState('');
-  const  [email,setemail ] = useState('');
   const  [livesin,setlivesin ] = useState('');
   const  [speaks,setspeaks] = useState('');
   const  [works,setworks ] = useState('');
@@ -27,8 +26,11 @@ export const EditProfile = () => {
   const {state} = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const sendData = () =>{
-    setemail(searchParams.get("query"));
-    axios.post('http://localhost:5000/profileedit', {
+    
+    console.log("line 31 editprofile "+searchParams.get("query"))
+    let email = searchParams.get("query");
+    console.log("in react line 31 editprofile email",email)
+    axios.post('https://staycationbackendapp.herokuapp.com/profileedit', {
           bio: bio,
           email: email,
           phone: phone,
@@ -55,13 +57,7 @@ export const EditProfile = () => {
      
      
   };
-  const validemail= (e) => {
-    const email1 = e.target.value;
-    setemail(email1)
-   
-     
-     
-  };
+  
   const validphone= (e) => {
     const phone1 = e.target.value;
     setphone(phone1)

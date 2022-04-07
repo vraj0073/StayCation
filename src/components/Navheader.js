@@ -3,9 +3,7 @@ import "../css/Header.css";
 import "react-bootstrap";
 import "../css/Customer.css";
 import {
-  Card,
   Container,
-  Form,
   Nav,
   Navbar,
   NavDropdown,
@@ -21,14 +19,14 @@ export const Navheader = (props) => {
   const validatesubmit = () => {
     history("/home");
   };
-
+  const validResetPassword =()=>{
+    history('/Resetpassword?query='+props.data)
+  }
   const validdelete = () =>{
-    console.log("email here",props.data)
     history('/deleteprofile?query='+props.data)
   }
 
   const validedit=(e)=>{
-    console.log("validedit here",props.data )
     history('/editprofile?query='+props.data)
 
   }
@@ -61,7 +59,7 @@ export const Navheader = (props) => {
                         Edit Profile
                       </NavDropdown.Item>
                       <NavDropdown.Item onClick={validdelete}>Delete Profile</NavDropdown.Item>
-                      <NavDropdown.Item href="Resetpassword">
+                      <NavDropdown.Item  onClick={validResetPassword}>
                         Reset Password
                       </NavDropdown.Item>
                       <NavDropdown.Item href="Logout">Logout </NavDropdown.Item>

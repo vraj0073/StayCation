@@ -26,12 +26,12 @@ export const Login = () => {
   const [Error, setError] = useState('');
   const [Response, setResponse] = useState('');
   useEffect(() => {
-    console.log("in useeffect" + Response)  
+    
   }, [Response]);
   const sendData = async () =>{
     console.log("send daata"+Email)
     console.log("send password"+Password)
-    await axios.post('http://localhost:5000/login', {
+    await axios.post('https://staycationbackendapp.herokuapp.com/login', {
           email: Email,
           password: Password,
         })
@@ -39,7 +39,6 @@ export const Login = () => {
           if(EmailFlag === 1 && PasswordFlag === 1){
             alert("Required field empty")
              }
-            //  Cookies.set('jwttoken', response.data.token)
             
           history("/Profile",{state:Email})
           console.log(response.data);

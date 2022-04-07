@@ -2,13 +2,14 @@
 Author: Vraj Jadhav
 Description: This component handle new password page.
 */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Row } from 'react-bootstrap'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import '../css/New_Password.css'
 import axios from 'axios';
 
 export const New_Password = (props) => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const history = useNavigate();
   const passwordRegex = /^[-@.\/#&+\w\s]*$/;
   const [Password,setPassword] = useState("");
@@ -16,15 +17,18 @@ export const New_Password = (props) => {
   const [ConfirmPasswordFlag,setConfirmPasswordFlag] = useState(1);
   const [Passwordmessage, setPasswordMessage] = useState('');
   const [Confirmmessage, setConfirmMessage] = useState('');
-  const [Email, setEmail] = useState('');
-  const {state} = useLocation();
   const [Errorpassword, setErrorpassword] = useState('');
   const [Erroremail, setErroremail] = useState('');
-
+  
+  React.useEffect(() => {
+    const ac = new AbortController();
+    return () => ac.abort();
+  })
   const sendData = () =>{
-    
-    axios.post('https://weba3b00886409.herokuapp.com/resetpassword', {
-          email: state,
+    let email = searchParams.get("query");
+    console.log("NewPassword line 28 :",searchParams.get("query"))
+    axios.post('https://staycationbackendapp.herokuapp.com/resetpassword', {
+          email: email,
           password: Password,
         })
         .then(function (response) {
@@ -46,7 +50,7 @@ export const New_Password = (props) => {
         });
   }
   const validateSubmit = () => {
-    setEmail(state)
+    
     if(PasswordFlag == 0 && ConfirmPasswordFlag == 0){
       
       sendData();

@@ -21,29 +21,26 @@ export const Forget_Password_Email = () => {
   const [Error, setError] = useState('');
   const history = useNavigate();
   const sendData = () =>{
-    axios.post('https://weba3b00886409.herokuapp.com/forgetpassword', {
+    axios.post('https://staycationbackendapp.herokuapp.com/forgetpassword', {
           email: Email })
         .then(function (response) {
-          console.log(response.data);
+          console.log(""+response.data);
           setError(Error);
+          history('/resetpassword?query='+Email)
              })
         .catch(function (error) {
-          console.log(error);
+          
+          alert("Invalid Email Id",error)
         });
   }
   const validateSubmit = () => {
     
     sendData();
     
-    if(Error == 'Email not found'){
-      alert(Error)
 
-    }
-    else{
-
-        history('/resetpassword',{state: Email})
-    }
-
+  }
+  const validHome = (e)=>{
+    history('/home')
   }
   const validateEmail = (event) => {
     const email = event.target.value;
@@ -61,7 +58,7 @@ export const Forget_Password_Email = () => {
       <>
       <div className="header">
         <div className="header-items">
-          <button>S</button>taycation
+          <button onClick={validHome} >S</button>taycation
         </div>
         <div className="header-items"></div>
       </div>

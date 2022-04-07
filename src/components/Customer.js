@@ -28,34 +28,27 @@ export const Customer = (props) => {
   useEffect(() => {
     
     console.log("new email here " + state)
-    axios.post('http://localhost:5000/Userprofile', {
+    axios.post('https://staycationbackendapp.herokuapp.com/Userprofile', {
           email: state
-          // token: Cookies.get('jwttoken')
+         
         })
         .then(function (response) {
-          // if(response.data.success){
-          //   // execute normal code
-          // } else{
-          //   // navigate to login
-          // }
+         
           console.log(response.data.customer);
            setalluserdata(response.data.customer);
            console.log("alluserdata email",response.data.customer)
-  
-      
-  
         })
         .catch(function (error) {
           console.log(error);
         });
-    axios.post("http://localhost:5000/users",{
+    axios.post("https://staycationbackendapp.herokuapp.com/users",{
       
         email: state   
     })
     .then((responce) => {
         console.log("users in react " + responce.data.customer)
            setalldata(responce.data.customer)
-           console.log("all data here 58 ",alldata)
+           console.log("all data here 58 ",alldata.email)
         
 
     }).catch(function (error) {

@@ -15,11 +15,12 @@ export const Deleteprofile = () => {
         
         console.log("line 15 deleteprofile",email)
         if(confirm === 'Yes'){
-            axios.post('http://localhost:5000/deleteprofile', {
+            axios.post('https://staycationbackendapp.herokuapp.com/deleteprofile', {
              email: email
           })
           .then(function (response) {
             console.log(response);
+            history('/login')
             
           })
           .catch(function (error) {
