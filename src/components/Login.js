@@ -40,6 +40,7 @@ export const Login = () => {
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");
           if(response.data.role === "host"){
+            console.log(response.data);
             history("/viewlisting", {state:response.data.email})
           }else{
             history("/Profile",{state:Email})
