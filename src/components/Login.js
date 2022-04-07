@@ -18,14 +18,16 @@ export const Login = () => {
   const history = useNavigate();
 
   const emailRegex = /\S+@\S+\.\S+/;
-  const [EmailFlag, setEmailFlag] = useState(1);
-  const [Emailmessage, setEmailMessage] = useState("");
-  const [PasswordFlag, setPasswordFlag] = useState(1);
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Error, setError] = useState("");
-  const [Response, setResponse] = useState("");
+  const [EmailFlag,setEmailFlag] = useState(1);
+  const [Emailmessage, setEmailMessage] = useState('');
+  const [PasswordFlag,setPasswordFlag] = useState(1);
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [Error, setError] = useState('');
+  const [Response, setResponse] = useState('');
+
   useEffect(() => {}, [Response]);
+
   const sendData = async () => {
     console.log("send daata" + Email);
     console.log("send password" + Password);
@@ -37,12 +39,14 @@ export const Login = () => {
       .then(function (response) {
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");
+          if(response.data.role === "host"){
+            history("/viewlisting", {state:response.data.email})
+          }else{
+            history("/Profile",{state:Email})
+            setResponse(response.data);
+            console.log("Error her" + Error);
+          }
         }
-
-        history("/Profile", { state: Email });
-        console.log(response.data);
-        setResponse(response.data);
-        console.log("Error her" + Error);
       })
       .catch(function (error) {
         console.log(error);
@@ -54,8 +58,6 @@ export const Login = () => {
         }
         localStorage.setItem("userEmail", Email);
         history("/Profile", { state: Email });
-        // console.log(response.data);
-        // setResponse(response.data);
         console.log("Error her" + Error);
       })
       .catch(function (error) {
@@ -144,6 +146,5 @@ export const Login = () => {
       </form>
     </>
   );
-};
-
+}
 export default Login;
