@@ -22,6 +22,8 @@ import Deleteprofile from "./components/Deleteprofile";
 import RoomReviews from "./Assets/pages/RoomReviews";
 import QAArticle from "./Assets/pages/QAArticle";
 import FeedbackForm from "./Assets/pages/FeedbackForm";
+import Room from "./Assets/pages/Room";
+import Booking from "./Assets/pages/Booking";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route exact path="/home" element={<Home />}></Route>
+          <Route path="/rooms/:roomId" exact element={<Room />}></Route>
+          <Route path="/book" element={<Booking />}></Route>
           <Route exact path="/blogs/home" element={<Home />}></Route>
           <Route exact path="/Register" element={<RegistrationPage />}></Route>
           <Route exact path="/Login" element={<Login />}></Route>
