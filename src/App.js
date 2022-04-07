@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap";
 import "./App.css";
 import BlogPage from "./Assets/pages/blogPage";
 import SearchPage from "./Assets/pages/SearchPage";
+//import Room from "./Assets/pages/Room";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import TravelHistory from "./Assets/pages/TravelHistory";
 import WishList from "./Assets/pages/WishList";
@@ -17,6 +18,8 @@ import Home from "./components/Home";
 import Review from "./Assets/pages/Review";
 import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
+import Createlisting from "./components/Createlisting";
+import Host from "./components/Host";
 
 function App() {
   return (
@@ -42,6 +45,10 @@ function App() {
             path="th"
             element={<TravelHistory email="vrajjadhav0073@gmail.com" />}
           />
+          
+          <Route path="/viewlisting" element={<Host/>}/>
+          <Route path="/createlisting" element={<Createlisting/>}/> 
+          {/* <Route path="/rooms/:roomId" exact element={<Room />}></Route> */}
           <Route path="wishlist" element={<WishList />} />
           <Route path="/user-reviews" element={<Review />}></Route>
           <Route path="/edit-review" element={<ReviewEdit />}></Route>
