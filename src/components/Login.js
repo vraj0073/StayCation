@@ -25,38 +25,6 @@ export const Login = () => {
   const [Password, setPassword] = useState('');
   const [Error, setError] = useState('');
   const [Response, setResponse] = useState('');
-<<<<<<< HEAD
-  useEffect(() => {
-    
-  }, [Response]);
-  const sendData = async () =>{
-    console.log("send daata"+Email)
-    console.log("send password"+Password)
-    await axios.post('https://staycationbackendapp.herokuapp.com/login', {
-          email: Email,
-          password: Password,
-        })
-        .then(function (response) {
-          if(EmailFlag === 1 && PasswordFlag === 1){
-            alert("Required field empty")
-             }
-            else if(response){
-            
-          history("/Profile",{state:Email})
-          console.log(response.data);
-          setResponse(response.data);
-            
-            }
-        })
-        .catch(function (error) {
-          console.log(error);
-          setError(error)
-          if(EmailFlag === 1 && PasswordFlag === 1){
-            alert("Required field empty")
-             }
-             else{
-          alert("Invalid username or password")
-=======
 
   useEffect(() => {}, [Response]);
 
@@ -88,7 +56,6 @@ export const Login = () => {
           alert("Required field empty");
         } else {
           alert("Invalid username or password");
->>>>>>> bd2dea4baf189cf0fc93bdab97f9231288edfe8e
         }
         localStorage.setItem("userEmail", Email);
         history("/Profile", { state: Email });
