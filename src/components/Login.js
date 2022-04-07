@@ -36,9 +36,11 @@ export const Login = () => {
         password: Password,
       })
       .then(function (response) {
+        console.log(response.data.role)
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");
-          if(response.data.role === "host"){
+        }
+         else if(response.data.role === "host"){
             history("/viewlisting", {state:response.data.email})
           }else{
             history("/Profile",{state:Email})
@@ -46,7 +48,7 @@ export const Login = () => {
             console.log("Error her" + Error);
           }
         }
-      })
+      )
       .catch(function (error) {
         console.log(error);
         setError(error);
