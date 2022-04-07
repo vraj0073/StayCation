@@ -1,3 +1,6 @@
+// Written by Qinyue Wang, B00892024, qn642785@dal.ca
+// The file is created to allow users to edit their posted reviews
+
 import React from "react";
 import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
