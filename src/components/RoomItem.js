@@ -215,7 +215,7 @@ const RoomItem = (props) => {
     };
 
     const url =
-      "http://localhost:8080/hostuser/editlisting/" +
+      "https://staycationbackendapp.herokuapp.com/hostuser/editlisting/" +
       props.id;
     fetch(url, {
       method: "PUT",
