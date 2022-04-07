@@ -54,6 +54,12 @@ export const Navheader = (props) => {
                     <Nav.Link href="th" className="header-content">
                       History
                     </Nav.Link>
+                    <Nav.Link href="user-reviews" className="header-content">
+                      Reviews
+                    </Nav.Link>
+                    <Nav.Link href="help-center" className="header-content">
+                      Help Center
+                    </Nav.Link>
                     <NavDropdown
                       title="Account Setting"
                       id="title"

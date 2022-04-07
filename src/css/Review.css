@@ -30,7 +30,7 @@
     font-size: 35px;
 }
 
-.reviews-content h3 {
+.reviews-content-h3 {
     font-size: 25px;
 }
 
@@ -42,7 +42,7 @@
     padding: 10px 10px 30px;
 }
 
-.reviews-btn {
+.reviews-btn, .back-btn {
     display: inline-block;
     font-size: 20px;
     margin: 10px 2px;
@@ -50,7 +50,6 @@
     border-radius: 6px;
     padding: 10px 0;
     cursor: pointer;
-
     color: white;
     background-color: rgb(227, 28, 95);
     border: none;
@@ -61,6 +60,6 @@
     margin-left: 70%
 }
 
-.reviews-footer {
-    font-size: 30px;
+.room-reviews-buttons {
+    margin-right: 80%
 }
