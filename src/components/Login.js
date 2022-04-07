@@ -36,6 +36,7 @@ export const Login = () => {
         password: Password,
       })
       .then(function (response) {
+        console.log(response.data.role)
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");
         }
