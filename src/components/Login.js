@@ -56,9 +56,6 @@ export const Login = () => {
         } else {
           alert("Invalid username or password");
         }
-        localStorage.setItem("userEmail", Email);
-        history("/Profile", { state: Email });
-        console.log("Error her" + Error);
       })
       .catch(function (error) {
         console.log(error);

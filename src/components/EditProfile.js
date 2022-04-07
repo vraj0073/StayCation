@@ -120,16 +120,16 @@ export const EditProfile = () => {
     
     <Card.Text className='info'>
       <div>   
-    <h4>Bio :</h4>
-    <div className='input_values'>
+    <h4 className='editprofileheader'>Bio :</h4>
+    <div className='input_values_edit'>
   <Form.Control as="textarea" onChange={validbio} rows={3} cols={30} />
   </div>
     </div>
     <br></br>
     <div>
-    <h4>Email :</h4>
+    <h4 className='editprofileheader'>Email :</h4>
     </div>
-    <div className='input_values'>
+    <div className='input_values_edit'>
     
       <div className='subcontainer'>
     <Card style={{ width: '15rem', height: '2rem',marginTop: '-2rem',marginLeft:'-7.5rem' }}>
@@ -143,34 +143,34 @@ export const EditProfile = () => {
     </div>
     <br></br>
     <div>
-    <h4>Contact No : </h4>
+    <h4 className='editprofileheader'>Contact No : </h4>
     </div>
-    <div className='input_values'>
+    <div className='input_values_edit1'>
     <input type='text' onChange={validphone} placeholder='Contact Number'/>
     </div>
     <br></br>
     <div>
-    <h4>Lives In : </h4>
+    <h4 className='editprofileheader'>Lives In : </h4>
     </div>
-    <div className='input_values'>
+    <div className='input_values_edit1'>
     <input type='text' onChange={validlivesin} placeholder='Lives In'/>
     </div>
     <br></br>
     <div>
-    <h4>Speaks : </h4>
+    <h4 className='editprofileheader'>Speaks : </h4>
     </div>
-    <div className='input_values'>
+    <div className='input_values_edit1'>
     <input type='text' placeholder='Speaks' onChange={validspeaks}/>
     </div>
     <br></br>
     <div>
-    <h4>Works : </h4>
+    <h4 className='editprofileheader'>Works : </h4>
     </div>
-    <div className='input_values'>
+    <div className='input_values_edit1'>
     <input type='text' placeholder='Work'onChange={validwork}/>
     </div>
     <div id='save_button'>
-    <button onClick={onSubmit}>Save</button>
+    <button style={{ marginRight : '90%' }} onClick={onSubmit}>Save</button>
     </div>
     </Card.Text>
   </Card.Body>
