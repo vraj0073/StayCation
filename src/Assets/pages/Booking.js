@@ -6,6 +6,7 @@ import {
   faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Booking.css";
+// import "../../css/BlogPage.css";
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import moment from "moment";
@@ -239,15 +240,16 @@ const Booking = () => {
           <div className="booking-div__item">
             <div className="booking-div__item-title">{room.name}</div>
             <div className="booking-div__item-content">
-              <div>
+              {/* <div>
                 <FontAwesomeIcon icon={faHeart} />
                 <div className="rating">
                   {room.rating} ({room.reviews})
                 </div>
-              </div>
-              <div>
+              </div> */}
+              <div className="booking-div__location">
                 <FontAwesomeIcon icon={faLocationDot} />
-                <div className="hostname">By {room.hostName}</div>
+                <div>{room.location}</div>
+                <div className="hostname">Hosted By {room.hostName}</div>
               </div>
             </div>
           </div>
@@ -317,54 +319,54 @@ const Booking = () => {
               onBlur={(e) => cardHandler()}
             ></input>
             {/* <p>{cardError.length > 0 ? { cardError } : ""}</p> */}
-            {cardError && <span style={{ color: "red" }}>{cardError}</span>}
-            <div className="number" style={{ display: "flex" }}>
-              <input
-                className="in half"
-                name="exp"
-                placeholder="Expiration"
-                value={expiryDate}
-                onKeyPress={(event) => {
-                  if (!/[0-9\/]/.test(event.key)) {
-                    event.preventDefault();
-                  }
-                }}
-                onChange={(e) => {
-                  setExpiryDate(e.target.value);
-                }}
-                onBlur={(e) => expHandler()}
-              >
-                {/* {RegExp("^(0[1-9]|1[0-2])/?([0-9]{2})$").test(expiryDate) ? (
+            {cardError && <p style={{ color: "red", margin:"2px 0px" }}>{cardError}</p>}
+            
+            <input
+              className="in "
+              name="exp"
+              placeholder="Expiration"
+              value={expiryDate}
+              onKeyPress={(event) => {
+                if (!/[0-9\/]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              onChange={(e) => {
+                setExpiryDate(e.target.value);
+              }}
+              onBlur={(e) => expHandler()}
+            >
+              {/* {RegExp("^(0[1-9]|1[0-2])/?([0-9]{2})$").test(expiryDate) ? (
                   <></>
                 ) : (
                   <>invalid date</>
                 )} */}
-              </input>
+            </input>
+            {expError && <p style={{ color: "red", margin:"2px 0px" }}>{expError}</p>}
+            {/* {expError.length > 0 ? <p>{expError}</p> : <></>} */}
+            {/* <p>{cardError.length > 0 ? { cardError } : ""}</p> */}
+            <input
+              className="in "
+              name="cvv"
+              placeholder="CVV"
+              value={cvv} 
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              onChange={(e) => {
+                if (e.target.value.length <= 3) {
+                  setCvv(e.target.value);
+                }
+              }}
+              onBlur={(e) => cvvHandler()}
+            ></input>
+            {/* </div> */}
+            {/* <div style={{ display: "flex", justifyContent: "space-evenly" }}> */}
 
-              {/* {expError.length > 0 ? <p>{expError}</p> : <></>} */}
-              {/* <p>{cardError.length > 0 ? { cardError } : ""}</p> */}
-              <input
-                className="in half"
-                name="cvv"
-                placeholder="CVV"
-                value={cvv}
-                onKeyPress={(event) => {
-                  if (!/[0-9]/.test(event.key)) {
-                    event.preventDefault();
-                  }
-                }}
-                onChange={(e) => {
-                  if (e.target.value.length <= 3) {
-                    setCvv(e.target.value);
-                  }
-                }}
-                onBlur={(e) => cvvHandler()}
-              ></input>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-              {expError && <span style={{ color: "red" }}>{expError}</span>}
-              {cvvError && <span style={{ color: "red" }}>{cvvError}</span>}
-            </div>
+            {cvvError && <p style={{ color: "red", margin:"2px 0px" }}>{cvvError}</p>}
+            {/* </div> */}
             {/* {cvvError.length > 0 ? <p>{cvvError}</p> : <></>} */}
             {/* <input
               className="in"
