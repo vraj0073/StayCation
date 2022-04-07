@@ -191,15 +191,7 @@ const RoomItem = (props) => {
       onSubmitHandler();
     }
   };
-
-  // const reviewHandler = () =>{
-  //   const room_id = props.id;
-  //   console.log(room_id);
-  //   const room_name = props.name;
-  //   console.log(room_name);
-  //   navigate('/write-review', {state:room_id , state2:room_name })
-  // }
-
+  
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -268,8 +260,8 @@ const RoomItem = (props) => {
 
   return (
     <div className="user-card" id="user-card">
-      <Card className="card" is = "card">
-        <Card.Body>
+      <Card className="card" id = "card">
+        <Card.Body  id="cardbox">
           {isView ? (
             <Card.Title className="title">Name: {props.name}</Card.Title>
           ) : (
@@ -557,11 +549,6 @@ const RoomItem = (props) => {
               Delete
             </Button>
           </div>
-          {/* <div id="buttn">
-            <Button type="submit" className="button" onClick={reviewHandler}>
-              Write a Review
-            </Button>
-          </div> */}
         </Card.Body>
       </Card>
     </div>
