@@ -130,7 +130,7 @@ const Room = () => {
               <span className="review-count">179 reviews</span>
               <span className="grey">Superhost</span>
               <span className="room-location">
-                Bridgewater, Nova Scotia, Canada
+                {room.location}, {room.state}, {room.country}
               </span>
             </div>
             {/* Share and like */}
@@ -161,7 +161,16 @@ const Room = () => {
         </div>
         <div className="room-photos-wrapper" id="gallery">
           {/* Halfves */}
-          <div className="room-photo-main"></div>
+          <div
+            className="room-photo-main"
+            style={{ display:"flex", alignItems:"center", justifyContent:"center" }}
+          >
+            <img
+              src={room.img}
+              style={{ margin: "18px auto", marginLeft:"auto", marginRight:"auto",borderRadius:"10px" }}
+            ></img>
+          </div>
+
           {/* <div className="room-photo-four">
           
           <div className="row-1">
@@ -297,7 +306,7 @@ const Room = () => {
               </div>
             </div>
           </div>
-          
+
           {/* <div className="room-reviews">
             <div className="room-reviews-title">
               <StarIcon className="pink" />
@@ -364,8 +373,8 @@ const Room = () => {
                 <p>Airbnb.org supporter</p>
               </div>
             </div>
-            <div className="host-post">
-              Welcome to Bridgewater, a beautiful town in Lunenburg county of
+            <div className="host-post" style={{textAlign:"justify"}}>
+              {/* Welcome to Bridgewater, a beautiful town in Lunenburg county of
               Nova Scotia. My husband (used to be project manager at global
               company) and I (used to be an owner of various businesses) run a
               business in Bridgewater as well as Airbnb named ‘Breeze from La
@@ -374,7 +383,8 @@ const Room = () => {
               beauty of seaside towns, breathtaking view of La Have river and
               many beaches nearby and also to provide my guests with a good
               memory of staying at our Airbnb. Feel the 'Breeze from La Have' at
-              our Airbnb during your travel!
+              our Airbnb during your travel! */}
+              {room.description}
             </div>
           </div>
         </div>
