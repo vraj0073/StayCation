@@ -38,6 +38,9 @@ const NavBar = () => {
                   <Nav.Link href="#pricing" className="header-content">
                     Contact
                   </Nav.Link>
+                  <Nav.Link href="help-center" className="header-content">
+                    Help Center
+                  </Nav.Link>
                   <NavDropdown
                     title="Login"
                     id="title"

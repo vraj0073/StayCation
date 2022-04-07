@@ -1,0 +1,38 @@
+.qa-article-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.qas-heading {
+    margin-right: 90%;
+}
+
+.articles-heading {
+    margin-right: 68%;
+}
+
+.qas, .articles, .feedback-nav {
+    width: 65%;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.qa-question {
+}
+
+.article{
+    text-align: justify;
+}
+
+.feedback-nav-btn{
+    text-decoration: underline;
+    border: none;
+    background-color: rgb(255,255,255);
+}
+
+.feedback-nav-btn:hover{
+    color: rgb(227, 28, 95);
+}
