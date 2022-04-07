@@ -3,28 +3,37 @@ Author: Vraj Jadhav
 Description: This component handle profile page.
 */
 
-import React, { useEffect, useState } from 'react'
-import '../css/Header.css'
-import 'react-bootstrap'
-import '../css/Customer.css'
-import { Card, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image'
-import EditProfile from './EditProfile'
-import { useLocation, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import './Navheader'
-import Navheader from './Navheader'
-
+import React, { useEffect, useState } from "react";
+import "../css/Header.css";
+import "react-bootstrap";
+import "../css/Customer.css";
+import {
+  Card,
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Row,
+  Col,
+  Button,
+} from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import EditProfile from "./EditProfile";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Navheader";
+import Navheader from "./Navheader";
+import { Link } from "react-router-dom";
 
 export const Customer = (props) => {
-  const[alldata,setalldata] = useState({});
-  const[alluserdata,setalluserdata] = useState({});
-  const[id,setid] = useState("");
+  const [alldata, setalldata] = useState({});
+  const [alluserdata, setalluserdata] = useState({});
+  const [id, setid] = useState("");
   React.useEffect(() => {
-    
     const ac = new AbortController();
     return () => ac.abort();
-  })
+  });
   useEffect(() => {
     
     console.log("new email here " + state)
@@ -59,10 +68,8 @@ export const Customer = (props) => {
 },[])
 
   const history = useNavigate();
-  const {state} = useLocation();
-  
-  
-  
+  const { state } = useLocation();
+
   return (
     <>
               <Navheader data={state}/>
@@ -170,7 +177,7 @@ marginTop: 10 }}>Profile Page</h1>
 </Col>
 </Row>
     </>
-  )
-}
+  );
+};
 
-export default Customer
+export default Customer;
