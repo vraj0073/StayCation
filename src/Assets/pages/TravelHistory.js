@@ -119,7 +119,7 @@ function TravelHistory(props) {
                 {booking.ptitle}
               </Card.Title>
               <Card.Text>Date Travelled - {booking.datetravelled}</Card.Text>
-              <Button variant="primary">Check it out</Button>
+              {/* <Button variant="primary">Check it out</Button> */}
             </Card.Body>
           </Card>
         ))}
