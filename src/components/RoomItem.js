@@ -25,7 +25,7 @@ const RoomItem = (props) => {
   const [type, setType] = useState(props.type || "");
   const [location, setLocation] = useState(props.location || "");
   const [state, setState] = useState(props.state || "");
-  const [country, setCountry] = useState(props.state || "");
+  const [country, setCountry] = useState(props.country || "");
 
   const [isView, setIsView] = useState(true);
 
@@ -193,8 +193,6 @@ const RoomItem = (props) => {
   };
   
   const onSubmitHandler = (event) => {
-    event.preventDefault();
-
     const roomData = {
       _id: props.id,
       name: placename,
@@ -217,7 +215,7 @@ const RoomItem = (props) => {
     };
 
     const url =
-      "https://staycationbackendapp.herokuapp.com/hostuser/editlisting/" +
+      "http://localhost:8080/hostuser/editlisting/" +
       props.id;
     fetch(url, {
       method: "PUT",
@@ -473,7 +471,7 @@ const RoomItem = (props) => {
             </div>
           )}
           {isView ? (
-            <Card.Text className="content">Country: {props.type}</Card.Text>
+            <Card.Text className="content">Country: {props.country}</Card.Text>
           ) : (
             <div>
               <Card.Title className="content">
