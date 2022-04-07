@@ -2,13 +2,13 @@
 Author: Vraj Jadhav
 Description: This component handle login page.
 */
-import React, { useEffect, useState } from 'react'
-import '../css/Login1.css'
-import '../css/Header.css'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
-import { Button } from 'react-bootstrap';
-import Cookies from 'js-cookie'
+import React, { useEffect, useState } from "react";
+import "../css/Login1.css";
+import "../css/Header.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Button } from "react-bootstrap";
+import Cookies from "js-cookie";
 export const Login = () => {
   React.useEffect(() => {
     const ac = new AbortController();
@@ -25,39 +25,37 @@ export const Login = () => {
   const [Password, setPassword] = useState("");
   const [Error, setError] = useState("");
   const [Response, setResponse] = useState("");
-  useEffect(() => {
-    
-  }, [Response]);
-  const sendData = async () =>{
-    console.log("send daata"+Email)
-    console.log("send password"+Password)
-    await axios.post('https://staycationbackendapp.herokuapp.com/login', {
-          email: Email,
-          password: Password,
-        })
-        .then(function (response) {
-          if(EmailFlag === 1 && PasswordFlag === 1){
-            alert("Required field empty")
-             }
-            
-          history("/Profile",{state:Email})
-          console.log(response.data);
-          setResponse(response.data);
-          console.log("Error her" + Error)  
-        })
-        .catch(function (error) {
-          console.log(error);
-          setError(error)
-          if(EmailFlag === 1 && PasswordFlag === 1){
-            alert("Required field empty")
-             }
-             else{
-          alert("Invalid username or password")
+  useEffect(() => {}, [Response]);
+  const sendData = async () => {
+    console.log("send daata" + Email);
+    console.log("send password" + Password);
+    await axios
+      .post("https://staycationbackendapp.herokuapp.com/login", {
+        email: Email,
+        password: Password,
+      })
+      .then(function (response) {
+        if (EmailFlag === 1 && PasswordFlag === 1) {
+          alert("Required field empty");
         }
-        localStorage.setItem("userEmail", Email);
+
         history("/Profile", { state: Email });
         console.log(response.data);
         setResponse(response.data);
+        console.log("Error her" + Error);
+      })
+      .catch(function (error) {
+        console.log(error);
+        setError(error);
+        if (EmailFlag === 1 && PasswordFlag === 1) {
+          alert("Required field empty");
+        } else {
+          alert("Invalid username or password");
+        }
+        localStorage.setItem("userEmail", Email);
+        history("/Profile", { state: Email });
+        // console.log(response.data);
+        // setResponse(response.data);
         console.log("Error her" + Error);
       })
       .catch(function (error) {
