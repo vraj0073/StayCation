@@ -261,7 +261,7 @@ const Room = () => {
                 Entire rental unit hosted by {room.hostName}
               </p>
               <p className="room-host-title-sub">
-                4 guests1 bedroom2 beds1 bath
+                Guests:{room.guestSize}, Beds:{room.bedroom}, Baths:{room.bath}
               </p>
             </div>
             <div className="room-host-features">
@@ -279,7 +279,7 @@ const Room = () => {
                   <SparklesIcon className="feature-icon" />
                 </div>
                 <div className="feature">
-                  <p>Kate is a Superhost</p>
+                  <p>{room.hostName} is a Superhost</p>
                   <p>
                     Superhosts are experienced, highly rated hosts who are
                     committed to providing great stays for guests.
@@ -297,7 +297,8 @@ const Room = () => {
               </div>
             </div>
           </div>
-          <div className="room-reviews">
+          
+          {/* <div className="room-reviews">
             <div className="room-reviews-title">
               <StarIcon className="pink" />
               <p>4.96 | 179 reviews</p>
@@ -334,13 +335,14 @@ const Room = () => {
               </div>
             </div>
           </div>
+           */}
           <div className="host-info">
             <div className="host-info-title">
               <div className="host-dp">
                 <img src="/room/kate.webp" />
               </div>
               <div className="host-name">
-                <p>Hosted by Kate</p>
+                <p>Hosted by {room.hostName}</p>
                 <p>Joined in February 2019</p>
               </div>
             </div>

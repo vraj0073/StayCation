@@ -130,7 +130,7 @@ const Booking = () => {
     console.log(totalCharge);
     setTotalCharge(totalCharge);
   };
-  
+
   useEffect(() => {
     calculateNumberOfNights();
   }, []);
@@ -184,7 +184,7 @@ const Booking = () => {
       mode: "cors",
       body: JSON.stringify({
         roomId: room._id,
-        userEmail: "dummy",
+        userEmail: localStorage.userEmail,
         hostName: room.hostName,
         numberOfGuests: bookingInfo.numberOfGuests,
         checkInDate: bookingInfo.checkInDate.toLocaleDateString(),
