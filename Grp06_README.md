@@ -13,10 +13,13 @@
 - [Qinyue Wang](qn642785@dal.ca) - _(Student)_
 - [Vraj Jadhav](Vraj.jadhav@dal.ca) - _(Student)_
 
-## Deployment
+## Deployment Frontend
 
 - _Deployment URL_: https://group-06-staycation.herokuapp.com/
 
+## Backend Deployment 
+
+- _Deployment URL_: https://staycationbackendapp.herokuapp.com
 ## File Created
 
 ### Kishan Kahodariya
@@ -33,3 +36,16 @@
 - Review.js (with Review.css)
 - ReviewWrite.js (with ReviewEdit.css)
 - ReviewEdit.js (with ReviewEdit.css)
+
+### Vraj Jadhav
+
+- Customer.js (with Customer.css)
+- Deleteprofile.js (with Deleteprofile.css)
+- EditProfile.js (with EditProfile.css)
+- Forget_Password_Email.js (with Forget_Password_Email.css)
+- Home.js (with Home.css)
+- Login.js (with Login1.css)
+- NavBar.js (with NavBar.css)
+- Navheader.js (with Navheader.css)
+- New_Password.js (with New_Password.css)
+- RegistrationPage.js (with RegistrationPage.css and RegistrationPageContainer.js)
