@@ -42,7 +42,7 @@ export const SearchPage = () => {
 
   async function simpleSearch(e) {
     e.preventDefault();
-    const API_URL = `https://csci5709hsa3backend.herokuapp.com/search/simplesearch/${location}`;
+    const API_URL = `https://staycationbackendapp.herokuapp.com/search/simplesearch/${location}`;
     try {
       await axios({
         method: "get",
@@ -63,7 +63,7 @@ export const SearchPage = () => {
   async function customSearch(e) {
     console.log("custom search :" + location);
     e.preventDefault();
-    const API_URL = `https://csci5709hsa3backend.herokuapp.com/search/customsearch/${location}/${accomodationType}/${duration}`;
+    const API_URL = `https://staycationbackendapp.herokuapp.com/search/customsearch/${location}/${accomodationType}/${duration}`;
     try {
       await axios({
         method: "get",
