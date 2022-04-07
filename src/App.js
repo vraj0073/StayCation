@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import "./App.css";
 import BlogPage from "./Assets/pages/blogPage";
 import SearchPage from "./Assets/pages/SearchPage";
@@ -17,6 +16,8 @@ import Home from "./components/Home";
 import Review from "./Assets/pages/Review";
 import ReviewEdit from "./Assets/pages/ReviewEdit";
 import ReviewWrite from "./Assets/pages/ReviewWrite";
+import Createlisting from "./components/Createlisting";
+import Host from "./components/Host";
 import Deleteprofile from "./components/Deleteprofile";
 import RoomReviews from "./Assets/pages/RoomReviews";
 import QAArticle from "./Assets/pages/QAArticle";
@@ -47,6 +48,9 @@ function App() {
             path="th"
             element={<TravelHistory email="vrajjadhav0073@gmail.com" />}
           />
+          
+          <Route path="/viewlisting" element={<Host/>}/>
+          <Route path="/createlisting" element={<Createlisting/>}/> 
           <Route path="wishlist" element={<WishList />} />
           <Route path="/user-reviews" element={<Review />}></Route>
           <Route path="/edit-review" element={<ReviewEdit />}></Route>
