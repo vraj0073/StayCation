@@ -63,12 +63,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 600px;
+  /* height: 600px; */
 }
 .room-photo-main {
   width: calc(100% - 2px);
   height: 100%;
-  background-image: url("../../../public/room/img1.webp");
+  /* background-image: url("../../../public/room/img1.webp"); */
   background-position: center center;
   background-size: cover;
   border-radius: 10px;
@@ -316,10 +316,12 @@
   display: flex;
   width: fit-content;
   margin-right: 15px;
+  margin-bottom:3px;
 }
 .h-achievement p {
   margin-left: 10px;
   font-size: 17px;
+  margin-bottom:0px;
 }
 .host-post {
   width: 50%;
