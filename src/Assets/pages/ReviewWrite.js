@@ -8,13 +8,13 @@ import "../../css/Header.css"
 import Navheader from "../../components/Navheader";
 
 function ReviewWrite(props) {
-    let userEmail = localStorage.getItem("userEmail");
-    let roomId = props.id;
-    let roomName = props.name
+    // let userEmail = localStorage.getItem("userEmail");
+    // let roomId = props.id;
+    // let roomName = props.name
 
-    // let userEmail = "www@gmail.com";
-    // let roomId = "62411dc393059f9cd2005166";
-    // let roomName = "Breeze LaHave";
+    let userEmail = "wangqinyuechn@gmail.com";
+    let roomId = "62411dc393059f9cd2005166";
+    let roomName = "Breeze LaHave";
 
     let currentDate =new Date();
     let day = currentDate.getDate();
