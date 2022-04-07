@@ -298,6 +298,7 @@ export const SearchPage = () => {
                             city={eachItem.location}
                             state={eachItem.state}
                             country={eachItem.country}
+                            room={eachItem}
                           />
                         </div>
                       </Col>

@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue",
+    sans-serif;
+  font-size: 5em;
+  text-align: center;
+}
+.title {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue",
+    sans-serif;
+  font-size: 3em;
+  /* width: 70%; */
+  /* text-align: center; */
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: center;
+}
+.title-div {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+}
+.title-div__item {
+  padding-left: 2%;
+}
+.icon-button {
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  background-color: white;
+  border: none;
+}
+.icon-button :hover {
+  background-color: lightcoral;
+  color: white;
+}
+.booking-wrapper {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.booking-div {
+  width: 70%;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+}
+.booking-div__item {
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+.booking-div__item-title {
+  font-size: 2em;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.booking-div__item-content {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.bold {
+  font-weight: 600;
+}
+.booking-button {
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(227, 28, 95);
+  cursor: pointer;
+}
+.number {
+  /* margin: 18px; */
+}
+.in {
+  padding: 14px 10px 14px 17px;
+  margin: 18px;
+  border-radius: 10px;
+  border: 0.5px solid rgb(221 221 221);
+  width: 90%;
+}
+.half {
+  width: calc(50% - 9px);
+}
