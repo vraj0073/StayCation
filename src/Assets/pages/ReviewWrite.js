@@ -2,12 +2,14 @@ import React from "react";
 import axios from "axios";
 import {useState} from "react";
 import {AiFillStar, AiOutlineStar} from "react-icons/ai"
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import '../../css/ReviewEdit.css'
 import "../../css/Header.css"
 import Navheader from "../../components/Navheader";
 
-function ReviewWrite() {
+function ReviewWrite(props) {
+
+
     let userEmail = localStorage.getItem("userEmail");
     // let userEmail = "qqq@gmail.com";
     let roomId = "145";

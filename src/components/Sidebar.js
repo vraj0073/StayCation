@@ -22,7 +22,7 @@ const Sidebar = (props) =>{
     return(
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
-                <div className='navbar'>
+                <div className='navbar' id='navbar'>
                     <Link to='#' className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
