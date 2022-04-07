@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import "./App.css";
 import BlogPage from "./Assets/pages/blogPage";
 import SearchPage from "./Assets/pages/SearchPage";
