@@ -1,3 +1,6 @@
+// Written by Qinyue Wang, B00892024, qn642785@dal.ca
+// The file is created to display FAQs and related articles
+
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
