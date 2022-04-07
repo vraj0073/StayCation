@@ -5,6 +5,7 @@ Description: This component creates one Room component to display.
 
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../css/RoomItem.css";
 
 const RoomItem = (props) => {
@@ -27,6 +28,8 @@ const RoomItem = (props) => {
   const [country, setCountry] = useState(props.state || "");
 
   const [isView, setIsView] = useState(true);
+
+  let navigate = useNavigate();
 
   const onEditHandler = () => {
     setIsView(false);
@@ -189,6 +192,14 @@ const RoomItem = (props) => {
     }
   };
 
+  // const reviewHandler = () =>{
+  //   const room_id = props.id;
+  //   console.log(room_id);
+  //   const room_name = props.name;
+  //   console.log(room_name);
+  //   navigate('/write-review', {state:room_id , state2:room_name })
+  // }
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -256,8 +267,8 @@ const RoomItem = (props) => {
   };
 
   return (
-    <div className="user-card">
-      <Card className="card">
+    <div className="user-card" id="user-card">
+      <Card className="card" is = "card">
         <Card.Body>
           {isView ? (
             <Card.Title className="title">Name: {props.name}</Card.Title>
@@ -546,6 +557,11 @@ const RoomItem = (props) => {
               Delete
             </Button>
           </div>
+          {/* <div id="buttn">
+            <Button type="submit" className="button" onClick={reviewHandler}>
+              Write a Review
+            </Button>
+          </div> */}
         </Card.Body>
       </Card>
     </div>

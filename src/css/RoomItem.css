@@ -2,7 +2,7 @@
 Author: Prarthana Parmar
 Description: This is the css file for RoomItem component.
 */
-.user-card {
+#user-card {
     width: 90%;
     padding: 2%;
     text-align: center;
@@ -12,7 +12,7 @@ Description: This is the css file for RoomItem component.
     flex-direction: row;
     flex-wrap: wrap;
 }
-.card {
+#card {
     width: 100%;
     height: auto;
     display:flex;

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import {useState} from "react";
 import {AiFillStar, AiOutlineStar} from "react-icons/ai"
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import '../../css/ReviewEdit.css'
 import "../../css/Header.css"
 import Navheader from "../../components/Navheader";
