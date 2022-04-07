@@ -17,10 +17,18 @@
     /* margin-left: 42%; */
     margin-top: 2%;
 }
+.editprofileheader{
+    padding-right: 70%;
+}
 
-.input_values{
+.input_values_edit{
     margin-left: 29%;
     margin-top: -6%;
+}
+.input_values_edit1{
+    margin-left: 29%;
+    margin-top: -6%;
+    padding-right: 38%;
 }
 
 #save_button{

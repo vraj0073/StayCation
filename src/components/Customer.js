@@ -116,10 +116,11 @@ marginTop: 10 }}>Profile Page</h1>
 </Col>
 <Col lg={7} className="side-container-right">
 <Card style={{ width: '39rem' }  } id='cardborder'>
-  <Card.Body style={{ marginBottom: '-0.75rem' }}>
+  <Card.Body style={{ marginBottom: '1.25rem' }}>
     <Card.Text className='info'>
       <div>   
-    <h4>Bio :</h4>
+      
+    <h4 className="profileheader1" >Bio :</h4>
     <div className='subcontainer'>
     <Card style={{ width: '25rem', height: '10rem' }}>
       <Card.Body>
@@ -133,7 +134,7 @@ marginTop: 10 }}>Profile Page</h1>
     <br></br>
     <br></br>
     <div>
-    <h4>Email :</h4>
+    <h4 className="profileheader1">Email :</h4>
     <div className='subcontainer'>
     <Card style={{ width: '25rem', height: '2rem',marginTop: '-2rem' }}>
   <Card.Body>
@@ -147,7 +148,7 @@ marginTop: 10 }}>Profile Page</h1>
     <br></br>
     <br></br>
     <div>
-    <h4>Contact No : </h4>
+    <h4 className="profileheader1">Contact No : </h4>
     <div className='subcontainer'>
     <Card style={{ width: '25rem', height: '2rem',marginTop: '-2rem' }}>
   <Card.Body>
@@ -161,7 +162,7 @@ marginTop: 10 }}>Profile Page</h1>
     <br></br>
     <br></br>
     <div>
-    <h4>Role : </h4>
+    <h4 className="profileheader1">Role : </h4>
     <div className='subcontainer'>
     <Card style={{ width: '25rem', height: '2rem',marginTop: '-2rem' }}>
   <Card.Body>

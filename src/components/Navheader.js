@@ -54,12 +54,6 @@ export const Navheader = (props) => {
                     <Nav.Link href="th" className="header-content">
                       History
                     </Nav.Link>
-                    <Nav.Link href="user-reviews" className="header-content">
-                      Reviews
-                    </Nav.Link>
-                    <Nav.Link href="help-center" className="header-content">
-                      Help Center
-                    </Nav.Link>
                     <NavDropdown
                       title="Account Setting"
                       id="title"
@@ -69,6 +63,8 @@ export const Navheader = (props) => {
                         Edit Profile
                       </NavDropdown.Item>
                       <NavDropdown.Item onClick={validdelete}>Delete Profile</NavDropdown.Item>
+                      <NavDropdown.Item href="help-center">Help Center</NavDropdown.Item>
+                      <NavDropdown.Item  href="user-reviews">Reviews</NavDropdown.Item>
                       <NavDropdown.Item  onClick={validResetPassword}>
                         Reset Password
                       </NavDropdown.Item>
