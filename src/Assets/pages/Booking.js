@@ -225,7 +225,7 @@ const Booking = () => {
           <button
             className="icon-button"
             onClick={() => {
-              navigate("/");
+              navigate(-1);
             }}
           >
             <span className="icon">
