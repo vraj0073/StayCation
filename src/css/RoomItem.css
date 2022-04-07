@@ -21,6 +21,7 @@ Description: This is the css file for RoomItem component.
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    border: 0px !important; 
   }
 
 .title {
@@ -45,10 +46,17 @@ Description: This is the css file for RoomItem component.
     width: 100%;
     border-radius: 10%;
     width: 10%;
+    width: fit-content;
 }
 
 #buttn{
     text-align: center;
-    display: flex;
+    display: flex ;
     justify-content: center;
+    align-items: center;  
+}
+
+#cardbox{
+    border-style: inset;
+    border: solid;
 }
