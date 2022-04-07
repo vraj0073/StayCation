@@ -9,9 +9,9 @@ import Navheader from "../../components/Navheader";
 
 function ReviewWrite() {
     let userEmail = localStorage.getItem("userEmail");
-    // let userEmail = "qqq@gmail.com";
-    let roomId = "145";
-    let roomName = "Charming Astoria studio on quiet tree-lined street";
+    // let userEmail = "www@gmail.com";
+    let roomId = "62411dc393059f9cd2005166";
+    let roomName = "Breeze LaHave";
 
     let currentDate =new Date();
     let day = currentDate.getDate();

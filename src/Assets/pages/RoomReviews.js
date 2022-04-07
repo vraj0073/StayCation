@@ -8,8 +8,8 @@ import Navheader from "../../components/Navheader";
 
 function RoomReviews() {
 
-    let roomId = "123";
-    let roomName = "123Name";
+    let roomId = "62411dc393059f9cd2005166";
+    let roomName = "Breeze LaHave";
 
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
