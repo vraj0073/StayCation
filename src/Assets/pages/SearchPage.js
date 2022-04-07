@@ -80,8 +80,6 @@ export const SearchPage = () => {
       console.log("Error in retrieving: " + e);
     }
   }
-  //    useEffect(() => {
-  // console.log("list of data"+accomodationList);  }, []);
 
   return (
     <>
