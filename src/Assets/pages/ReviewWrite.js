@@ -8,12 +8,13 @@ import "../../css/Header.css"
 import Navheader from "../../components/Navheader";
 
 function ReviewWrite(props) {
-
-
     let userEmail = localStorage.getItem("userEmail");
-    // let userEmail = "qqq@gmail.com";
-    let roomId = "145";
-    let roomName = "Charming Astoria studio on quiet tree-lined street";
+    let roomId = props.id;
+    let roomName = props.name
+
+    // let userEmail = "www@gmail.com";
+    // let roomId = "62411dc393059f9cd2005166";
+    // let roomName = "Breeze LaHave";
 
     let currentDate =new Date();
     let day = currentDate.getDate();
@@ -77,7 +78,7 @@ function ReviewWrite(props) {
                             setIsSubmitted(true);
                             if (newContent !== '' && number !== 0) {
                                 console.log(number);
-                                axios.post("https://node-a3.herokuapp.com/review/post", {
+                                axios.post("https://staycationbackendapp.herokuapp.com/review/post", {
                                     userEmail: userEmail,
                                     roomId: roomId,
                                     roomName: roomName,

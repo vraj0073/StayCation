@@ -8,13 +8,13 @@ import Navheader from "../../components/Navheader";
 
 function RoomReviews() {
 
-    let roomId = "123";
-    let roomName = "123Name";
+    let roomId = "62411dc393059f9cd2005166";
+    let roomName = "Breeze LaHave";
 
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
     React.useEffect(() => {
-        axios.get("http://localhost:8080/review/get/roomId/" + roomId).then((response) => {
+        axios.get("https://staycationbackendapp.herokuapp.com/review/get/roomId/" + roomId).then((response) => {
             setRetrievedData({reviews: response.data})
             console.log(response.data);
         });

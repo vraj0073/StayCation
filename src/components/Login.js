@@ -8,7 +8,6 @@ import "../css/Header.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import Cookies from "js-cookie";
 export const Login = () => {
   React.useEffect(() => {
     const ac = new AbortController();
@@ -61,9 +60,6 @@ export const Login = () => {
         } else {
           alert("Invalid username or password");
         }
-        localStorage.setItem("userEmail", Email);
-        history("/Profile", { state: Email });
-        console.log("Error her" + Error);
       })
       .catch(function (error) {
         console.log(error);

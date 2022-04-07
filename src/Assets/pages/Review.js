@@ -7,15 +7,14 @@ import Navheader from "../../components/Navheader";
 
 function Review() {
     let userEmail = localStorage.userEmail;
-    // let userEmail = "qqq@gmail.com";
 
     const [retrievedData, setRetrievedData] = useState({reviews: []});
     const [query, setQuery] = useState("");
-    React.useEffect(() => {
-        axios.get("https://node-a3.herokuapp.com/review/get/" + userEmail).then((response) => {
+    // React.useEffect(() => {
+        axios.get("https://staycationbackendapp.herokuapp.com/review/get/" + userEmail).then((response) => {
             setRetrievedData({reviews: response.data})
         });
-    }, []);
+    // }, []);
 
     let navigate = useNavigate();
 
@@ -65,7 +64,7 @@ function Review() {
                                     <button className="reviews-btn" type="button" onClick={() => {
                                         deleteDiv(item._id);
                                         axios
-                                            .delete("https://node-a3.herokuapp.com/review/delete/" + item._id)
+                                            .delete("https://staycationbackendapp.herokuapp.com/review/delete/" + item._id)
                                             .then((response) => {
                                                 alert("Review deleted!");
                                                 console.log(response);

@@ -43,7 +43,7 @@ function ReviewEdit() {
                         <button className="re-edit-btn" type="submit" onClick={() => {
                             setIsSubmitted(true);
                             if (newContent !== '') {
-                                axios.patch("https://node-a3.herokuapp.com/review/update/" + state.id, {content: newContent})
+                                axios.patch("https://staycationbackendapp.herokuapp.com/review/update/" + state.id, {content: newContent})
                                     .then((response) => {
                                         console.log(response);
                                     });
