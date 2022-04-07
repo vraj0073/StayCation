@@ -25,6 +25,7 @@ import axios from "axios";
 import "./Navheader";
 import Navheader from "./Navheader";
 import { Link } from "react-router-dom";
+import backgroundlogin from "../Assets/images/camping.jpg";
 
 export const Customer = (props) => {
   const [alldata, setalldata] = useState({});
@@ -74,12 +75,12 @@ export const Customer = (props) => {
     <>
               <Navheader data={state}/>
     
-<div>
-  <h1 style={{color: 'rgb(227, 28, 95)',
+<div  >
+  <h1  style={{color: 'rgb(227, 28, 95)',
 marginLeft: 550,
 marginTop: 10 }}>Profile Page</h1>
 </div>
-<Row>
+<Row >
 <Col lg={4}>
   <div className="side-container">
     <div>
