@@ -25,39 +25,36 @@ export const Login = () => {
   const [Password, setPassword] = useState('');
   const [Error, setError] = useState('');
   const [Response, setResponse] = useState('');
-  useEffect(() => {
-    
-  }, [Response]);
-  const sendData = async () =>{
-    console.log("send daata"+Email)
-    console.log("send password"+Password)
-    await axios.post('https://staycationbackendapp.herokuapp.com/login', {
-          email: Email,
-          password: Password,
-        })
-        .then(function (response) {
-          if(EmailFlag === 1 && PasswordFlag === 1){
-            alert("Required field empty")
-             }
-            else if(response){
-            
-          history("/Profile",{state:Email})
-          console.log(response.data);
-          setResponse(response.data);
-            
-            }
-            else{
-              alert("Invalid username or password")
-            }
-        })
-        .catch(function (error) {
-          console.log(error);
-          setError(error)
-          if(EmailFlag === 1 && PasswordFlag === 1){
-            alert("Required field empty")
-             }
-             else{
-          alert("Invalid username or password")
+
+  useEffect(() => {}, [Response]);
+
+  const sendData = async () => {
+    console.log("send daata" + Email);
+    console.log("send password" + Password);
+    await axios
+      .post("https://staycationbackendapp.herokuapp.com/login", {
+        email: Email,
+        password: Password,
+      })
+      .then(function (response) {
+        if (EmailFlag === 1 && PasswordFlag === 1) {
+          alert("Required field empty");
+          if(response.data.role === "host"){
+            history("/viewlisting", {state:response.data.email})
+          }else{
+            history("/Profile",{state:Email})
+            setResponse(response.data);
+            console.log("Error her" + Error);
+          }
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        setError(error);
+        if (EmailFlag === 1 && PasswordFlag === 1) {
+          alert("Required field empty");
+        } else {
+          alert("Invalid username or password");
         }
       })
       .catch(function (error) {
