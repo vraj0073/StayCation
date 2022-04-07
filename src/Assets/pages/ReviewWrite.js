@@ -1,3 +1,6 @@
+// Written by Qinyue Wang, B00892024, qn642785@dal.ca
+// The file is created to allow users to submit a review for a place
+
 import React from "react";
 import axios from "axios";
 import {useState} from "react";
