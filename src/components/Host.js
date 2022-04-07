@@ -30,9 +30,7 @@ const Host = (props) => {
                   }
                   return result.json();
             }).then((item) => {
-                // console.log("Fetch Successful", item);
                 let data = item.data.filter((i) => i.email === location.state);
-                // console.log(data.filter((i) => i.email === location.state));
                 console.log(data);
                 setRooms(data);
               })

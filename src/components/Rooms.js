@@ -27,6 +27,7 @@ const Room = (props) => {
                 throw err;
               });
       } 
+
       useEffect(()=>{
         viewrooms();
       },[]);
@@ -37,13 +38,22 @@ const Room = (props) => {
                 id = {room._id}
                 hostName = {room.hostName}
                 guestSize = {room.guestSize}
+                bedroom = {room.bedroom}
                 beds = {room.beds}
                 bath = {room.bath}
                 perNightCharges = {room.perNightCharges}
                 cleaningFee = {room.cleaningFee}
                 serviceFee = {room.serviceFee}
+                feature = {room.feature}
+                img = {room.img}
+                type = {room.type}
+                location = {room.location}
+                state = {room.state}
+                country = {room.country}
                 description = {room.description} 
-                onDelete={viewrooms}/>)}
+                onChange={viewrooms}
+                />
+                )}
             </div>
     )
 }

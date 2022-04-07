@@ -7,10 +7,13 @@ import { useState } from "react";
 import "../css/Createlisting.css";
 import Navheader from "./Navheader";
 import Sidebar from "./Sidebar";
+import { useNavigate } from "react-router-dom";
 
 const Createlisting = () => {
+
+  const navigate = useNavigate();
+
   const [placename, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [hostName, setHost] = useState("");
   const [guestSize, setguest] = useState("");
   const [bedroom, setbedroom] = useState("");
@@ -20,12 +23,23 @@ const Createlisting = () => {
   const [cleaningFee, setCleaningFee] = useState("");
   const [serviceFee, setServiceFee] = useState("");
   const [description, setdescription] = useState("");
+  const [feature, setFeature] = useState("");
+  const [img, setImg] = useState("https://e8rbh6por3n.exactdn.com/sites/uploads/2020/05/villa-la-gi-thumbnail-770x515.jpg?strip=all&lossy=1&ssl=1");
+  const [type, setType] = useState("");
+  const [location, setLocation] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
 
   const [nameError, setNameError] = useState();
   const [hostError, setHostError] = useState();
   const [descriptionError, setDescriptionError] = useState();
+  const [featureError, setFeatureError] = useState();
+  const [typeError, setTypeError] = useState();
+  const [locationError, setLocationError] = useState();
+  const [stateError, setStateError] = useState();
+  const [countryError, setCountryError] = useState();
 
-  const validateName = () =>{
+  const validateName = () => {
     let error;
     if (!placename.trim()) {
       error = "Please enter name of the place!";
@@ -37,7 +51,7 @@ const Createlisting = () => {
     setNameError(error);
   };
 
-  const validateHostName = () =>{
+  const validateHostName = () => {
     let error;
     if (!hostName.trim()) {
       error = "Please enter your name!";
@@ -58,47 +72,113 @@ const Createlisting = () => {
     } else {
       error = null;
     }
-    setDescriptionError(error); 
-  }
+    setDescriptionError(error);
+  };
+
+  const validateFeature = () => {
+    let error;
+    if (!feature.trim()) {
+      error = "Please enter facilities for your place!";
+    } else {
+      error = null;
+    }
+    setFeatureError(error);
+  };
+
+  const validateType = () => {
+    let error;
+    if (!type.trim()) {
+      error = "Please enter the type of stay!";
+    } else {
+      error = null;
+    }
+    setTypeError(error);
+  };
+
+  const validateLocation = () => {
+    let error;
+    if (!location.trim()) {
+      error = "Please enter the city of stay!";
+    } else {
+      error = null;
+    }
+    setLocationError(error);
+  };
+
+  const validateState = () => {
+    let error;
+    if (!state.trim()) {
+      error = "Please enter the province of stay!";
+    } else {
+      error = null;
+    }
+    setStateError(error);
+  };
+
+  const validateCountry = () => {
+    let error;
+    if (!country.trim()) {
+      error = "Please enter the country of stay!";
+    } else {
+      error = null;
+    }
+    setCountryError(error);
+  };
 
   const checkErrors = () => {
-    if(nameError == null &&
-      hostError == null){
-        submitHandler();
-      }
-  }
+    if (
+      nameError == null &&
+      hostError == null &&
+      descriptionError == null &&
+      featureError == null &&
+      typeError == null &&
+      locationError == null &&
+      stateError == null &&
+      countryError == null
+    ) {
+      submitHandler();
+    }
+  };
 
   const submitHandler = (event) => {
-        const data = {
-            name: placename,
-            email: localStorage.userEmail,
-            hostName: hostName,
-            guestSize: guestSize,
-            bedroom : bedroom,
-            beds: beds,
-            bath: bath,
-            perNightCharges: perNightCharges,
-            cleaningFee: cleaningFee,
-            serviceFee: serviceFee,
-            description: description,
-        };
+    const data = {
+      name: placename,
+      email: localStorage.userEmail,
+      hostName: hostName,
+      guestSize: guestSize,
+      bedroom: bedroom,
+      beds: beds,
+      bath: bath,
+      perNightCharges: perNightCharges,
+      cleaningFee: cleaningFee,
+      serviceFee: serviceFee,
+      description: description,
+      feature: feature,
+      img: img,
+      type: type,
+      location: location,
+      state: state,
+      country: country,
+    };
     console.log(data);
-    const url = "https://staycationbackendapp.herokuapp.com/hostuser/createlisting";
-        fetch(url, {
-          method: "POST",
-          body:JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }).then((data) => {
-            console.log("Post Successful", data);
-          })
-          .catch((err) => {
-            console.log(err);
-            throw err;
-          });
-          alert("Added Listing")
-          window.location = "http://localhost:3000/viewlisting";
+    const url =
+      "http://localhost:8080/hostuser/createlisting";
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => {
+        console.log("Post Successful", data);
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
+    alert("Added Listing");
+    navigate("/viewlisting");
   };
 
   const nameChangeHandler = (event) => {
@@ -110,9 +190,9 @@ const Createlisting = () => {
   const guestSizeChangeHandler = (event) => {
     setguest(event.target.value);
   };
-  const bedroomChangeHandler = (event) =>{
-      setbedroom(event.target.value);
-  }
+  const bedroomChangeHandler = (event) => {
+    setbedroom(event.target.value);
+  };
   const bedsChangeHandler = (event) => {
     setbeds(event.target.value);
   };
@@ -131,21 +211,60 @@ const Createlisting = () => {
   const descriptionChangeHandler = (event) => {
     setdescription(event.target.value);
   };
-  
+
+  const featureChangeHandler = (event) => {
+    setFeature(event.target.value);
+  };
+
+  const imgChangeHandler = (event) => {
+    setImg(event.target.value);
+  };
+
+  const typeChangeHandler = (event) => {
+    setType(event.target.value);
+  };
+
+  const locationChangeHandler = (event) => {
+    setLocation(event.target.value);
+  };
+
+  const stateChangeHandler = (event) => {
+    setState(event.target.value);
+  };
+
+  const countryChangeHandler = (event) => {
+    setCountry(event.target.value);
+  };
+
   return (
     <div>
       <header>
-        <Navheader/>
+        <Navheader />
       </header>
       <Sidebar></Sidebar>
-      <p className = "title-label">Create Listing</p>
+      <p className="title-label">Create Listing</p>
       <form
         className="form-group"
         onSubmit={(event) => {
           event.preventDefault();
-          if(placename.length === 0 || hostName.length === 0 || beds.length === 0 || bedroom.length === 0 || bath.length === 0 || perNightCharges.length === 0 || cleaningFee.length === 0 || serviceFee.length === 0 || description.length === 0 ){
-            alert("One or more fields seem to be empty!")
-          }else{
+          if (
+            placename.length === 0 ||
+            hostName.length === 0 ||
+            beds.length === 0 ||
+            bedroom.length === 0 ||
+            bath.length === 0 ||
+            perNightCharges.length === 0 ||
+            cleaningFee.length === 0 ||
+            serviceFee.length === 0 ||
+            description.length === 0 ||
+            feature.length === 0 ||
+            type.length === 0 ||
+            location.length === 0 ||
+            state.length === 0 ||
+            country.length === 0
+          ) {
+            alert("One or more fields seem to be empty!");
+          } else {
             checkErrors();
           }
         }}
@@ -211,7 +330,7 @@ const Createlisting = () => {
               onChange={bedroomChangeHandler}
             />
           </div>
-          </div>
+        </div>
         <div className="form">
           <div className="col-sm-10" id="form-el">
             <label className="control-label col-sm-2" htmlFor="beds">
@@ -280,6 +399,86 @@ const Createlisting = () => {
               placeholder="Enter Service Fee"
               onChange={serviceFeeChangeHandler}
             />
+          </div>
+        </div>
+        <div className="form">
+          <div className="col-sm-10" id="form-el">
+            <label className="control-label col-sm-2" htmlFor="features">
+              Facilities{" "}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="input"
+              placeholder="Enter facilities provided"
+              onChange={featureChangeHandler}
+              onBlur={validateFeature}
+            />
+            {featureError && <p>{featureError}</p>}
+          </div>
+        </div>
+        <div className="form">
+          <div className="col-sm-10" id="form-el">
+            <label className="control-label col-sm-2" htmlFor="type">
+              Type of Stay{" "}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="input"
+              placeholder="Long-term or Short-term"
+              onChange={typeChangeHandler}
+              onBlur={validateType}
+            />
+            {typeError && <p>{typeError}</p>}
+          </div>
+        </div>
+        <div className="form">
+          <div className="col-sm-10" id="form-el">
+            <label className="control-label col-sm-2" htmlFor="location">
+              City{" "}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="input"
+              placeholder="Enter the city"
+              onChange={locationChangeHandler}
+              onBlur={validateLocation}
+            />
+            {locationError && <p>{locationError}</p>}
+          </div>
+        </div>
+        <div className="form">
+          <div className="col-sm-10" id="form-el">
+            <label className="control-label col-sm-2" htmlFor="state">
+              Province{" "}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="input"
+              placeholder="Enter the province"
+              onChange={stateChangeHandler}
+              onBlur={validateState}
+            />
+            {stateError && <p>{stateError}</p>}
+          </div>
+        </div>
+        <div className="form">
+          <div className="col-sm-10" id="form-el">
+            <label className="control-label col-sm-2" htmlFor="country">
+              Country{" "}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="input"
+              placeholder="Enter the country"
+              onChange={countryChangeHandler}
+              onBlur={validateCountry}
+            />
+            {countryError && <p>{countryError}</p>}
           </div>
         </div>
         <div className="form">

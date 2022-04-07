@@ -30,6 +30,9 @@ Description: This is the css file for RoomItem component.
     font-size:150%
 }
 
+.col-sm-3{
+    margin-left: 5%;
+}
 .content {
     font-size: 120%;
 }
