@@ -162,7 +162,7 @@ const Createlisting = () => {
     };
     console.log(data);
     const url =
-      "http://localhost:8080/hostuser/createlisting";
+      "https://staycationbackendapp.herokuapp.com/hostuser/createlisting";
     fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
