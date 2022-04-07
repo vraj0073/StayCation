@@ -244,7 +244,6 @@ const Createlisting = () => {
       <Sidebar></Sidebar>
       <p className="title-label">Create Listing</p>
       <form
-        className="form-group"
         onSubmit={(event) => {
           event.preventDefault();
           if (
