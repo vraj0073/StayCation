@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { StarIcon, ShieldCheckIcon, HandIcon } from "@heroicons/react/solid";
-import "./Room.css";
+import "../../css/Room.css";
 import { UploadIcon } from "@heroicons/react/outline";
 import { HeartIcon } from "@heroicons/react/outline";
 import {

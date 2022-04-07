@@ -5,8 +5,7 @@ import {
   faLocationDot,
   faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import "./Booking.css";
-// import "../../css/BlogPage.css";
+import "../../css/Booking.css";
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import moment from "moment";
