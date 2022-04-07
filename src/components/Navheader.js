@@ -19,6 +19,10 @@ export const Navheader = (props) => {
   const validatesubmit = () => {
     history("/home");
   };
+  const logout = () => {
+    localStorage.removeItem("userEmail");
+  };
+
   const validResetPassword =()=>{
     history('/Resetpassword?query='+props.data)
   }
@@ -50,6 +54,12 @@ export const Navheader = (props) => {
                     <Nav.Link href="th" className="header-content">
                       History
                     </Nav.Link>
+                    <Nav.Link href="user-reviews" className="header-content">
+                      Reviews
+                    </Nav.Link>
+                    <Nav.Link href="help-center" className="header-content">
+                      Help Center
+                    </Nav.Link>
                     <NavDropdown
                       title="Account Setting"
                       id="title"
@@ -62,7 +72,14 @@ export const Navheader = (props) => {
                       <NavDropdown.Item  onClick={validResetPassword}>
                         Reset Password
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="Logout">Logout </NavDropdown.Item>
+                      <NavDropdown.Item
+                        href="Logout"
+                        onClick={() => {
+                          logout();
+                        }}
+                      >
+                        Logout{" "}
+                      </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
                 </Navbar.Collapse>

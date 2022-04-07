@@ -12,6 +12,7 @@ import {
   Card,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../css/AccomodationItem.css";
 
 const AccomodationItem = ({
@@ -22,7 +23,9 @@ const AccomodationItem = ({
   city,
   state,
   country,
+  room
 }) => {
+  let navigate = useNavigate();
   return (
     <div>
       <div className="usercardmargin">
@@ -38,6 +41,9 @@ const AccomodationItem = ({
                 <Button
                   className="bookBtn"
                   style={{ fontSize: "18px", fontWeight: "bold" }}
+                  onClick={() => {
+                    navigate("/rooms/" + room._id, { state: { room } });
+                  }}
                 >
                   <Card.Text>Book</Card.Text>
                 </Button>
