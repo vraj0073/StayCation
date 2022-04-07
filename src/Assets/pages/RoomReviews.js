@@ -6,8 +6,10 @@ import axios from "axios";
 import Navheader from "../../components/Navheader";
 // import NavBar from "../../components/NavBar";
 
-function RoomReviews() {
+function RoomReviews(props) {
 
+    // let roomId = props.id;
+    // let roomName = props.name
     let roomId = "62411dc393059f9cd2005166";
     let roomName = "Breeze LaHave";
 
