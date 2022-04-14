@@ -9,24 +9,17 @@ import '../css/Customer.css'
 import { Card, Container, Button, Form, FormControl, Nav, Navbar, NavDropdown, Row,Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import '../css/Home.css'
-
-
-
 export const Home = () => {
   return (
     <>
     <div >
-    
     <div className='col'  >
-      
     <div className="header" >
-      
       <div className="header-items">
       <Row>
         <Col>
         <button>S</button>taycation
         </Col>
-        
           <Col>
         <Navbar collapseOnSelect expand="lg" >
   <Container className='container' id='homenavigation'>
@@ -49,16 +42,10 @@ export const Home = () => {
 </Col>
 </Row>
       </div>
-      
-      
-      
-    </div>
-    
+    </div>  
 </div>
-
 <div>
 <img id='homeimage' src={require('../Assets/images/tent.jpg')}  alt='Logo'>
-    
 </img>
 <Form className="d-flex" id='searchbar'>
         <FormControl
@@ -71,10 +58,6 @@ export const Home = () => {
         <Button id='searchbutton'>Search</Button>
       </Form>
 </div>
-
-
-
-
 </div>
 </>)
 }

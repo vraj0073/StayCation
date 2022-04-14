@@ -5,7 +5,6 @@ Description: This component creates one Room component to display.
 
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import "../css/RoomItem.css";
 
 const RoomItem = (props) => {
@@ -28,8 +27,6 @@ const RoomItem = (props) => {
   const [country, setCountry] = useState(props.country || "");
 
   const [isView, setIsView] = useState(true);
-
-  let navigate = useNavigate();
 
   const onEditHandler = () => {
     setIsView(false);
@@ -226,10 +223,8 @@ const RoomItem = (props) => {
     })
       .then((data) => {
         setIsView(true);
-        console.log("Post Successful", data);
       })
       .catch((err) => {
-        console.log(err);
         throw err;
       });
     alert("Room has been updated!!");

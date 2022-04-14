@@ -2,11 +2,9 @@
 Author: Kishan Kahodariya
 Description: This component handle structure and design of each accomodation that is being dispalyed.
 */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-  Container,
   Button,
-  ButtonGroup,
   Col,
   Row,
   Card,
@@ -20,9 +18,6 @@ const AccomodationItem = ({
   description,
   imageURL,
   feature,
-  city,
-  state,
-  country,
   room
 }) => {
   let navigate = useNavigate();

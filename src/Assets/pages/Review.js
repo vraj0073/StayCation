@@ -9,7 +9,6 @@ import axios from "axios";
 import Navheader from "../../components/Navheader";
 
 function Review() {
-    // let userEmail = localStorage.userEmail;
     let userEmail = "wangqinyuechn@gmail.com";
 
     const [retrievedData, setRetrievedData] = useState({reviews: []});
@@ -65,9 +64,8 @@ function Review() {
                                         deleteDiv(item._id);
                                         axios
                                             .delete("https://staycationbackendapp.herokuapp.com/review/delete/" + item._id)
-                                            .then((response) => {
+                                            .then(() => {
                                                 alert("Review deleted!");
-                                                console.log(response);
                                             });
                                     }}>Delete
                                     </button>

@@ -10,11 +10,7 @@ import '../../css/ReviewEdit.css'
 import "../../css/Header.css"
 import Navheader from "../../components/Navheader";
 
-function ReviewWrite(props) {
-    // let userEmail = localStorage.getItem("userEmail");
-    // let roomId = props.id;
-    // let roomName = props.name
-
+function ReviewWrite() {
     let userEmail = "wangqinyuechn@gmail.com";
     let roomId = "62411dc393059f9cd2005166";
     let roomName = "Breeze LaHave";
@@ -80,7 +76,6 @@ function ReviewWrite(props) {
                         <button className="re-edit-btn" type="submit" onClick={() => {
                             setIsSubmitted(true);
                             if (newContent !== '' && number !== 0) {
-                                console.log(number);
                                 axios.post("https://staycationbackendapp.herokuapp.com/review/post", {
                                     userEmail: userEmail,
                                     roomId: roomId,

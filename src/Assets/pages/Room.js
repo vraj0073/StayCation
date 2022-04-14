@@ -1,9 +1,11 @@
+/*
+Author: Heenal Sapovadia
+Description: This component represents the detailed view for a single rental property
+*/
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { StarIcon, ShieldCheckIcon, HandIcon } from "@heroicons/react/solid";
 import "../../css/Room.css";
-import { UploadIcon } from "@heroicons/react/outline";
-import { HeartIcon } from "@heroicons/react/outline";
 import {
   HomeIcon,
   LocationMarkerIcon,
@@ -15,13 +17,8 @@ import "react-dates/lib/css/_datepicker.css";
 import "moment";
 import NavBar from "../../components/NavBar";
 import Navheader from "../../components/Navheader";
-// import "react-date-range/dist/styles.css"; // main style file
-// import "react-date-range/dist/theme/default.css"; // theme css file
-// import { DateRangePicker } from "react-date-range";
 
 const Room = () => {
-  console.log("ROOM Comp.");
-  // console.log(room);
   let navigate = useNavigate();
   const location = useLocation();
   console.log("location : ", location.state.room);
@@ -52,8 +49,6 @@ const Room = () => {
   useEffect(() => {
     setRoom(location.state.room);
     setBlockedDates(location.state.room.bookedDates);
-    // console.log("blockedDates: ", blockedDates);
-    // blockedDates.map((date) => Dates.add(date));
   }, [location]);
 
   console.log("calendar left", calenderLeft);
@@ -68,7 +63,6 @@ const Room = () => {
       calenderFloater.style.position = "relative";
       calenderFloater.style.top = "initial";
     }
-    // console.log(calenderFloater.style.left);
   };
   window.addEventListener("scroll", onscrollCalender);
 
@@ -76,16 +70,6 @@ const Room = () => {
     console.log(checkInDate, checkOutDate);
     if (checkInDate) console.log("checkin :: ", checkInDate._d);
   }, [checkInDate, checkOutDate]);
-
-  const handleSelect = (ranges) => {
-    console.log(ranges);
-    setSelectionRange(ranges);
-  };
-  const [selectionRange, setSelectionRange] = useState({
-    startDate: new Date(),
-    endDate: new Date(),
-    key: "selection",
-  });
 
   const onConfirm = () => {
     setBookingInfo({
@@ -97,20 +81,12 @@ const Room = () => {
 
   // Blocking Calendar Dates for already booked ones
   let Dates = new Set();
-  // Dates.add("03/29/2022");
-  // Dates.add("03/28/2022");
   blockedDates.map((date) => Dates.add(date));
-  // useEffect(() => {
-  //   console.log("blockedDates: ", blockedDates);
-  //   blockedDates.map((date) => Dates.add(date));
-  // }, [blockedDates]);
 
   const isDayBlocked = (momentDate) => {
     if (Dates.has(momentDate.format("L"))) return true;
     return false;
   };
-
-  const [saved, setSaved] = useState(false);
 
   return (
     <>
@@ -121,7 +97,6 @@ const Room = () => {
         <div className="room-title">
           <div className="room-title__header">{room.name}</div>
           <div className="room-title-footer">
-            {/* Ratings */}
             <div className="room-title-footer-ratings">
               <span className="first-span">
                 <StarIcon className="pink" />
@@ -133,29 +108,6 @@ const Room = () => {
                 {room.location}, {room.state}, {room.country}
               </span>
             </div>
-            {/* Share and like */}
-            {/* <div className="room-title-footer-share-save">
-              <span className="share">
-                <span>
-                  <UploadIcon className="icon" />
-                </span>
-                <span>Share</span>
-              </span>
-              <span
-                className="save" */}
-            {/* className={saved ? "pink" : ""} */}
-            {/* onClick={(e) => {
-                  e.preventDefault();
-                  setSaved(!saved);
-                  console.log(saved);
-                }}
-              >
-                <span>
-                  <HeartIcon className={`icon`} />
-                </span>
-                <span>Save</span>
-              </span> */}
-            {/* </div> */}
           </div>
           <div className="room-title__details"></div>
         </div>
@@ -170,18 +122,6 @@ const Room = () => {
               style={{ margin: "18px auto", marginLeft:"auto", marginRight:"auto",borderRadius:"10px" }}
             ></img>
           </div>
-
-          {/* <div className="room-photo-four">
-          
-          <div className="row-1">
-            <div className="r1-p1"></div>
-            <div className="r1-p2"></div>
-          </div>
-          <div className="row-2">
-            <div className="r2-p1"></div>
-            <div className="r2-p2"></div>
-          </div>
-        </div> */}
         </div>
         <div className="room-info-wrapper">
           <div id="calender-floater" className="room-calender-floater">
@@ -218,21 +158,19 @@ const Room = () => {
               <span className="review-count">179 reviews</span>
             </div>
             <DateRangePicker
-              startDate={checkInDate} // momentPropTypes.momentObj or null,
-              startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-              endDate={checkOutDate} // momentPropTypes.momentObj or null,
-              endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+              startDate={checkInDate}
+              startDateId="your_unique_start_date_id" 
+              endDate={checkOutDate}
+              endDateId="your_unique_end_date_id"
               onDatesChange={({ startDate, endDate }) => {
                 setCheckInDate(startDate);
                 setCheckOutDate(endDate);
-                console.log("checkin", checkInDate);
-              }} // PropTypes.func.isRequired,
-              focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              }} 
+              focusedInput={focusedInput}
               onFocusChange={(focusedIn) => setFocusedInput(focusedIn)} //
               horizontalMargin={25}
               isDayBlocked={isDayBlocked}
             />
-            {/* <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} /> */}
             <input
               className="calendar-floater-guests"
               placeholder="Guests"
@@ -306,45 +244,6 @@ const Room = () => {
               </div>
             </div>
           </div>
-
-          {/* <div className="room-reviews">
-            <div className="room-reviews-title">
-              <StarIcon className="pink" />
-              <p>4.96 | 179 reviews</p>
-            </div>
-            <div className="room-review">
-              <div className="rr-title">
-                <div className="guest-pic">
-                  <img src="/room/xavier.webp" />
-                </div>
-                <div className="guest-name">
-                  <p>Xavier</p>
-                  <p>March 2022</p>
-                </div>
-              </div>
-              <div className="rr-comment">
-                Kate hosted my team with open arms! They couldn't say enough
-                about the place! 5 star stay.
-              </div>
-            </div>
-            <div className="room-review">
-              <div className="rr-title">
-                <div className="guest-pic">
-                  <img src="/room/jeremy.webp" />
-                </div>
-                <div className="guest-name">
-                  <p>Jeremy And Avi</p>
-                  <p>February 2022</p>
-                </div>
-              </div>
-              <div className="rr-comment">
-                Breeze From LaHave was a great place to stay for a week! Located
-                in Bridgewater, it was very central to all of the activities we
-                did along the South Shore of Nova Scotia.
-              </div>
-            </div>
-          </div>
-           */}
           <div className="host-info">
             <div className="host-info-title">
               <div className="host-dp">
@@ -374,77 +273,10 @@ const Room = () => {
               </div>
             </div>
             <div className="host-post" style={{textAlign:"justify"}}>
-              {/* Welcome to Bridgewater, a beautiful town in Lunenburg county of
-              Nova Scotia. My husband (used to be project manager at global
-              company) and I (used to be an owner of various businesses) run a
-              business in Bridgewater as well as Airbnb named ‘Breeze from La
-              Have'. I felll in love with the beauty of La Have river, Lunenburg
-              and Mahone Bay. It is my great pleasure to introduce the untainted
-              beauty of seaside towns, breathtaking view of La Have river and
-              many beaches nearby and also to provide my guests with a good
-              memory of staying at our Airbnb. Feel the 'Breeze from La Have' at
-              our Airbnb during your travel! */}
               {room.description}
             </div>
           </div>
         </div>
-        {/* <div className="form-wrapper">
-        <div className="form-div">
-          <div className="date-wrapper">
-            <div className="date-wrapper__item">
-              <div>CheckInDate</div>
-              <input
-                type="date"
-                onChange={(e) => {
-                  console.log(
-                    "checkin date set to : " + new Date(e.target.value)
-                  );
-                }}
-              />
-            </div>
-            <div className="date-wrapper__item">
-              <div>CheckOutDate</div>
-              <input
-                type="date"
-                onChange={(e) => {
-                  console.log("checkout date set to : " + e.target.value);
-                }}
-              />
-            </div>
-          </div>
-          <div className="guest-wrapper">
-            <div>Enter Guest Count</div>
-            <input
-              type="number"
-              onChange={(e) => {
-                console.log("guests set to : " + e.target.value);
-              }}
-            />
-          </div>
-        </div>
-      </div> */}
-        {/* <div>Photos</div>
-      <div>
-        more Details
-        <div>
-          left
-          <div>rental unit hosted by Kate</div>
-          <div>What this place offers</div>
-          <div>Calendar</div>
-        </div>
-        <div>Right</div>
-      </div>
-      <div>Reviews</div> */}
-        {/* <div className="button-wrapper">
-        <button
-          className="booking-button"
-          onClick={() => {
-            navigate("/book", { state: { bookingInfo: bookingInfo } });
-          }}
-        >
-          Reserve
-        </button>
-      </div> */}
       </div>
     </>
   );

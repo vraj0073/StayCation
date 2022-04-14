@@ -1,3 +1,7 @@
+/*
+Author: Heenal Sapovadia
+Description: This is the css file for Room component.
+*/
 .room-wrapper {
   margin: 0px 13%;
   position: relative;
@@ -63,12 +67,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 600px; */
 }
 .room-photo-main {
   width: calc(100% - 2px);
   height: 100%;
-  /* background-image: url("../../../public/room/img1.webp"); */
   background-position: center center;
   background-size: cover;
   border-radius: 10px;
@@ -83,14 +85,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: calc(50% - 2px); */
   height: 100%;
 }
 .row-1 .r1-p1 {
-  /* width: calc(50% - 2px); */
   width: 100%;
   height: 100%;
-  /* background-image: url("../../public/room/imp2.webp"); */
   background-size: cover;
 }
 
@@ -157,13 +156,9 @@
 .calendar-floater-guests {
   width: 80%;
   margin: 0 10%;
-  /* padding: 10px 15px; */
-  /* border-radius: 10px; */
   padding: 14px 10px 14px 17px;
-  /* margin: 10px; */
   border-radius: 50px;
   border: 0.5px solid rgb(221 221 221);
-  /* width: 250px; */
 }
 
 .room-calender-floater-btn {
@@ -262,7 +257,6 @@
   min-width: 150px;
   width: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 .rr-title .guest-pic img {
@@ -272,7 +266,6 @@
 .guest-name p {
   margin: 0;
   margin-left: 15px;
-  /* width: 70%; */
 }
 .guest-name p:first-child {
   font-size: 16px;
@@ -325,36 +318,6 @@
 }
 .host-post {
   width: 50%;
-}
-
-.CalendarMonthGrid,
-.CalendarMonthGrid_1 {
-  /* width: auto !important; */
-}
-
-.CalendarDay__selected_span {
-  /* background: #82e0aa;
-  color: white; */
-  /* border: 1px solid $light-red; */
-}
-
-/* // Will edit selected date or the endpoints of a range of dates */
-.CalendarDay__selected {
-  /* background: $dark-red; */
-  /* color: white; */
-}
-
-/* // Will edit when hovered over. _span style also has this property */
-.CalendarDay__selected:hover {
-  /* background: orange;
-  color: white; */
-}
-
-/* // Will edit when the second date (end date) in a range of dates
-// is not yet selected. Edits the dates between your mouse and said date */
-.CalendarDay__hovered_span:hover,
-.CalendarDay__hovered_span {
-  /* background: brown; */
 }
 .DateRangePickerInput__withBorder {
   border-radius: 0 !important;

@@ -1,17 +1,13 @@
+/*
+Author: Heenal Sapovadia
+Description: This is the css file for Booking component.
+*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
-/* h1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue",
-    sans-serif;
-  font-size: 5em;
-  text-align: center;
-} */
 .title {
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue",
     sans-serif;
   font-size: 3em;
-  /* width: 70%; */
-  /* text-align: center; */
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 5%;
@@ -72,7 +68,6 @@
   font-size: 18px;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -98,9 +93,6 @@
   color: white;
   background-color: rgb(227, 28, 95);
   cursor: pointer;
-}
-.number {
-  /* margin: 18px; */
 }
 .in {
   padding: 14px 10px 14px 17px;

@@ -4,7 +4,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-// import NavBar from "../../components/NavBar";
 import Navheader from "../../components/Navheader";
 import "../../css/QAArticle.css";
 
@@ -28,8 +27,6 @@ function QAArticle() {
     let navigate = useNavigate();
 
     return (<>
-        {/*{localStorage.userEmail != null && <Navheader/>}*/}
-        {/*{localStorage.userEmail == null && <NavBar/>}*/}
         <Navheader/>
         <div className="qa-article-page">
             <div className="qas">

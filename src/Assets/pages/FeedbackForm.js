@@ -4,7 +4,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-// import NavBar from "../../components/NavBar";
 import Navheader from "../../components/Navheader";
 import "../../css/FeedbackForm.css"
 
@@ -69,8 +68,6 @@ function FeedbackForm() {
 
     return (
         <>
-            {/*{localStorage.userEmail != null && <Navheader/>}*/}
-            {/*{localStorage.userEmail == null && <NavBar/>}*/}
             <Navheader/>
             <div className="feedback-form-page">
                 <div className="back-buttons">
@@ -97,8 +94,7 @@ function FeedbackForm() {
                                 detail: detail,
                                 userEmail: localStorage.userEmail
                             })
-                                .then((response) => {
-                                    console.log(response.data);
+                                .then(() => {
                                     alert("The feedback is submitted!");
                                     navigate("/help-center");
                                 });

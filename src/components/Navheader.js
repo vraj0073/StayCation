@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../css/Header.css";
 import "react-bootstrap";
 import "../css/Customer.css";
@@ -8,10 +8,7 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
-import EditProfile from "./EditProfile";
-import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./Navheader";
 
 export const Navheader = (props) => {

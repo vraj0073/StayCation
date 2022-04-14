@@ -17,7 +17,6 @@ import { useNavigate } from "react-router-dom";
 const Sidebar = (props) =>{
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
-    const navigate = useNavigate();
 
     return(
         <>

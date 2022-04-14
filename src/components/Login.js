@@ -13,9 +13,7 @@ export const Login = () => {
     const ac = new AbortController();
     return () => ac.abort();
   });
-
   const history = useNavigate();
-
   const emailRegex = /\S+@\S+\.\S+/;
   const [EmailFlag,setEmailFlag] = useState(1);
   const [Emailmessage, setEmailMessage] = useState('');
@@ -28,33 +26,27 @@ export const Login = () => {
   useEffect(() => {}, [Response]);
 
   const sendData = async () => {
-    console.log("send daata" + Email);
-    console.log("send password" + Password);
     await axios
       .post("https://staycationbackendapp.herokuapp.com/login", {
         email: Email,
         password: Password,
       })
       .then(function (response) {
-        console.log(response.data.role)
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");
         }
           else{
             localStorage.setItem("userEmail", Email);
           if(response.data.role === "host"){
-            console.log(response.data);
             history("/viewlisting", {state:response.data.email})
           }else{
             history("/Profile",{state:Email})
             setResponse(response.data);
-            console.log("Error her" + Error);
           }
         }
         }
       )
       .catch(function (error) {
-        console.log(error);
         setError(error);
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");
@@ -63,7 +55,6 @@ export const Login = () => {
         }
       })
       .catch(function (error) {
-        console.log(error);
         setError(error);
         if (EmailFlag === 1 && PasswordFlag === 1) {
           alert("Required field empty");

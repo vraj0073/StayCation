@@ -14,8 +14,6 @@ import { useNavigate } from "react-router-dom";
 import "../../css/Home.css";
 import "../../css/Header.css";
 
-// Written by - Het Shah - B00886897 - ht699147@dal.ca
-
 function WishList() {
   const [state, setState] = useState([]);
   const email = "vrajjadhav0073@gmail.com";
@@ -120,8 +118,6 @@ function WishList() {
               <Card.Title style={{ textAlign: "center" }}>
                 {wishlist.ptitle}
               </Card.Title>
-
-              {/* <Button variant="primary">Check it out</Button> */}
               <Button
                 variant="danger"
                 onClick={() => {

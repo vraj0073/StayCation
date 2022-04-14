@@ -14,8 +14,6 @@ import { useNavigate } from "react-router-dom";
 import "../../css/Home.css";
 import "../../css/Header.css";
 
-// Written by - Het Shah - B00886897 - ht699147@dal.ca
-
 function TravelHistory(props) {
   // Using state to store response data
   const [state, setState] = useState([]);
@@ -119,7 +117,6 @@ function TravelHistory(props) {
                 {booking.ptitle}
               </Card.Title>
               <Card.Text>Date Travelled - {booking.datetravelled}</Card.Text>
-              {/* <Button variant="primary">Check it out</Button> */}
             </Card.Body>
           </Card>
         ))}

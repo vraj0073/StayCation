@@ -11,9 +11,8 @@ import Room from './Rooms';
 import Navheader from './Navheader';
 import { useLocation } from "react-router-dom";
 
-const Host = (props) => {
+const Host = () => {
   const location = useLocation();
-  console.log(location.state);
   const [createboolean, setroom ] = useState(false);
   const [viewboolean, setview ] = useState(true);
 
@@ -23,7 +22,6 @@ const Host = (props) => {
   const [rooms, setRooms] = useState([]);
 
     const viewrooms = () =>{
-        console.log("fetch products");
             fetch("https://staycationbackendapp.herokuapp.com/hostuser/getlisting").then((result) => {
                 if (result.status !== 200) {
                     throw new Error("Could not fetch Items from inventory");
@@ -31,7 +29,6 @@ const Host = (props) => {
                   return result.json();
             }).then((item) => {
                 let data = item.data.filter((i) => i.email === location.state);
-                console.log(data);
                 setRooms(data);
               })
               .catch((err) => {
@@ -56,7 +53,6 @@ const Host = (props) => {
       <Sidebar props viewlisting={viewroom} createlisting={createroom}/>
       {viewboolean && <Room item = {rooms} email = {location.state}/>}
       {createboolean && <Createlisting/>}
-      
     </div>
   )
 }

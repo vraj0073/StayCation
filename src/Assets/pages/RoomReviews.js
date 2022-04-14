@@ -7,12 +7,9 @@ import "../../css/Review.css"
 import "../../css/Header.css"
 import axios from "axios";
 import Navheader from "../../components/Navheader";
-// import NavBar from "../../components/NavBar";
 
-function RoomReviews(props) {
+function RoomReviews() {
 
-    // let roomId = props.id;
-    // let roomName = props.name
     let roomId = "62411dc393059f9cd2005166";
     let roomName = "Breeze LaHave";
 
@@ -29,8 +26,6 @@ function RoomReviews(props) {
 
     return (
         <>
-            {/*{localStorage.userEmail != null && <Navheader/>}*/}
-            {/*{localStorage.userEmail == null && <NavBar/>}*/}
             <Navheader/>
             <div className="reviews-body">
                 <div className="room-reviews-buttons">

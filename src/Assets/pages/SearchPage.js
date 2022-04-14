@@ -3,25 +3,21 @@ Author: Kishan Kahodariya
 Description: This component allows user to search for accomodation.
 */
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import {
-  Card,
   Container,
   Form,
-  FormControl,
   DropdownButton,
   Dropdown,
   Button,
-  ButtonGroup,
   Col,
   Row,
   Nav,
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
 import { useNavigate } from "react-router-dom";
 import AccomodationItem from "../../components/AccomodationItem";
 import "../../css/Home.css";
@@ -51,8 +47,6 @@ export const SearchPage = () => {
         if (response.status === 200) {
           setAccomodationList(response.data);
           setFlag(false);
-        } else {
-          console.log("response empty");
         }
       });
     } catch (e) {
@@ -61,7 +55,6 @@ export const SearchPage = () => {
   }
 
   async function customSearch(e) {
-    console.log("custom search :" + location);
     e.preventDefault();
     const API_URL = `https://staycationbackendapp.herokuapp.com/search/customsearch/${location}/${accomodationType}/${duration}`;
     try {
@@ -72,8 +65,6 @@ export const SearchPage = () => {
         if (response.status === 200) {
           setAccomodationList(response.data);
           setFlag(false);
-        } else {
-          console.log("response empty");
         }
       });
     } catch (e) {

@@ -26,13 +26,11 @@ export const New_Password = (props) => {
   })
   const sendData = () =>{
     let email = searchParams.get("query");
-    console.log("NewPassword line 28 :",searchParams.get("query"))
     axios.post('https://staycationbackendapp.herokuapp.com/resetpassword', {
           email: email,
           password: Password,
         })
         .then(function (response) {
-          console.log(response.data);
            setErrorpassword(response.data.passwordincorrect)
             setErroremail(response.data.emailnotfound)
            if(Erroremail != null){
@@ -59,10 +57,6 @@ export const New_Password = (props) => {
     else{
       alert("Required field empty")
     }
-    
-    
-    
-   
   }
   const validatePassword = (e) => {
     var password = e.target.value;

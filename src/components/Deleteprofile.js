@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Container } from 'react-bootstrap'
+import React from 'react'
 import { useNavigate,useSearchParams } from 'react-router-dom';
 import "../css/Deleteprofile.css";
 import axios from 'axios';

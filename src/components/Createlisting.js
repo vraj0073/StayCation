@@ -140,7 +140,7 @@ const Createlisting = () => {
     }
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = () => {
     const data = {
       name: placename,
       email: localStorage.userEmail,
@@ -160,7 +160,6 @@ const Createlisting = () => {
       state: state,
       country: country,
     };
-    console.log(data);
     const url =
       "https://staycationbackendapp.herokuapp.com/hostuser/createlisting";
     fetch(url, {
@@ -174,7 +173,6 @@ const Createlisting = () => {
         console.log("Post Successful", data);
       })
       .catch((err) => {
-        console.log(err);
         throw err;
       });
     alert("Added Listing");

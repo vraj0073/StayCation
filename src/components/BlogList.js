@@ -7,16 +7,12 @@ import {
   Button,
   Form,
   FormControl,
-  Container,
-  ButtonGroup,
   Col,
-  Row,
-  Card,
 } from "react-bootstrap";
 import BlogItem from "./BlogItem";
 import "../css/BlogList.css";
 
-const BlogList = ({ targetWord }) => {
+const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("travel");
   const API_key = "bffbb1aee5524a6681ac95f82a372be1";
@@ -38,7 +34,6 @@ const BlogList = ({ targetWord }) => {
   async function searchTarget(e) {
     e.preventDefault();
     var updateWord = search.replace(" ", " OR ") + " OR travel";
-    console.log(updateWord);
     setSearch(updateWord);
     await fetchedBlog();
   }

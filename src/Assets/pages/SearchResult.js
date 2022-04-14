@@ -5,26 +5,17 @@ Description: This a the main blog pagees that aggregates the Header, Navigation 
 */
 
 import React, { useEffect, useState } from "react";
-import BlogList from "../../components/BlogList";
 import {
-  Card,
   Container,
-  Form,
-  FormControl,
-  Button,
-  ButtonGroup,
-  Col,
-  Row,
   Nav,
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
 import "../../css/Home.css";
 import "../../css/BlogPage.css";
 import "../../css/Header.css";
 import "react-bootstrap";
-import { useLocation, useNavigate, useRoutes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchResult = ({ finalList }) => {
   const history = useNavigate();

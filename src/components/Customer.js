@@ -9,23 +9,13 @@ import "react-bootstrap";
 import "../css/Customer.css";
 import {
   Card,
-  Container,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
   Row,
   Col,
-  Button,
 } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
-import EditProfile from "./EditProfile";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Navheader";
 import Navheader from "./Navheader";
-import { Link } from "react-router-dom";
-import backgroundlogin from "../Assets/images/camping.jpg";
 
 export const Customer = (props) => {
   const [alldata, setalldata] = useState({});
@@ -36,17 +26,11 @@ export const Customer = (props) => {
     return () => ac.abort();
   });
   useEffect(() => {
-    
-    console.log("new email here " + state)
     axios.post('https://staycationbackendapp.herokuapp.com/Userprofile', {
           email: state
-         
         })
         .then(function (response) {
-         
-          console.log(response.data.customer);
            setalluserdata(response.data.customer);
-           console.log("alluserdata email",response.data.customer)
         })
         .catch(function (error) {
           console.log(error);
@@ -56,11 +40,7 @@ export const Customer = (props) => {
         email: state   
     })
     .then((responce) => {
-        console.log("users in react " + responce.data.customer)
-           setalldata(responce.data.customer)
-           console.log("all data here 58 ",alldata.email)
-        
-
+      setalldata(responce.data.customer)
     }).catch(function (error) {
       console.log(error);
     });
@@ -73,7 +53,7 @@ export const Customer = (props) => {
 
   return (
     <>
-              <Navheader data={state}/>
+      <Navheader data={state}/>
     
 <div  >
   <h1  style={{color: 'rgb(227, 28, 95)',

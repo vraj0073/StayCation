@@ -185,23 +185,8 @@ export const RegistrationPageContainer = () => {
            setConfirmMessage("confirm password does not match!")
          }
       };
-      const onSubmitHandler = (e) => {
-        console.log(FirstFlag);
-            console.log(LastFlag);
-            console.log(EmailFlag);
-            console.log(PasswordFlag);
-            console.log(ConfirmPasswordFlag);
-            console.log(RoleFlag);
-            console.log(PhoneFlag);
-          
-           if(FirstFlag === 0 && LastFlag === 0 && EmailFlag === 0 && PasswordFlag === 0 && ConfirmPasswordFlag === 0 && RoleFlag === 0 && PhoneFlag === 0){
-            console.log(Firstname)
-            console.log(Lastname)
-            console.log(Role)
-            console.log(Phonenumber)
-            console.log(Password)
-            console.log(Gender)
-            console.log(Email)  
+      const onSubmitHandler = (e) => {   
+           if(FirstFlag === 0 && LastFlag === 0 && EmailFlag === 0 && PasswordFlag === 0 && ConfirmPasswordFlag === 0 && RoleFlag === 0 && PhoneFlag === 0){ 
             sendData();
             alert("Registration Successful")
             history('/Login');

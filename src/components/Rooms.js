@@ -8,11 +8,10 @@ import '../css/Rooms.css';
 import RoomItem from './RoomItem';
 
 
-const Room = (props) => {
+const Room = () => {
     const [rooms, setRooms] = useState([]);
 
     const viewrooms = () =>{
-        console.log("fetch products");
             fetch("https://staycationbackendapp.herokuapp.com/hostuser/getlisting").then((result) => {
                 if (result.status !== 200) {
                     throw new Error("Could not fetch Items from inventory");
@@ -20,7 +19,6 @@ const Room = (props) => {
                   return result.json();
             }).then((item) => {
                 let data = item.data.filter((i) => i.email === localStorage.userEmail);
-                console.log("Fetch Successful", data);
                 setRooms(data);
               })
               .catch((err) => {

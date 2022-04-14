@@ -26,10 +26,7 @@ export const EditProfile = () => {
   const {state} = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const sendData = () =>{
-    
-    console.log("line 31 editprofile "+searchParams.get("query"))
     let email = searchParams.get("query");
-    console.log("in react line 31 editprofile email",email)
     axios.post('https://staycationbackendapp.herokuapp.com/profileedit', {
           bio: bio,
           email: email,
@@ -39,7 +36,6 @@ export const EditProfile = () => {
           works: works,
         })
         .then(function (response) {
-          console.log("line 40 ",response);
           history('/Profile',{state:email})
         })
         .catch(function (error) {
@@ -47,47 +43,30 @@ export const EditProfile = () => {
         });
   }
   const imageUpload = (e) =>{
-    
     setimage(e.target.files[0]);
   }
   const validbio= (e) => {
     const bio1 = e.target.value;
-    setbio(bio1)
-    
-     
-     
+    setbio(bio1) 
   };
   
   const validphone= (e) => {
     const phone1 = e.target.value;
-    setphone(phone1)
-    
-     
-     
+    setphone(phone1) 
   };
   const validlivesin= (e) => {
     const lives1 = e.target.value;
-    setlivesin(lives1)
-    
-     
-     
+    setlivesin(lives1) 
   };
   const validspeaks= (e) => {
-    
     const speaks1 = e.target.value;
     setspeaks(speaks1)
-    
   };
   const validwork= (e) => {
     const work1 = e.target.value;
-    setworks(work1)
- 
-     
-     
+    setworks(work1)  
   };
   const onSubmit = () =>{
-    
-    
     sendData();
   }
   return (
@@ -95,7 +74,6 @@ export const EditProfile = () => {
       <Navheader/>
     <Row>
     <Col lg={4}>
-    
       <div className="side-container">
     <div>
     <img className='imagetag' src={require('../Assets/images/tent.jpg')} style={{

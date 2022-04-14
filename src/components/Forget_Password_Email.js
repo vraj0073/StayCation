@@ -3,7 +3,7 @@ Author: Vraj Jadhav
 Description: This component handle forgetpassword page.
 */
 import React, { useState } from 'react'
-import { Form, Row } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import '../css/Forget_Password_Email.css'
 import '../css/Header.css'
 import axios from 'axios';
@@ -74,7 +74,6 @@ export const Forget_Password_Email = () => {
     <div>
     <button type="button" id='forgetpasswordbutton' onClick={validateSubmit} className="btn btn-primary">Submit</button>
    </div>
-    
     </Form>
     </>
   )
